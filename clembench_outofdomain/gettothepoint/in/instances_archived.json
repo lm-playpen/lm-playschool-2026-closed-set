@@ -1,0 +1,172 @@
+{
+  "experiments": [
+    {
+      "name": "exp_level_easy_english",
+      "game_instances": [
+        {
+          "game_id": 0,
+          "start_word": "seats",
+          "target_word": "parliament",
+          "similarity": 0.6307,
+          "current_sentence_fragment": "seats"
+        },
+        {
+          "game_id": 1,
+          "start_word": "hike",
+          "target_word": "inflation",
+          "similarity": 0.626,
+          "current_sentence_fragment": "hike"
+        },
+        {
+          "game_id": 2,
+          "start_word": "backstroke",
+          "target_word": "steeplechase",
+          "similarity": 0.6323,
+          "current_sentence_fragment": "backstroke"
+        },
+        {
+          "game_id": 3,
+          "start_word": "ajax",
+          "target_word": "dortmund",
+          "similarity": 0.6406,
+          "current_sentence_fragment": "ajax"
+        },
+        {
+          "game_id": 4,
+          "start_word": "edition",
+          "target_word": "compilation",
+          "similarity": 0.6406,
+          "current_sentence_fragment": "edition"
+        },
+        {
+          "game_id": 5,
+          "start_word": "partisan",
+          "target_word": "debate",
+          "similarity": 0.6251,
+          "current_sentence_fragment": "partisan"
+        },
+        {
+          "game_id": 6,
+          "start_word": "afghan",
+          "target_word": "chechen",
+          "similarity": 0.6485,
+          "current_sentence_fragment": "afghan"
+        },
+        {
+          "game_id": 7,
+          "start_word": "tile",
+          "target_word": "enamel",
+          "similarity": 0.649,
+          "current_sentence_fragment": "tile"
+        },
+        {
+          "game_id": 8,
+          "start_word": "spam",
+          "target_word": "email",
+          "similarity": 0.6266,
+          "current_sentence_fragment": "spam"
+        },
+        {
+          "game_id": 9,
+          "start_word": "observance",
+          "target_word": "remembrance",
+          "similarity": 0.6496,
+          "current_sentence_fragment": "observance"
+        }
+      ],
+      "language": "english",
+      "initial_prompt_seeker": "You are playing a collaborative word guessing game in which you have to guess a target word that another player describes to you.\n\nRules:\n(a) You can make one guess at each trial.\n(b) You win when you guess the target word.\n(c) You lose when you cannot guess it in $N$ tries.\n\nEnd conditions:\n(i) You guess the start word\n(ii) You run out of tries\n\n\nAfter each trial you will get a new hint from the other player which starts with CLUE.\n\noutput format:\nMake your guesses by just saying the word using the following form: $SEEKER_PROMPT_WORD$ <a word>\n\n\nLet us start.\nADHERE TO THE RULES!!!",
+      "initial_prompt_helper": "You are playing a collaborative word guessing game in which you have to make a **clever** sentence that leads to a target word for another player to guess.\n\nRules:\n(a) You have to reply in the form: $HELPER_PROMPT_WORD$ <start word + 3 words>. Guesses from the other player will start with GUESS.\n(b) You cannot use the target word itself in your **clever** sentence.\n\nEnd conditions:\n(i) If you use the target word in your **coherent** sentence, then you lose.\n(ii) If the other player can guess the target word in $N$ tries, you both win.\n\nLet us start.\n\nThis is the target word that you need to **cleverly** make the other guess:\n$TARGET_WORD$\n\nThis is the start word that you need to add your words to:\n$START_WORD$\n\nImportant: \n-You are under time pressure, give short **coherent** sentences that are to the point!\n-MAKE **COHERENT** SENTENCES!\n-ADHERE TO THE RULES!!!\n",
+      "maximum_seeker_guesses": 5,
+      "game_regex": {
+        "SEEKER_PROMPT_WORD": "GUESS:",
+        "HELPER_PROMPT_WORD": "CLUE:",
+        "range_of_word_additions": 3
+      }
+    },
+    {
+      "name": "exp_level_hard_english",
+      "game_instances": [
+        {
+          "game_id": 0,
+          "start_word": "lots",
+          "target_word": "full",
+          "similarity": 0.5461,
+          "current_sentence_fragment": "lots"
+        },
+        {
+          "game_id": 1,
+          "start_word": "smuggling",
+          "target_word": "infiltration",
+          "similarity": 0.5492,
+          "current_sentence_fragment": "smuggling"
+        },
+        {
+          "game_id": 2,
+          "start_word": "benchmark",
+          "target_word": "indicator",
+          "similarity": 0.5465,
+          "current_sentence_fragment": "benchmark"
+        },
+        {
+          "game_id": 3,
+          "start_word": "roulette",
+          "target_word": "endgame",
+          "similarity": 0.503,
+          "current_sentence_fragment": "roulette"
+        },
+        {
+          "game_id": 4,
+          "start_word": "lancet",
+          "target_word": "pediatrics",
+          "similarity": 0.5407,
+          "current_sentence_fragment": "lancet"
+        },
+        {
+          "game_id": 5,
+          "start_word": "church",
+          "target_word": "liturgy",
+          "similarity": 0.5491,
+          "current_sentence_fragment": "church"
+        },
+        {
+          "game_id": 6,
+          "start_word": "oregano",
+          "target_word": "lime",
+          "similarity": 0.5463,
+          "current_sentence_fragment": "oregano"
+        },
+        {
+          "game_id": 7,
+          "start_word": "pig",
+          "target_word": "livestock",
+          "similarity": 0.5435,
+          "current_sentence_fragment": "pig"
+        },
+        {
+          "game_id": 8,
+          "start_word": "ice",
+          "target_word": "temperature",
+          "similarity": 0.537,
+          "current_sentence_fragment": "ice"
+        },
+        {
+          "game_id": 9,
+          "start_word": "stopper",
+          "target_word": "blunder",
+          "similarity": 0.5082,
+          "current_sentence_fragment": "stopper"
+        }
+      ],
+      "language": "english",
+      "initial_prompt_seeker": "You are playing a collaborative word guessing game in which you have to guess a target word that another player describes to you.\n\nRules:\n(a) You can make one guess at each trial.\n(b) You win when you guess the target word.\n(c) You lose when you cannot guess it in $N$ tries.\n\nEnd conditions:\n(i) You guess the start word\n(ii) You run out of tries\n\n\nAfter each trial you will get a new hint from the other player which starts with CLUE.\n\noutput format:\nMake your guesses by just saying the word using the following form: $SEEKER_PROMPT_WORD$ <a word>\n\n\nLet us start.\nADHERE TO THE RULES!!!",
+      "initial_prompt_helper": "You are playing a collaborative word guessing game in which you have to make a **clever** sentence that leads to a target word for another player to guess.\n\nRules:\n(a) You have to reply in the form: $HELPER_PROMPT_WORD$ <start word + 3 words>. Guesses from the other player will start with GUESS.\n(b) You cannot use the target word itself in your **clever** sentence.\n\nEnd conditions:\n(i) If you use the target word in your **coherent** sentence, then you lose.\n(ii) If the other player can guess the target word in $N$ tries, you both win.\n\nLet us start.\n\nThis is the target word that you need to **cleverly** make the other guess:\n$TARGET_WORD$\n\nThis is the start word that you need to add your words to:\n$START_WORD$\n\nImportant: \n-You are under time pressure, give short **coherent** sentences that are to the point!\n-MAKE **COHERENT** SENTENCES!\n-ADHERE TO THE RULES!!!\n",
+      "maximum_seeker_guesses": 5,
+      "game_regex": {
+        "SEEKER_PROMPT_WORD": "GUESS:",
+        "HELPER_PROMPT_WORD": "CLUE:",
+        "range_of_word_additions": 3
+      }
+    }
+  ]
+}

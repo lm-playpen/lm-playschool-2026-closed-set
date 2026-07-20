@@ -1,0 +1,55 @@
+You are a courier in a clockwork city. Everything in this city runs on a fixed, fully
+predictable schedule - nothing is random and nothing is hidden. Your job is to pick up
+and deliver parcels before the clock runs out.
+
+THE MAP (coordinates are (column,row); (1,1) is the top-left cell)
+
+$MAP$
+
+LEGEND
+$LEGEND$
+
+HOW TIME AND MOVEMENT WORK
+- Time advances in ticks t=0,1,2,... You start on cell $START$ at t=0.
+- Each tick you make exactly one move: N (up), S (down), E (right), W (left), or WAIT.
+- One step t -> t+1 resolves in this exact order:
+  1. Your move resolves. Moving into a wall, the map border, or a gate that is closed
+     at the arrival time t+1 is a BUMP: you stay where you are and the tick is wasted.
+     WAIT never bumps.
+  2. Every guard moves to its position for time t+1.
+  3. If you are now on the same cell as a guard, you are CAUGHT. Passing a guard
+     mid-move is safe; only ending the tick on its cell gets you caught.
+  4. Otherwise, if you are on a parcel's pickup cell you automatically pick it up; if
+     you are on the delivery cell of a parcel you carry, you automatically deliver it.
+- If you are CAUGHT: you keep your parcels, but you are put back on your start cell
+  $START$, the rest of your current plan is cancelled, and the cancelled moves' ticks
+  are forfeited. Standing on a gate cell when it closes is safe - gates never trap you.
+
+THE SCHEDULES (fixed forever; you can compute every future position exactly)
+$SCHEDULES$
+
+YOUR JOB
+$PARCELS$
+Deliver every parcel within $TICK_BUDGET$ ticks. You move by committing to plans of
+exactly $PLAN_LENGTH$ moves at a time; you have at most $MAX_ROUNDS$ plans in total.
+If you deliver the last parcel mid-plan, the game ends immediately and the unused
+moves are discarded.
+
+WORKED EXAMPLE (for the rules only - this is NOT the map above): suppose you stand at
+(2,2), gate G at (3,2) has period 2 and is open when (t mod 2) = 1, and it is now t=0.
+Moving E now (arriving at t=1, when the gate is open) succeeds. But moving E at t=1
+(arriving at t=2, when the gate is closed) is a BUMP: you stay at (2,2) and tick 2 is
+wasted. The right play at t=1 is to WAIT once and then move E, arriving at t=3 when
+the gate is open again.
+
+$FEEDBACK_NOTE$
+
+RESPOND IN EXACTLY THIS FORMAT (and put nothing after the PLAN line):
+THOUGHTS: <your reasoning - any length; the referee ignores this>
+POSITION: (x,y)
+PLAN: <exactly $PLAN_LENGTH$ moves from {N, S, E, W, WAIT}, separated by spaces>
+
+The POSITION line must state the cell you predict you will occupy AFTER your plan has
+executed. The referee records your prediction but will never confirm or correct it.
+
+Give your first response now.

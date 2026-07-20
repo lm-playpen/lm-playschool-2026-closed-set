@@ -1,0 +1,11 @@
+{
+  "game_name": "cryptolect",
+  "description": "Single-player grammar-induction game: the model is a field linguist who interrogates an informant to learn a procedurally generated synthetic language, then must translate held-out sentences into it exactly. Tests active rule induction and compositional generalization.",
+  "main_game": "cryptolect",
+  "players": 1,
+  "image": "none",
+  "languages": ["en"],
+  "benchmark": ["3.0"],
+  "regression": "small",
+  "roles": ["Linguist"]
+}

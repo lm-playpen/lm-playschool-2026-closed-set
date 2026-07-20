@@ -1,0 +1,126 @@
+[
+  {
+    "model_name": "Qwen3.5-2B-Finetuned",
+    "backend": "huggingface_local",
+    "huggingface_id": "Shamima/lm-playschool-qwen3.5-2b-sft-iter2",
+    "release_date": "2026-02-24",
+    "open_weight": true,
+    "parameters": "0.8B",
+    "languages": [
+      "en",
+      "zh"
+    ],
+    "context_size": "262k",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "model_config": {
+      "premade_chat_template": true,
+      "eos_to_cull": "<\\|im_end\\|>",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "multimodality": {
+        "single_image": true,
+        "multiple_images": true,
+        "audio": false,
+        "video": true
+      }
+    },
+    "_team": "testing_bosphorous",
+    "_version": "iter2"
+  },
+  {
+    "model_name": "qwen3.5-2b",
+    "backend": "huggingface_local",
+    "huggingface_id": "Qwen/Qwen3.5-2B",
+    "_is_base_model": true,
+    "model_config": {
+      "premade_chat_template": true,
+      "eos_to_cull": "<\\|im_end\\|>",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    }
+  },
+  {
+    "model_name": "Qwen3.5-4B-playpen-sft-lora-merged",
+    "backend": "huggingface_local",
+    "huggingface_id": "mmanina/Qwen3.5-4B-playpen-sft-lora-merged",
+    "release_date": "2026-05-27",
+    "open_weight": true,
+    "parameters": "4B",
+    "languages": [
+      "en",
+      "zh"
+    ],
+    "context_size": "262k",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "model_config": {
+      "premade_chat_template": true,
+      "eos_to_cull": "<\\|im_end\\|>",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "_team": "test_playpen_sft_qwen",
+    "_version": "v1"
+  },
+  {
+    "model_name": "qwen3.5-4b",
+    "backend": "huggingface_local",
+    "huggingface_id": "Qwen/Qwen3.5-4B",
+    "_is_base_model": true,
+    "model_config": {
+      "premade_chat_template": true,
+      "eos_to_cull": "<\\|im_end\\|>",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    }
+  },
+  {
+    "model_name": "Finetuned-Llama-Model",
+    "backend": "huggingface_local",
+    "huggingface_id": "kimono998/wordle-exp-mix-4-full",
+    "release_date": "2024-07-23",
+    "open_weight": true,
+    "parameters": "8B",
+    "languages": [
+      "en",
+      "de",
+      "fr",
+      "it",
+      "pt",
+      "hi",
+      "es",
+      "th"
+    ],
+    "context_size": "128k",
+    "license": {
+      "name": "Meta",
+      "url": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE"
+    },
+    "model_config": {
+      "requires_api_key": false,
+      "premade_chat_template": true,
+      "eos_to_cull": "<\\|eot_id\\|>"
+    },
+    "_team": "test_ft_llama",
+    "_version": "wordle"
+  },
+  {
+    "model_name": "llama-3.1-8b-instruct",
+    "backend": "huggingface_local",
+    "huggingface_id": "meta-llama/Llama-3.1-8B-Instruct",
+    "_is_base_model": true,
+    "model_config": {
+      "premade_chat_template": false,
+      "eos_to_cull": ""
+    }
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "game_name": "clockwork_courier",
+  "description": "Single-player courier game on a clockwork grid: gates open on published periodic schedules and guards walk published cyclic routes; the player commits multi-move plans to pick up and deliver parcels within a tick budget, predicting its own position after every plan.",
+  "main_game": "clockwork_courier",
+  "players": 1,
+  "image": "none",
+  "languages": ["en"],
+  "benchmark": ["3.0"],
+  "regression": "small",
+  "roles": ["Courier"]
+}

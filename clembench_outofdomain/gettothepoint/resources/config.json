@@ -1,0 +1,17 @@
+{
+  "n_instances": 20,
+  "n_experiments": 2,
+  "maximum_seeker_guesses": 5,
+  "language": "english",
+  "game_name": "get to the point",
+  "random_seed_value": 73128361,
+  "levels": [
+    "easy",
+    "hard"
+  ],
+  "game_regex": {
+    "SEEKER_PROMPT_WORD": "GUESS:",
+    "HELPER_PROMPT_WORD": "CLUE:",
+    "range_of_word_additions": 3
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "game_name": "get_to_the_point",
+  "description": "A collaborative multiplayer game. One player is the Seeker who's primary objective is to guess a secret 'Target Word' that the other players (Helpers) know. The helpers help the seeker by building a sentence, clue by clue.",
+  "main_game": "get_to_the_point",
+  "players": 2,
+  "image": "none",
+  "languages": ["en"],
+  "benchmark": []
+}

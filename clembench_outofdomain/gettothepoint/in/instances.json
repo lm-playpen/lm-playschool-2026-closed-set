@@ -1,0 +1,312 @@
+{
+  "experiments": [
+    {
+      "name": "exp_level_easy_english",
+      "game_instances": [
+        {
+          "game_id": 0,
+          "start_word": "biography",
+          "target_word": "poetry",
+          "similarity": 0.6395,
+          "current_sentence_fragment": "biography"
+        },
+        {
+          "game_id": 1,
+          "start_word": "minister",
+          "target_word": "leader",
+          "similarity": 0.6406,
+          "current_sentence_fragment": "minister"
+        },
+        {
+          "game_id": 2,
+          "start_word": "production",
+          "target_word": "distribution",
+          "similarity": 0.6488,
+          "current_sentence_fragment": "production"
+        },
+        {
+          "game_id": 3,
+          "start_word": "report",
+          "target_word": "article",
+          "similarity": 0.6424,
+          "current_sentence_fragment": "report"
+        },
+        {
+          "game_id": 4,
+          "start_word": "theology",
+          "target_word": "literature",
+          "similarity": 0.6446,
+          "current_sentence_fragment": "theology"
+        },
+        {
+          "game_id": 5,
+          "start_word": "speed",
+          "target_word": "driving",
+          "similarity": 0.6474,
+          "current_sentence_fragment": "speed"
+        },
+        {
+          "game_id": 6,
+          "start_word": "hebrew",
+          "target_word": "torah",
+          "similarity": 0.6439,
+          "current_sentence_fragment": "hebrew"
+        },
+        {
+          "game_id": 7,
+          "start_word": "oman",
+          "target_word": "emirate",
+          "similarity": 0.6323,
+          "current_sentence_fragment": "oman"
+        },
+        {
+          "game_id": 8,
+          "start_word": "file",
+          "target_word": "database",
+          "similarity": 0.6356,
+          "current_sentence_fragment": "file"
+        },
+        {
+          "game_id": 9,
+          "start_word": "indication",
+          "target_word": "fact",
+          "similarity": 0.649,
+          "current_sentence_fragment": "indication"
+        },
+        {
+          "game_id": 10,
+          "start_word": "astrology",
+          "target_word": "alchemy",
+          "similarity": 0.606,
+          "current_sentence_fragment": "astrology"
+        },
+        {
+          "game_id": 11,
+          "start_word": "press",
+          "target_word": "conference",
+          "similarity": 0.6493,
+          "current_sentence_fragment": "press"
+        },
+        {
+          "game_id": 12,
+          "start_word": "oil",
+          "target_word": "coal",
+          "similarity": 0.6447,
+          "current_sentence_fragment": "oil"
+        },
+        {
+          "game_id": 13,
+          "start_word": "tyrol",
+          "target_word": "salzburg",
+          "similarity": 0.601,
+          "current_sentence_fragment": "tyrol"
+        },
+        {
+          "game_id": 14,
+          "start_word": "sea",
+          "target_word": "island",
+          "similarity": 0.6466,
+          "current_sentence_fragment": "sea"
+        },
+        {
+          "game_id": 15,
+          "start_word": "region",
+          "target_word": "coast",
+          "similarity": 0.6379,
+          "current_sentence_fragment": "region"
+        },
+        {
+          "game_id": 16,
+          "start_word": "cup",
+          "target_word": "football",
+          "similarity": 0.646,
+          "current_sentence_fragment": "cup"
+        },
+        {
+          "game_id": 17,
+          "start_word": "consciousness",
+          "target_word": "mind",
+          "similarity": 0.6266,
+          "current_sentence_fragment": "consciousness"
+        },
+        {
+          "game_id": 18,
+          "start_word": "state",
+          "target_word": "congress",
+          "similarity": 0.6414,
+          "current_sentence_fragment": "state"
+        },
+        {
+          "game_id": 19,
+          "start_word": "service",
+          "target_word": "duty",
+          "similarity": 0.6449,
+          "current_sentence_fragment": "service"
+        }
+      ],
+      "language": "english",
+      "initial_prompt_seeker": "You are playing a collaborative word guessing game in which you have to guess a target word that another player describes to you.\n\nRules:\n(a) You can make one guess at each trial.\n(b) You win when you guess the target word.\n(c) You lose when you cannot guess it in $N$ tries.\n\n\nAfter each trial you will get a new hint from the other player which starts with CLUE. The hint is a small sentence containing the start word which never alters and up to three additional words that will help you both get to the point.\n\nOutput format:\nMake your guesses by just saying the word using the following form: $SEEKER_PROMPT_WORD$ <a word>\n\n\nLet us start.",
+      "initial_prompt_helper": "You are playing a collaborative word guessing game in which you have to strategically hint at the target word to the other player without revealing it. For that, you have to build small indirect sentences each round.\n\nRules:\n(a) You always have to reply in the form: $HELPER_PROMPT_WORD$ <start word + up to 3 words>. Guesses from the other player will start with GUESS. The sentence should always contain the start word.\n(b) Your sentence cannot contain the target word itself.\n\nEnd conditions:\n(i) If you use the target word in your sentence, then you lose.\n(ii) If the other player can guess the target word in $N$ tries, you both win.\n\nLet us start.\n\nThis is the target word that you need to make the other player guess:\n$TARGET_WORD$\n\nThis is the start word that you need to add your words to:\n$START_WORD$\n\nImportant: \n-You are under time pressure, give short **coherent** sentences that are to the point!\n",
+      "maximum_seeker_guesses": 5,
+      "game_regex": {
+        "SEEKER_PROMPT_WORD": "GUESS:",
+        "HELPER_PROMPT_WORD": "CLUE:",
+        "range_of_word_additions": 3
+      }
+    },
+    {
+      "name": "exp_level_hard_english",
+      "game_instances": [
+        {
+          "game_id": 0,
+          "start_word": "audiotape",
+          "target_word": "transcript",
+          "similarity": 0.5369,
+          "current_sentence_fragment": "audiotape"
+        },
+        {
+          "game_id": 1,
+          "start_word": "bank",
+          "target_word": "rate",
+          "similarity": 0.5496,
+          "current_sentence_fragment": "bank"
+        },
+        {
+          "game_id": 2,
+          "start_word": "south",
+          "target_word": "pyongyang",
+          "similarity": 0.547,
+          "current_sentence_fragment": "south"
+        },
+        {
+          "game_id": 3,
+          "start_word": "team",
+          "target_word": "race",
+          "similarity": 0.5494,
+          "current_sentence_fragment": "team"
+        },
+        {
+          "game_id": 4,
+          "start_word": "collar",
+          "target_word": "dress",
+          "similarity": 0.5413,
+          "current_sentence_fragment": "collar"
+        },
+        {
+          "game_id": 5,
+          "start_word": "sulfur",
+          "target_word": "methyl",
+          "similarity": 0.5476,
+          "current_sentence_fragment": "sulfur"
+        },
+        {
+          "game_id": 6,
+          "start_word": "shave",
+          "target_word": "bump",
+          "similarity": 0.5417,
+          "current_sentence_fragment": "shave"
+        },
+        {
+          "game_id": 7,
+          "start_word": "union",
+          "target_word": "movement",
+          "similarity": 0.5482,
+          "current_sentence_fragment": "union"
+        },
+        {
+          "game_id": 8,
+          "start_word": "capital",
+          "target_word": "business",
+          "similarity": 0.5489,
+          "current_sentence_fragment": "capital"
+        },
+        {
+          "game_id": 9,
+          "start_word": "music",
+          "target_word": "improvisation",
+          "similarity": 0.5488,
+          "current_sentence_fragment": "music"
+        },
+        {
+          "game_id": 10,
+          "start_word": "hit",
+          "target_word": "score",
+          "similarity": 0.5498,
+          "current_sentence_fragment": "hit"
+        },
+        {
+          "game_id": 11,
+          "start_word": "peace",
+          "target_word": "confrontation",
+          "similarity": 0.5483,
+          "current_sentence_fragment": "peace"
+        },
+        {
+          "game_id": 12,
+          "start_word": "district",
+          "target_word": "constituency",
+          "similarity": 0.5495,
+          "current_sentence_fragment": "district"
+        },
+        {
+          "game_id": 13,
+          "start_word": "army",
+          "target_word": "order",
+          "similarity": 0.547,
+          "current_sentence_fragment": "army"
+        },
+        {
+          "game_id": 14,
+          "start_word": "vanishing",
+          "target_word": "extinction",
+          "similarity": 0.5192,
+          "current_sentence_fragment": "vanishing"
+        },
+        {
+          "game_id": 15,
+          "start_word": "telegraph",
+          "target_word": "daily",
+          "similarity": 0.5422,
+          "current_sentence_fragment": "telegraph"
+        },
+        {
+          "game_id": 16,
+          "start_word": "party",
+          "target_word": "elect",
+          "similarity": 0.5493,
+          "current_sentence_fragment": "party"
+        },
+        {
+          "game_id": 17,
+          "start_word": "food",
+          "target_word": "production",
+          "similarity": 0.5494,
+          "current_sentence_fragment": "food"
+        },
+        {
+          "game_id": 18,
+          "start_word": "age",
+          "target_word": "generation",
+          "similarity": 0.5489,
+          "current_sentence_fragment": "age"
+        },
+        {
+          "game_id": 19,
+          "start_word": "antwerp",
+          "target_word": "dresden",
+          "similarity": 0.5389,
+          "current_sentence_fragment": "antwerp"
+        }
+      ],
+      "language": "english",
+      "initial_prompt_seeker": "You are playing a collaborative word guessing game in which you have to guess a target word that another player describes to you.\n\nRules:\n(a) You can make one guess at each trial.\n(b) You win when you guess the target word.\n(c) You lose when you cannot guess it in $N$ tries.\n\n\nAfter each trial you will get a new hint from the other player which starts with CLUE. The hint is a small sentence containing the start word which never alters and up to three additional words that will help you both get to the point.\n\nOutput format:\nMake your guesses by just saying the word using the following form: $SEEKER_PROMPT_WORD$ <a word>\n\n\nLet us start.",
+      "initial_prompt_helper": "You are playing a collaborative word guessing game in which you have to strategically hint at the target word to the other player without revealing it. For that, you have to build small indirect sentences each round.\n\nRules:\n(a) You always have to reply in the form: $HELPER_PROMPT_WORD$ <start word + up to 3 words>. Guesses from the other player will start with GUESS. The sentence should always contain the start word.\n(b) Your sentence cannot contain the target word itself.\n\nEnd conditions:\n(i) If you use the target word in your sentence, then you lose.\n(ii) If the other player can guess the target word in $N$ tries, you both win.\n\nLet us start.\n\nThis is the target word that you need to make the other player guess:\n$TARGET_WORD$\n\nThis is the start word that you need to add your words to:\n$START_WORD$\n\nImportant: \n-You are under time pressure, give short **coherent** sentences that are to the point!\n",
+      "maximum_seeker_guesses": 5,
+      "game_regex": {
+        "SEEKER_PROMPT_WORD": "GUESS:",
+        "HELPER_PROMPT_WORD": "CLUE:",
+        "range_of_word_additions": 3
+      }
+    }
+  ]
+}

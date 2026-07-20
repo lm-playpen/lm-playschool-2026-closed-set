@@ -1,0 +1,1540 @@
+{
+  "experiments": [
+    {
+      "name": "mmlu_pro_business",
+      "game_instances": [
+        {
+          "game_id": 500,
+          "input": "Question:\nAn 8% bond with 18 years to maturity has a yield of 9%. What is the price of this bond?\nOptions:\nA. 91.17\nB. 100.00\nC. 110.00\nD. 88.34\nE. 105.68\nF. 85.23\nG. 95.50\nH. 102.56\nI. 77.89\nJ. 120.45\n",
+          "target": "A"
+        },
+        {
+          "game_id": 257,
+          "input": "Question:\nAdams Manufacturing Company recently suffered a fire loss of $45,000. Their insurance was distributed between two insurance companies as follows: Company Name Amount of Policy Acme Insurance $50,000 Safe Way Insurance $30,000 How much of the loss did each of the insurance companies pay to Adams?\nOptions:\nA. Acme Insurance - $25,000, Safe Way Insurance - $20,000\nB. Acme Insurance - $22,500, Safe Way Insurance - $22,500\nC. Acme Insurance - $20,000, Safe Way Insurance - $25,000\nD. Acme Insurance - $28,125, Safe Way Insurance - $16,875\nE. Acme Insurance - $26,250, Safe Way Insurance - $18,750\nF. Acme Insurance - $33,750, Safe Way Insurance - $11,250\nG. Acme Insurance - $27,000, Safe Way Insurance - $18,000\nH. Acme Insurance - $30,000, Safe Way Insurance - $15,000\nI. Acme Insurance - $32,500, Safe Way Insurance - $12,500\nJ. Acme Insurance - $24,000, Safe Way Insurance - $21,000\n",
+          "target": "D"
+        },
+        {
+          "game_id": 52,
+          "input": "Question:\nThe average salary of the Bedford Manufacturing Co. rose 60% during a 10-year period. This rise amounted to $42.50 a week. (a) Find the average weekly salary at the beginning of the 10-year period, and (b) at the end of the 10-year period.\nOptions:\nA. $75.83, $118.33\nB. $90.83, $133.33\nC. $80.83, $123.33\nD. $55.83, $98.33\nE. $50.83, $93.33\nF. $70.83, $113.33\nG. $45.83, $88.33\nH. $85.83, $128.33\nI. $60.83, $103.33\nJ. $65.83, $108.33\n",
+          "target": "F"
+        },
+        {
+          "game_id": 94,
+          "input": "Question:\nFlorsheimand Co. accepted a 90-day sight draft for $425.00 on October 10. It was discounted on November 1 at 5%. If their bank charged a (1/3)% collection fee, what were the proceeds?\nOptions:\nA. $418.25\nB. $416.00\nC. $420.00\nD. $419.57\nE. $421.75\nF. $422.50\nG. $414.89\nH. $423.58\nI. $425.00\nJ. $417.14\n",
+          "target": "D"
+        },
+        {
+          "game_id": 649,
+          "input": "Question:\nMary O' Grady recently worked 44 hours during a regular (Monday-Friday) week. In addition, she worked 4(1/2) hours on Saturday and 3 hours on Sunday. Time and a half is paid for all hours worked over 40 during the regular week and for all Saturday work. Double time is paid for all hours worked on Sunday. What were her gross earnings for the week if her regular rate is $3.10 an hour?\nOptions:\nA. $210.35\nB. $187.90\nC. $194.25\nD. $182.13\nE. $170.50\nF. $165.80\nG. $160.00\nH. $150.00\nI. $200.00\nJ. $176.45\n",
+          "target": "D"
+        },
+        {
+          "game_id": 433,
+          "input": "Question:\nassume you are Indonesian. In 2010, the rupiah exchange rate was around IDR15,000/USD, and the consumer price index in Indonesia and the United States was at 100. In 2019, the exchange rate changed to IDR14,000/USD. Simultaneously, Indonesia\u2019s inflation rose 5% due to the consumer price index rising to 105. Meanwhile, the United States\u2019 inflation rate rose 10% due to the consumer price index rising to 110. Whats the real exchange rate?\nOptions:\nA. 14000.00\nB. 15500.00\nC. 15000.00\nD. 16000.00\nE. 13500.00\nF. 14666.67\nG. 13888.89\nH. 14800.00\nI. 15200.00\nJ. 13333.33\n",
+          "target": "F"
+        },
+        {
+          "game_id": 283,
+          "input": "Question:\nBuzzReinhausworked 63 hours last week. He was paid time and a half for 15 hours and double time for 9 hours. His regular rate was $2.60 per hour. Calculate Buzz's total earnings for the week.\nOptions:\nA. $188.50\nB. $206.70\nC. $195.30\nD. $210.40\nE. $234.90\nF. $242.00\nG. $172.60\nH. $223.80\nI. $220.50\nJ. $180.70\n",
+          "target": "B"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about business. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_business",
+        "task_alias": "business",
+        "process_docs": "utils.process_business"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about business. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nIn contrast to _______, _______ aim to reward favourable behaviour by companies. The success of such campaigns have been heightened through the use of ___________, which allow campaigns to facilitate the company in achieving _________ .\nOptions:\nA. Boycotts, Buyalls, Blockchain technology, Increased Sales\nB. Buycotts, Boycotts, Digital technology, Decreased Sales\nC. Boycotts, Buycotts, Digital technology, Decreased Sales\nD. Buycotts, Boycotts, Blockchain technology, Charitable donations\nE. Boycotts, Buyalls, Blockchain technology, Charitable donations\nF. Boycotts, Buycotts, Digital technology, Increased Sales\nG. Buycotts, Boycotts, Digital technology, Increased Sales\nH. Boycotts, Buycotts, Physical technology, Increased Sales\nI. Buycotts, Buyalls, Blockchain technology, Charitable donations\nJ. Boycotts, Buycotts, Blockchain technology, Decreased Sales\nThe answer is (F)\n\nQuestion:\n_______ is the direct attempt to formally or informally manage ethical issues or problems, through specific policies, practices and programmes.\nOptions:\nA. Operational management\nB. Corporate governance\nC. Environmental management\nD. Business ethics management\nE. Sustainability\nF. Stakeholder management\nG. Social marketing\nH. Human resource management\nI. N/A\nJ. N/A\nThe answer is (D)\n\nQuestion:\nHow can organisational structures that are characterised by democratic and inclusive styles of management be described?\nOptions:\nA. Flat\nB. Bureaucratic\nC. Autocratic\nD. Hierarchical\nE. Functional\nF. Decentralized\nG. Matrix\nH. Network\nI. Divisional\nJ. Centralized\nThe answer is (A)\n\nQuestion:\nAlthough the content and quality can be as controlled as direct mail, response rates of this medium are lower because of the lack of a personal address mechanism. This media format is known as:\nOptions:\nA. Online banners.\nB. Television advertising.\nC. Email marketing.\nD. Care lines.\nE. Direct mail.\nF. Inserts.\nG. Door to door.\nH. Radio advertising.\nI. Billboards.\nJ. Social media advertising.\nThe answer is (G)\n\nQuestion:\nIn an organization, the group of people tasked with buying decisions is referred to as the _______________.\nOptions:\nA. Procurement centre.\nB. Chief executive unit.\nC. Resources allocation group.\nD. Marketing department.\nE. Purchasing department.\nF. Supply chain management team.\nG. Outsourcing unit.\nH. Decision-making unit.\nI. Operations unit.\nJ. Financial management team.\nThe answer is (H)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_economics",
+      "game_instances": [
+        {
+          "game_id": 45,
+          "input": "Question:\nRicardo's theory of distribution assumed that the supply of land was fixed, while the country's population and cap-ital stock were constantly increasing. On the basis of these assumptions, he predicted eventual stagnation of the economy. How would this happen according to Ricardo?\nOptions:\nA. The increasing population results in a surplus of land.\nB. Landlords decrease rent prices to encourage more farming, leading to an economic boom.\nC. The increasing population leads to increased demand for land, which eventually leads to a decline in profits, resulting in economic stagnation and decline.\nD. The fixed supply of land has no impact on the economy, as technological advancements ensure sustained productivity.\nE. Capital stock diminishes over time, leading to a reduction in the workforce and a stagnant economy.\nF. The constant increase in capital stock leads to a technological revolution that offsets any negative effects of a fixed supply of land.\nG. Landlords invest their incomes leading to economic growth.\nH. The fixed supply of land leads to increased innovation in agriculture, which results in perpetual economic expansion.\nI. The fixed supply of land leads to a decrease in demand.\nJ. The increasing population leads to a decrease in wages, which in turn increases the overall savings and investment, resulting in economic growth.\n",
+          "target": "C"
+        },
+        {
+          "game_id": 3,
+          "input": "Question:\nIf the world price of copper exceeds the domestic (U.S.) price of copper we would expect\nOptions:\nA. the demand for U.S. copper to fall.\nB. the United States to impose a tariff on imported copper to protect domestic producers.\nC. the United States to subsidize domestic copper producers.\nD. the United States to import more copper.\nE. a decrease in the U.S. production of copper.\nF. the demand for imported copper in the U.S. to fall.\nG. a growing trade deficit in the United States in goods and services.\nH. the domestic price of copper to increase.\nI. the United States to be a net exporter of copper.\nJ. the United States to impose quotas on copper exports.\n",
+          "target": "I"
+        },
+        {
+          "game_id": 341,
+          "input": "Question:\nWhich of the following is an example of a transfer earning?\nOptions:\nA. A social security retirement income.\nB. A cashier at a restaurant receiving the same $8 an hour that other cashiers receive.\nC. A celebrity's income from endorsements.\nD. The $200,000 annual salary of a successful entrepreneur.\nE. The earnings of a bestselling author from book sales.\nF. A superstar basketball player's $40 million earnings.\nG. A welfare payment from social services.\nH. A lottery winner's prize money.\nI. A professional football player's signing bonus.\nJ. A student's scholarship money.\n",
+          "target": "B"
+        },
+        {
+          "game_id": 789,
+          "input": "Question:\nWhich of the following creates the trade-offdepicted by the Phillips curve?\nOptions:\nA. A decrease in input costs that corresponds with a decrease in unemployment\nB. A decrease in output that corresponds with an increase in the price level\nC. An increase in input costs that corresponds with an increase in unemployment\nD. A rightward shift in the aggregate demand curve\nE. An increase in output that corresponds with a decrease in the price level\nF. A decrease in input costs that corresponds with an increase in output\nG. An increase in output that corresponds with a decrease in unemployment\nH. A leftward shift in the aggregate supply curve\nI. A leftward shift in the aggregate demand curve\nJ. A rightward shift in the aggregate supply curve\n",
+          "target": "D"
+        },
+        {
+          "game_id": 133,
+          "input": "Question:\nIf the economy were experiencing a recessionary gap choose the option below that would be an appropriate fiscal policy to eliminate the gap and the predicted impact of the policy on real GDP and unemployment. FISCAL POLICY \u00a0\u00a0\u00a0 REAL GDP \u00a0\u00a0\u00a0 UNEMPLOYMENT\nOptions:\nA. Increase spending.    Decrease    Increase\nB. Increase taxes.    Decrease    Increase\nC. No change in taxes.    No change    No change\nD. Decrease taxes. \u00a0\u00a0\u00a0 Increase \u00a0\u00a0\u00a0 Decrease\nE. Decrease taxes. \u00a0\u00a0\u00a0 Increase \u00a0\u00a0\u00a0 Increase\nF. Decrease spending. \u00a0\u00a0\u00a0 Decrease \u00a0\u00a0\u00a0 Increase\nG. Increase taxes.    Increase    Increase\nH. Increase taxes. \u00a0\u00a0\u00a0 Increase \u00a0\u00a0\u00a0 Decrease\nI. Decrease spending.    Increase    Decrease\n",
+          "target": "D"
+        },
+        {
+          "game_id": 652,
+          "input": "Question:\nWhich of the following statements is true of production possibility curves and trade between nations?\nOptions:\nA. Domestic industries should be protected to ensure nations stay within their production possibility curve.\nB. The flow of goods and services is based on the principle of absolute advantage.\nC. Nations can consume at points beyond the production possibility curve by protecting domestic industries from free trade.\nD. Trade between nations does not affect the production possibility curve.\nE. Nations should only trade when they have a comparative advantage in production.\nF. Free trade restricts nations to consume within their production possibility curve.\nG. The principle of comparative advantage is irrelevant in the context of international trade.\nH. Nations specialize and trade based on absolute advantage in production.\nI. Production possibility curves demonstrate that trade always results in absolute disadvantage.\nJ. Free trade allows each nation to consume beyond the production possibility curve.\n",
+          "target": "J"
+        },
+        {
+          "game_id": 268,
+          "input": "Question:\nWhich of the following is not included in MI?\nOptions:\nA. Credit cards.\nB. Travelers' checks.\nC. Coins.\nD. Paper money.\n",
+          "target": "A"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about economics. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_economics",
+        "task_alias": "economics",
+        "process_docs": "utils.process_economics"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about economics. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nFor a stationary autoregressive process, shocks will\nOptions:\nA. Never occur\nB. Persist indefinitely\nC. Cause a permanent change in the trend\nD. Grow exponentially\nE. Only affect the next period\nF. Eventually die away\nG. Cause the process to become non-stationary\nH. Immediately disappear\nI. Lead to a cyclical pattern\nJ. Be balanced out by subsequent shocks\nThe answer is (F)\n\nQuestion:\nConsider the following AR(1) model with the disturbances having zero mean and unit variance\nyt = 0.2 + 0.4 yt-1 + ut\nThe (unconditional) mean of y will be given by\nOptions:\nA. 0.45\nB. 0.2\nC. 0.4\nD. 0.1\nE. 0.3\nF. 0.55\nG. 0.25\nH. 0.33\nI. 0.6\nJ. 0.5\nThe answer is (H)\n\nQuestion:\nSuppose that a test statistic has associated with it a p-value of 0.08. Which one of the following statements is true?\n(i) If the size of the test were exactly 8%, we would be indifferent between rejecting and not rejecting the null hypothesis\n(ii) The null would be rejected if a 10% size of test were used\n(iii) The null would not be rejected if a 1% size of test were used\n(iv) The null would be rejected if a 5% size of test were used.\nOptions:\nA. (iii) and (iv) only\nB. (i) and (iv) only\nC. (i), (ii), and (iii) only\nD. (i) and (ii) only\nE. (i) and (iii) only\nF. (i), (ii), (iii), and (iv).\nG. (ii), (iii), and (iv) only\nH. (ii) and (iii) only\nI. (ii) and (iv) only\nJ. (i), (iii), and (iv) only\nThe answer is (C)\n\nQuestion:\nWhich of the following policies best describes supply-side fiscal policy?\nOptions:\nA. Higher taxes on household income\nB. Increased government spending\nC. Increased taxes on corporate profits\nD. Increased import tariffs\nE. Decreased interest rates\nF. Lower taxes on consumer goods\nG. Lower taxes on research and development of new technology\nH. Reduced government spending\nI. Higher taxes on capital gains\nJ. An increase in the money supply\nThe answer is (G)\n\nQuestion:\nThe concentration ratio for a monopoly is\nOptions:\nA. 50\nB. 5\nC. 10\nD. 90\nE. 15\nF. 100\nG. 0\nH. 25\nI. 75\nJ. N/A\nThe answer is (F)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_math",
+      "game_instances": [
+        {
+          "game_id": 330,
+          "input": "Question:\nFind the value of 4 \u00f7 2 \u2022 2 + 8 \u2212 4.\nOptions:\nA. 6\nB. 10\nC. 20\nD. 14\nE. \u221212\nF. 12\nG. 8\nH. 16\nI. 4\nJ. 0\n",
+          "target": "G"
+        },
+        {
+          "game_id": 904,
+          "input": "Question:\nA novel has 400 pages and Veronica wants to estimate how long it will take her to complete it. She reads 250 words per minute. She counted the words on one quarter of a typical page and found that there were approximately 200 words per page. To the nearest minute, how long will it take Veronica to read the book?\nOptions:\nA. 375\nB. 275\nC. 425\nD. 320\nE. 300\nF. 350\nG. 400\nH. 225\nI. 450\nJ. 500\n",
+          "target": "D"
+        },
+        {
+          "game_id": 1129,
+          "input": "Question:\nThe shape of the sign outside Bob's Burger Barn is a regular octagon. How many degrees are in the measure of an interior angle of this sign?\nOptions:\nA. 90\nB. 45\nC. 75\nD. 150\nE. 120\nF. 180\nG. 105\nH. 135\nI. 60\n",
+          "target": "H"
+        },
+        {
+          "game_id": 875,
+          "input": "Question:\nWrite the prime factorization of 48. Use exponents where possible.\nOptions:\nA. 4 \u2022 8\nB. 2^4 \u2022 3\nC. 6 \u2022 8\nD. 2^3 \u2022 3^2\nE. 2^5 \u2022 3\nF. 2^2 \u2022 4^2\nG. 2 \u2022 24\nH. 4 \u2022 12\nI. 3 \u2022 16\nJ. 2^4 \u2022 3^2\n",
+          "target": "B"
+        },
+        {
+          "game_id": 1148,
+          "input": "Question:\nIn how many ways can 3 students be selected from a class of 20 to form a study group?\nOptions:\nA. 560\nB. 1140\nC. 1000\nD. 680\nE. 760\nF. 210\nG. 1500\nH. 190\nI. 850\nJ. 1200\n",
+          "target": "B"
+        },
+        {
+          "game_id": 19,
+          "input": "Question:\nSelf-efficacy (the belief that one has control over one's situation) as it related to job satisfaction was studied. When a group of teachers rated their ability to control their situation and their satisfaction with their job, the two variables had a correlation of 0.30. Which statement follows from this correlation?\nOptions:\nA. Teachers in the study who were more satisfied with their job were less confident in their ability to control their situation.\nB. There is a negative correlation between job satisfaction and self-efficacy.\nC. The correlation implies that job satisfaction causes increased self-efficacy.\nD. The correlation of 0.30 indicates that there is no relationship between self-efficacy and job satisfaction.\nE. If you want teachers to be happy with their job, give them more control over their situation.\nF. Teachers who were less satisfied with their job had more confidence in their ability to control their situation.\nG. The correlation implies that self-efficacy causes increased job satisfaction.\nH. If you want teachers to take more control over their situation, make them happier at their jobs.\nI. 30% of the variability in job satisfaction can be explained by the linear model with self-efficacy as a predictor.\nJ. 9% of the variability in job satisfaction can be explained by the linear model with self-efficacy as a predictor.\n",
+          "target": "J"
+        },
+        {
+          "game_id": 229,
+          "input": "Question:\nFind the number that makes the statement 48 over 88 = ? over 11 true.\nOptions:\nA. 9\nB. 8\nC. 5\nD. 4\nE. 12\nF. 7\nG. 11\nH. 6\nI. 10\nJ. 3\n",
+          "target": "H"
+        },
+        {
+          "game_id": 154,
+          "input": "Question:\nIf we take sin x and change it to 3 sin 2x, what will happen to the domain and range of the function?\nOptions:\nA. Domain is the same; range is tripled\nB. Domain and range remain the same\nC. Domain is halved; range is tripled\nD. Domain is tripled; range is halved\nE. Domain is double; range remains the same\nF. Domain is doubled; range is tripled\nG. Domain is tripled; range is doubled\nH. Domain is the same; range is doubled\nI. Domain and range are both doubled\nJ. Domain and range are both tripled\n",
+          "target": "A"
+        },
+        {
+          "game_id": 305,
+          "input": "Question:\n5.3-1. Let $X_1$ and $X_2$ be independent Poisson random variables with respective means $\\lambda_1=2$ and $\\lambda_2=3$. Find\n(a) $P\\left(X_1=3, X_2=5\\right)$.\nHINT. Note that this event can occur if and only if $\\left\\{X_1=1, X_2=0\\right\\}$ or $\\left\\{X_1=0, X_2=1\\right\\}$.\nOptions:\nA. 0.0137\nB. 0.0084\nC. 0.0157\nD. 0.0168\nE.  0.0182\nF. 0.0245\nG. 0.0101\nH. 0.0213\nI. 0.0125\nJ. 0.0226\n",
+          "target": "E"
+        },
+        {
+          "game_id": 1117,
+          "input": "Question:\nIt takes Kate k days to write a GRE math practice test. It takes John j days to write a GRE math practice test. If Kate and John work on a practice test in alternating 2-day shifts, it takes them 10 days when Kate starts and 10.5 days when John starts. How long would it take the two to complete a practice test if Kate and John worked simultaneously?\nOptions:\nA. 41/8 days\nB. 13/2 days\nC. 12/3 days\nD. 36/7 days\nE. 11/2 days\nF. 9/2 days\nG. 7 days\nH. 5 days\nI. 8 days\nJ. 10 days\n",
+          "target": "D"
+        },
+        {
+          "game_id": 73,
+          "input": "Question:\nPlease solve the equation 2*x^3 + e^x = 10 using newton-raphson method.\nOptions:\nA. 3.14\nB. 2.05\nC. 2.89\nD. -1.23\nE. 2.56\nF. 1.42\nG. 0.98\nH. 0.75\nI. 1.85\nJ. 3.67\n",
+          "target": "F"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about math. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_math",
+        "task_alias": "math",
+        "process_docs": "utils.process_math"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about math. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nThe symmetric group $S_n$ has $\n\\factorial{n}$ elements, hence it is not true that $S_{10}$ has 10 elements.\nFind the characteristic of the ring 2Z.\nOptions:\nA. 0\nB. 30\nC. 3\nD. 10\nE. 12\nF. 50\nG. 2\nH. 100\nI. 20\nJ. 5\nThe answer is (A)\n\nQuestion:\nLet V be the set of all real polynomials p(x). Let transformations T, S be defined on V by T:p(x) -> xp(x) and S:p(x) -> p'(x) = d/dx p(x), and interpret (ST)(p(x)) as S(T(p(x))). Which of the following is true?\nOptions:\nA. ST + TS is the identity map of V onto itself.\nB. TS = 0\nC. ST = 1\nD. ST - TS = 0\nE. ST = T\nF. ST = 0\nG. ST = TS\nH. ST - TS is the identity map of V onto itself.\nI. TS = T\nJ. ST = S\nThe answer is (H)\n\nQuestion:\nLet A be the set of all ordered pairs of integers (m, n) such that 7m + 12n = 22. What is the greatest negative number in the set B = {m + n : (m, n) \\in A}?\nOptions:\nA. -5\nB. 0\nC. -3\nD. -7\nE. -4\nF. -6\nG. -1\nH. -2\nI. -9\nJ. N/A\nThe answer is (E)\n\nQuestion:\nA tank initially contains a salt solution of 3 grams of salt dissolved in 100 liters of water. A salt solution containing 0.02 grams of salt per liter of water is sprayed into the tank at a rate of 4 liters per minute. The sprayed solution is continually mixed with the salt solution in the tank, and the mixture flows out of the tank at a rate of 4 liters per minute. If the mixing is instantaneous, how many grams of salt are in the tank after 100 minutes have elapsed?\nOptions:\nA. 3 + e^-2\nB. 2 - e^-4\nC. 2 - e^-2\nD. 3 + e^-4\nE. 2 + e^-3\nF. 2 - e^-3\nG. 3 - e^-2\nH. 2 + e^-2\nI. 2 + e^-4\nJ. 2\nThe answer is (I)\n\nQuestion:\nA total of 30 players will play basketball at a park. There will be exactly 5 players on each team. Which statement correctly explains how to find the number of teams needed?\nOptions:\nA. Multiply 5 by 5 to find 25 teams.\nB. Divide 30 by 5 to find 6 teams.\nC. Add 5 to 30 to find 35 teams.\nD. Subtract 30 from 5 to find -25 teams.\nE. Divide 5 by 30 to find 0.1667 teams.\nF. Add 5 to 30 then divide by 2 to find 17.5 teams.\nG. N/A\nH. N/A\nI. N/A\nJ. N/A\nThe answer is (B)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_chemistry",
+      "game_instances": [
+        {
+          "game_id": 756,
+          "input": "Question:\nCalculate the pH_I values of glycine, alanine, serine and threonine from their pK^1 values. The pk' values for the ionizing groups of some amino acids (25\u00b0C) pK_1' \\alpha-COOH pK_2' \\alpha-NH'_3 pK_R' R-group Glycine 2.34 9.6 Alanine 2.34 9.96 Leucine 2.36 9.60 Serine 2.21 9.15 Threonine 2.63 10.43 Glutamine 2.17 9.13 Aspartic acid 2.09 9.82 3.85 Glutamic acid 2.19 9.67 4.25 Histidine 1.82 9.17 6.0 Cysteine 1.71 10.78 8.33 Tyrosine 2.20 9.11 10.07 Lysine 2.18 8.95 10.53 Arginine 2.17 9.04 12.48\nOptions:\nA. glycine: 6.77, alanine: 6.82, serine: 6.48, threonine: 7.03\nB. glycine: 4.97, alanine: 5.02, serine: 4.68, threonine : 5.53\nC. glycine: 6.97, alanine: 7.02, serine: 6.68, threonine : 7.53\nD. glycine: 5.27, alanine: 5.32, serine: 5.08, threonine: 5.83\nE. glycine: 4.47, alanine: 4.52, serine: 4.18, threonine: 4.53\nF. glycine: 5.77, alanine: 5.82, serine: 5.48, threonine: 5.93\nG. glycine: 6.47, alanine: 6.52, serine: 6.18, threonine: 6.53\nH. glycine: 7.47, alanine: 7.52, serine: 7.18, threonine: 8.03\nI. glycine: 5.97, alanine: 6.02, serine: 5.68, threonine : 6.53\nJ. glycine: 5.47, alanine: 5.52, serine: 5.18, threonine : 5.53\n",
+          "target": "I"
+        },
+        {
+          "game_id": 1131,
+          "input": "Question:\nN^13 decays by \\beta^+ emission. The maximum kinetic energy of the \\beta^+ is 1.19MeV. What is thenuclidicmass of N^13 ?\nOptions:\nA. 13.00335amu\nB. 13.00782amu\nC. 13.00123amu\nD. 13.00000amu\nE. 13.00445amu\nF. 13.00678amu\nG. 13.00246amu\nH. 12.99859amu\nI. 12.99985amu\nJ. 13.00573amu\n",
+          "target": "J"
+        },
+        {
+          "game_id": 303,
+          "input": "Question:\nAssume that all gases are perfect and that data refer to 298.15 K unless otherwise stated. Calculate the total change in entropy, when a sample of nitrogen gas of mass $14 \\mathrm{~g}$ at $298 \\mathrm{~K}$ and $1.00 \\mathrm{bar}$ doubles its volume in an adiabatic reversible expansion.\nOptions:\nA. 20 J/K\nB. 10 J/K\nC. 5 J/K\nD. 8 J/K\nE. -2 J/K\nF.  0\nG. -10 J/K\nH. -8 J/K\nI. -5 J/K\nJ. 3 J/K\n",
+          "target": "F"
+        },
+        {
+          "game_id": 880,
+          "input": "Question:\nCalculate the molecular translational partition functions in a volume of 1 cm^3 at 298\u00b0K for the following molecules a) H_2,b) CH_4,c) C_8H_18.\nOptions:\nA. H_2: 2.450 \u00d7 10^24, CH_4: 6.075 \u00d7 10^25, C_8H_18: 1.373 \u00d7 10^27\nB. H_2: 4.000 \u00d7 10^24, CH_4: 8.175 \u00d7 10^25, C_8H_18: 3.173 \u00d7 10^27\nC. H_2: 2.750 \u00d7 10^24, CH_4: 6.175 \u00d7 10^25, C_8H_18: 1.173 \u00d7 10^27\nD. H_2: 3.250 \u00d7 10^24, CH_4: 7.675 \u00d7 10^25, C_8H_18: 2.573 \u00d7 10^27\nE. H_2: 3.550 \u00d7 10^24, CH_4: 7.275 \u00d7 10^25, C_8H_18: 2.273 \u00d7 10^27\nF. H_2: 2.650 \u00d7 10^24, CH_4: 5.975 \u00d7 10^25, C_8H_18: 1.273 \u00d7 10^27\nG. H_2: 1.750 \u00d7 10^24, CH_4: 5.175 \u00d7 10^25, C_8H_18: 1.073 \u00d7 10^27\nH. H_2: 2.950 \u00d7 10^24, CH_4: 6.875 \u00d7 10^25, C_8H_18: 1.473 \u00d7 10^27\nI. H_2: 2.850 \u00d7 10^24, CH_4: 6.275 \u00d7 10^25, C_8H_18: 1.273 \u00d7 10^27\nJ. H_2: 3.750 \u00d7 10^24, CH_4: 7.175 \u00d7 10^25, C_8H_18: 2.173 \u00d7 10^27\n",
+          "target": "C"
+        },
+        {
+          "game_id": 261,
+          "input": "Question:\nCalculate theCoulombicbarrier in the bombardment of ^209Bi Calculate theCoulombicbarrier in the bombardment of ^209Bi with alpha particles.\nOptions:\nA. 22.1MeV\nB. 23.3MeV\nC. 20.5MeV\nD. 21.2MeV\n",
+          "target": "D"
+        },
+        {
+          "game_id": 85,
+          "input": "Question:\nA sample of beryllium powder was placed in a box having an effusion hole of 3.18 mm in diameter. After 15.2 min and a temperature of 1537\u00b0K , 8.88 mg of the powder had effused. Use the method of Knudsen to determine the vapor pressure of Be at 1537\u00b0K .\nOptions:\nA. 1.17 \u00d7 10^-4 atm\nB. 5.67 \u00d7 10^-5 atm\nC. 6.67 \u00d7 10^-5 atm\nD. 4.67 \u00d7 10^-5 atm\nE. 7.67 \u00d7 10^-6 atm\nF. 1.67 \u00d7 10^-5 atm\nG. 3.67 \u00d7 10^-5 atm\nH. 2.17 \u00d7 10^-4 atm\nI. 8.67 \u00d7 10^-5 atm\nJ. 2.67 \u00d7 10^-5 atm\n",
+          "target": "G"
+        },
+        {
+          "game_id": 631,
+          "input": "Question:\n0.0025 mol of a weak, monoprotic acid is dissolved in 0.250 L of distilled water. The pH was then measured as 4.26. What is the pKa of this weak acid?\nOptions:\nA. 3.80\nB. 5.75\nC. 8.52\nD. 9.25\nE. 6.52\nF. 8.75\nG. 4.26\nH. 6.00\nI. 7.92\nJ. 7.00\n",
+          "target": "E"
+        },
+        {
+          "game_id": 746,
+          "input": "Question:\nCalculate the osmotic work done by the kidneys in secreting 0.158 moles of Cl^- in a liter of urine water at 37\u00b0C when the concentration of Cl^- in plasma is 0.104 M, and in urine 0.158 M.\nOptions:\nA. 60.1 cal\nB. 35.7 cal\nC. 45.5 cal\nD. 52.6 cal\nE. 47.9 cal\nF. 38.5 cal\nG. 55.3 cal\nH. 30.4 cal\nI. 50.2 cal\nJ. 40.7 cal\n",
+          "target": "J"
+        },
+        {
+          "game_id": 81,
+          "input": "Question:\nSolder is a lead-tin alloy. 1.00 gram of the alloy treated with warm 30 % HNO_3 gave a lead nitrate solution and some insoluble white residue. After drying, the white residue weighed 0.600 g and was found to be SnO_2. What was the percentage tin in the sample? Sn + 4HNO_3 + SnO_2 + 4N_2 + 2H_2O\nOptions:\nA. 42.3 %\nB. 29.4 %\nC. 35.6 %\nD. 44.7 %\nE. 38.5 %\nF. 47.2 %\nG. 60.8 %\nH. 50.1 %\nI. 55.0 %\nJ. 32.9 %\n",
+          "target": "F"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about chemistry. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_chemistry",
+        "task_alias": "chemistry",
+        "process_docs": "utils.process_chemistry"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about chemistry. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nPredict the number of lines in the EPR spectrum of a solution of 13C-labelled methyl radical (13CH3\u2022), assuming the lines do not overlap.\nOptions:\nA. 10\nB. 8\nC. 4\nD. 20\nE. 12\nF. 3\nG. 16\nH. 5\nI. 24\nJ. 6\nThe answer is (B)\n\nQuestion:\nWhich of the following lists the hydrides of group-14 elements in order of thermal stability, from lowest to highest?\nOptions:\nA. GeH4 < SnH4 < PbH4 < SiH4 < CH4\nB. SiH4 < GeH4 < SnH4 < PbH4 < CH4\nC. PbH4 < CH4 < SnH4 < GeH4 < SiH4\nD. PbH4 < SnH4 < CH4 < GeH4 < SiH4\nE. SnH4 < GeH4 < SiH4 < PbH4 < CH4\nF. CH4 < GeH4 < SnH4 < PbH4 < SiH4\nG. SiH4 < SnH4 < PbH4 < GeH4 < CH4\nH. CH4 < SiH4 < GeH4 < SnH4 < PbH4\nI. CH4 < PbH4 < GeH4 < SnH4 < SiH4\nJ. PbH4 < SnH4 < GeH4 < SiH4 < CH4\nThe answer is (J)\n\nQuestion:\nWhich of the following is considered an acid anhydride?\nOptions:\nA. H2SO3\nB. NaCl\nC. CH4\nD. HNO3\nE. SO2\nF. Al(NO3)3\nG. CaCO3\nH. H2O\nI. HCl\nJ. N/A\nThe answer is (E)\n\nQuestion:\nA new compound is synthesized and found to be a monoprotic acid with a molar mass of 248 g/mol. When 0.0050 mol of this acid are dissolved in 0.500 L of water, the pH is measured as 3.89. What is the pKa of this acid?\nOptions:\nA. 5.78\nB. 4.78\nC. 4.56\nD. 6.89\nE. 7.78\nF. 3.89\nG. 1.23\nH. 2.89\nI. 2.33\nJ. 5.33\nThe answer is (A)\n\nQuestion:\nA solution contains 2.00 mole of acetic acid, CH3COOH, and 1.00 mole of calcium acetate, Ca(CH3COO)2. The solution is able to resist the addition of a small amount of strong acid or strong base with only minor changes in the pH of the solution. Larger quantities of strong acid or strong base can cause a significant change in pH. How many moles of nitric acid, HNO3, may be added before the pH begins to change significantly?\nOptions:\nA. 0.250 mole\nB. 0.500 mole\nC. 3.00 mole\nD. 1.00 mole\nE. 3.50 mole\nF. 1.50 mole\nG. 2.50 mole\nH. 4.00 mole\nI. 0.750 mole\nJ. 2.00 mole\nThe answer is (J)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_history",
+      "game_instances": [
+        {
+          "game_id": 183,
+          "input": "Question:\nThis question refers to the following information.\nAt the peak of their power, the domains of the Mongol khans, or rulers, made up a vast realm in which once-hostile peoples lived together in peace and virtually all religions were tolerated. . . . The law code first promulgated by Chinggis Khan ordered human interaction. The result was an important new stage in international contact. From eastern Europe to southern China, merchants and travelers could move across the well-policed Mongol domains without fear for their lives or property. The great swath of Mongol territory that covered or connected most of Europe, Asia, and the Middle East served as a bridge between the civilizations of the Eastern Hemisphere. The caravans and embassies that crossed the Mongol lands transmitted new food, inventions, and ideas from one civilized pool to others and from civilized pools to the nomadic peoples who served as intermediaries. Secure trade routes made for prosperous merchants and wealthy, cosmopolitan cities. They also facilitated the spread of foods [and] inventions . . . a major force for economic and social development and the enhancement of civilized life.\n\u2014Robert Guisepi, 1992\nWhich of the following was a long-term consequence of the Mongol conquest of Russia in the 1200s?\nOptions:\nA. Russia developed a centralized bureaucracy.\nB. The Russian language was replaced by Mongolian.\nC. Russia benefited by becoming the administrative center of Mongol political activity.\nD. Mongol law code was fully adopted in Russia.\nE. Russia was excluded from Western European developments (like the Renaissance).\nF. Islam became the dominant religion of Russia.\nG. Russia's population significantly declined due to Mongol invasions.\nH. Russia became the cultural center of Mongol civilization.\n",
+          "target": "E"
+        },
+        {
+          "game_id": 107,
+          "input": "Question:\nWhat was the Chinese technique of stamped or pounded earth that was used in construction of house walls and defensive structures?\nOptions:\nA. Ming Dynasty Ceramic Art\nB. Qin manufacture\nC. Han Stoneware\nD. Lung-shan\nE. Hangzhou Style\nF. Scapulimancy\nG. Hang-t'u\nH. Jomon Pottery\nI. Tang Sancai\nJ. Yuan Blue-and-white\n",
+          "target": "G"
+        },
+        {
+          "game_id": 349,
+          "input": "Question:\nThis question refers to the following information.\nI walk alongside the column, ask what's going on.\nA soldier says simply: \"They call up more every day.\n\"Some of us were sent north to the Yellow River at age fifteen,\nAnd now at forty we're heading off to the garrisons in the west.\nOn our first tour, the village headman had to tie our bandannas for us.\nWhen we came back, our hair was white, but still there's more unrest.\nThe frontier garrisons run with blood, enough to fill an ocean,\nBut the Martial Emperor's territorial ambitions have yet to crest.\nIn the hundred districts east of the mountains, throughout the land of Han,\nThere must be ten thousand villages that brambles now infest.\nEven if wives are strong enough to handle a hoe and plow,\nThe crops grow every which way, the fields are all a mess.\nIt's hardest for the Shanxi men, with their reputations as fighters:\nThey're rounded up like dogs or chickens, every male impressed.\n\"But sir, though it's good of you to ask,\nComplaining isn't part of the soldier's task.\nWe can only shake our heads. Take this winter:\nThe Shanxi troops were never sent home.\nThe District Officers are demanding the land tax,\nBut where will it come from? You can't get blood from a stone!\nI honestly think it's bad luck to bear a son now,\nIt's better to have a daughter: at least she can marry\nAnd live with the neighbors next door.\nBut a son will end up lying on some distant prairie.\"\nDu Fu, \"Ballad of the Army Carts,\" ca. 750 C.E.\nBased on the poem and your knowledge of history, Tang relations with western nomadic peoples and frontier peoples relied on which of the following?\nOptions:\nA. The establishment of a network of spies and informants among the nomadic tribes\nB. Adroit diplomacy and establishment of client relationships with bordering nomads\nC. The payment of tribute to nomadic rulers\nD. The forced relocation of frontier peoples to central China\nE. The use of economic incentives to secure the loyalty of nomadic rulers\nF. The negotiation of peace treaties with nomadic rulers\nG. The dissemination of Chinese culture and traditions among frontier peoples\nH. The permanent settlement of Han Chinese in frontier zones\nI. The ability of the Tang emperor to project military power on the frontier in order to impose his will\n",
+          "target": "I"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about history. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_history",
+        "task_alias": "history",
+        "process_docs": "utils.process_history"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about history. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nThis question refers to the following information.\nIn Russia there was nothing going on well, and [Souvarine] was in despair over the news he had received. His old companions were all turning to the politicians; the famous Nihilists who made Europe tremble-sons of village priests, of the lower middle class, of tradesmen-could not rise above the idea of national liberation, and seemed to believe that the world would be delivered-when they had killed their despot&\u2026\n\"Foolery! They'll never get out of it with their foolery.\"\nThen, lowering his voice still more, in a few bitter words he described his old dream of fraternity. He had renounced his rank and his fortune; he had gone among workmen, only in the hope of seeing at last the foundation of a new society of labour in common. All the sous in his pockets had long gone to the urchins of the settlement; he had been as tender as a brother with the colliers, smiling at their suspicion, winning them over by his quiet workmanlike ways and his dislike of chattering. But decidedly the fusion had not taken place.\nHis voice changed, his eyes grew bright, he fixed them on \u00e9tienne, directly addressing him:\n\"Now, do you understand that? These hatworkers at Marseilles who have won the great lottery prize of a hundred thousand francs have gone off at once and invested it, declaring that they are going to live without doing anything! Yes, that is your idea, all of you French workmen; you want to unearth a treasure in order to devour it alone afterwards in some lazy, selfish corner. You may cry out as much as you like against the rich, you haven't got courage enough to give back to the poor the money that luck brings you. You will never be worthy of happiness as long as you own anything, and your hatred of the bourgeois proceeds solely from an angry desire to be bourgeois yourselves in their place.\"\n\u00e9mile Zola, French writer, Germinal, 1885\nThe passage displays the direct concern for the welfare of the working classes that was typically a part of which movement?\nOptions:\nA. Communist\nB. Anarchist\nC. Feminist\nD. Fascist\nE. Imperialist\nF. Nationalist\nG. Enlightenment\nH. Existentialist\nI. N/A\nJ. N/A\nThe answer is (A)\n\nQuestion:\nThis question refers to the following information.\nThe following excerpt is from a pamphlet.\nYou will do me the justice to remember, that I have always strenuously supported the Right of every man to his own opinion, however different that opinion might be to mine. He who denies to another this right, makes a slave of himself to his present opinion, because he precludes himself the right of changing it.\nThe most formidable weapon against errors of every kind is Reason. I have never used any other, and I trust I never shall.\nThe circumstance that has now taken place in France of the total abolition of the whole national order of priesthood, and of everything appertaining to compulsive systems of religion, and compulsive articles of faith, has not only precipitated my intention, but rendered a work of this kind exceedingly necessary, lest in the general wreck of superstition, of false systems of government, and false theology, we lose sight of morality, of humanity, and of the theology that is true.\nI believe in one God, and no more; and I hope for happiness beyond this life.\nI believe in the equality of man; and I believe that religious duties consist in doing justice, loving mercy, and endeavoring to make our fellow-creatures happy.\nI do not believe in the creed professed by the Jewish church, by the Roman church, by the Greek church, by the Turkish church, by the Protestant church, nor by any church that I know of. My own mind is my own church.\nAll national institutions of churches, whether Jewish, Christian or Turkish, appear to me no other than human inventions, set up to terrify and enslave mankind, and monopolize power and profit.\nI do not mean by this declaration to condemn those who believe otherwise; they have the same right to their belief as I have to mine.\n\u2014Thomas Paine, The Age of Reason, 1794\u20131795\nWhich of the following Enlightenment philosophes designed a system of checks and balances for government to avoid abuses of power?\nOptions:\nA. Thomas Hobbes\nB. Jean Jacques Rousseau\nC. Baron Montesquieu\nD. Voltaire\nE. Denis Diderot\nF. Immanuel Kant\nG. David Hume\nH. Mary Wollstonecraft\nI. Adam Smith\nJ. John Locke\nThe answer is (C)\n\nQuestion:\nThis question refers to the following information.\n\"The struggle against neo-colonialism is not aimed at excluding the capital of the developed world from operating in less developed countries. It is aimed at preventing the financial power of the developed countries being used in such a way as to impoverish the less developed.\nNon-alignment, as practiced by Ghana and many other countries, is based on co-operation with all States whether they be capitalist, socialist or have a mixed economy. Such a policy, therefore, involves foreign investment from capitalist countries, but it must be invested in accordance with a national plan drawn up by the government of the non-aligned State with its own interests in mind. The issue is not what return the foreign investor receives on his investments\u2026The question is one of power. A State in the grip of neo-colonialism is not master of its own destiny.\"\nKwame Nkrumah, Neo-Colonialism, 1965\nWhich of the following provides the best context for Nkrumah's writings?\nOptions:\nA. The spread of communism\nB. The Industrial Revolution\nC. The French Revolution\nD. The Cold War\nE. Decolonization\nF. World War II\nG. Autarky\nH. The rise of multinational corporations\nI. The American Civil Rights Movement\nJ. Regional Free Trade Associations\nThe answer is (E)\n\nQuestion:\nWhat is the approximate mean cranial capacity of Homo erectus?\nOptions:\nA. 1200 cc\nB. under 650 cc\nC. 1700 cc\nD. 1350 cc\nE. just under 1000 cc\nF. 1500 cc\nG. under 500 cc\nH. about 800 cc\nI. just over 1100 cc\nJ. about 900 cc\nThe answer is (E)\n\nQuestion:\nRecent research on hominid species dating from the Middle Pliocene indicates there was (as of 2020):\nOptions:\nA. multiple hominid species but with limited diversity.\nB. a single species with no diversity.\nC. decreased species diversity but increased numbers of hammerstones and flakes, indicating stone tool manufacture.\nD. a single dominant species that outcompeted all others, leading to decreased diversity.\nE. increased species diversity due to a prolonged ice age followed by a severe drought.\nF. decreased species diversity due to a prolonged ice age followed by a severe drought.\nG. a great amount of species diversity, or a single species that exhibited a lot of diversity.\nH. increased species diversity but with decreased population numbers due to harsh climate conditions.\nI. increased species diversity but decreased numbers of hammerstones and flakes, indicating less stone tool manufacture.\nJ. very little species diversity during this period and very few hominids.\nThe answer is (G)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_health",
+      "game_instances": [
+        {
+          "game_id": 255,
+          "input": "Question:\nWhich single statement about fat digestion and absorption is correct?\n\nOptions:\nA. Absorption of fatty acids in the intestine occurs mainly through FABP and FAT/CD36 transport proteins in the enterocytes of the distal duodenum\nB. After absorption, medium chain triglycerides (MCT) enter the lymphatic system, whereas long chain triglycerides enter the portal blood system.\nC. The products of partial digestion of triglycerides (triacylglycerols) can form mixed micelles with pancreatic cholesterol and phospholipids and this increases absorption\nD. Triglycerides (triacylglycerols) must be emulsified and digested before the fatty acids can be transported\n",
+          "target": "D"
+        },
+        {
+          "game_id": 682,
+          "input": "Question:\nA 50-year-old woman comes to the office for the first time because of recurrent abdominal pain. Review of her extensive medical chart, which she has brought with her, discloses that she has a long history of varying physical symptoms. Definitive causes for these symptoms have not been found despite extensive diagnostic studies, consultations with many physicians, and several surgical explorations. She gives dramatic and exaggerated descriptions of her present and past symptoms, and she makes conflicting statements about her history. She has been hospitalized at least 23 times since age 18 years. Which of the following is the most likely diagnosis?\nOptions:\nA. Somatic symptom disorder\nB. Generalized anxiety disorder\nC. Dependent personality disorder\nD. Borderline personality disorder\nE. Munchausen syndrome\nF. Conversion disorder\nG. Schizophrenia\nH. Occult medical disorder\nI. Narcissistic personality disorder\nJ. Histrionic personality disorder\n",
+          "target": "A"
+        },
+        {
+          "game_id": 105,
+          "input": "Question:\nA 30-year-old woman, gravida 2, para 0, aborta 1, at 28 weeks' gestation comes to the office for a prenatal visit. She has had one previous pregnancy resulting in a spontaneous abortion at 12 weeks' gestation. Today, her vital signs are within normal limits. Physical examination shows a uterus consistent in size with a 28-week gestation. Fetal ultrasonography shows a male fetus with no abnormalities. Her blood group is O, Rh-negative. The father's blood group is B, Rh-positive. The physician recommends administration of Rho\nOptions:\nA. Development of polycythemia\nB. Formation of antibodies to RhB\nC. Development of lymphocytosis\nD. Formation of antibodies to RhO\nE. immune globulin to the patient. This treatment is most likely to prevent which of the following in this mother?\nF. Development of leukocytosis\nG. Formation of antibodies to RhD\nH. Development of anemia\nI. Formation of antibodies to RhC\nJ. Development of natural killer cells\n",
+          "target": "A"
+        },
+        {
+          "game_id": 362,
+          "input": "Question:\nA 57-year-old man receives radiation therapy for a squamous cell carcinoma of the lung. Despite therapy, the tumor progressively increases in size, and he dies 6 months later. His tumor cells contain a point mutation in the p53 gene (TP53), leading to an inactive gene product. Based on this finding, the progressive tumor growth despite irradiation therapy is most likely to be related to a defect in cell cycle arrest in which of the following phases of the cell cycle?\nOptions:\nA. Metaphase\nB. G1\nC. Prophase\nD. G0\nE. Prometaphase\nF. S phase\nG. Anaphase\nH. M\nI. Telophase\nJ. G2\n",
+          "target": "B"
+        },
+        {
+          "game_id": 798,
+          "input": "Question:\nA 22-year-old woman comes to the emergency department because of a 5-day history of sore throat and fever. During the past 3 days, she also has noticed a change in her voice and has had increased pain with swallowing. She has been taking acetaminophen since her symptoms began. Medical history is unremarkable and she takes no routine medications. Vital signs are temperature 40.0\u00b0C (104.0\u00b0F), pulse 130/min, respirations 18/min, and blood pressure 102/66 mm Hg. Pulse oximetry on room air shows an oxygen saturation of 97%. Examination of the oropharynx shows erythema, edema, and anterior displacement of the right side of the soft palate. The uvula is deviated to the left. There is a white exudate on the right tonsil. Trismus is noted. Palpation of the neck discloses enlarged, tender, mobile anterior cervical lymph nodes. In addition to antibiotic therapy, which of the following is the most appropriate management? \nOptions:\nA. Oral antifungal therapy\nB. Oral pain reliever therapy\nC. Tranquilizer therapy\nD. Oral nystatin therapy\nE. Intravenous antiviral therapy\nF. Inhaled corticosteroid therapy\nG. Incision and drainage\nH. Antacid therapy\nI. Salt water gargle\nJ. Intravenous methylprednisolone therapy\n",
+          "target": "G"
+        },
+        {
+          "game_id": 573,
+          "input": "Question:\nHow many kcal are there in one gram of ethanol?\n \nOptions:\nA. 15.6 kJ or 3.7 kcal per g\nB. 19.7 kJ or 4.1 kcal per g\nC. 23.5 kJ or 5.8 kcal per g\nD. 36.5 kJ or 8.1 kcal per g\nE. 29.7 kJ or 7.1 kcal per g\nF. 31.5 kJ or 7.5 kcal per g\nG. 33.3 kJ or 7.9 kcal per g\nH. 37.6 kJ or 9.0 kcal per g\nI. 22.9 kJ or 5.5 kcal per g\nJ. 28.4 kJ or 6.8 kcal per g\n",
+          "target": "E"
+        },
+        {
+          "game_id": 416,
+          "input": "Question:\nWhich muscle is the most active during a right lateral excursion of the mandible?\nOptions:\nA. Left masseter muscle\nB. Right buccinator muscle\nC. Right temporalis muscle\nD. Right masseter muscle\nE. Right lateral pterygoid muscle\nF. Left medial pterygoid muscle\nG. Left temporalis muscle\nH. Left buccinator muscle\nI. Left lateral pterygoid muscle\nJ. Right medial pterygoid muscle\n",
+          "target": "I"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about health. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_health",
+        "task_alias": "health",
+        "process_docs": "utils.process_health"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about health. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nWhich of the following is the body cavity that contains the pituitary gland?\nOptions:\nA. Ventral\nB. Dorsal\nC. Buccal\nD. Thoracic\nE. Pericardial\nF. Abdominal\nG. Spinal\nH. Pelvic\nI. Pleural\nJ. Cranial\nThe answer is (J)\n\nQuestion:\nWhat is the embryological origin of the hyoid bone?\nOptions:\nA. The third and fourth pharyngeal arches\nB. The fourth pharyngeal arch\nC. The third pharyngeal arch\nD. The second pharyngeal arch\nE. The second, third and fourth pharyngeal arches\nF. The first pharyngeal arch\nG. The second and third pharyngeal arches\nH. The first and third pharyngeal arches\nI. The first, second and third pharyngeal arches\nJ. The first and second pharyngeal arches\nThe answer is (G)\n\nQuestion:\nWhat is the difference between a male and a female catheter?\nOptions:\nA. Female catheters are used more frequently than male catheters.\nB. Male catheters are bigger than female catheters.\nC. Male catheters are more flexible than female catheters.\nD. Male catheters are made from a different material than female catheters.\nE. Female catheters are longer than male catheters.\nF. Male catheters are longer than female catheters.\nG. Female catheters are bigger than male catheters.\nH. Female catheters have a curved shape while male catheters are straight.\nI. Male and female catheters are different colours.\nJ. Male catheters have a smaller diameter than female catheters.\nThe answer is (F)\n\nQuestion:\nHow many attempts should you make to cannulate a patient before passing the job on to a senior colleague, according to the medical knowledge of 2020?\nOptions:\nA. 1\nB. Unlimited attempts\nC. 5\nD. 0, always pass on to a senior colleague\nE. 7\nF. 2\nG. 4\nH. 6\nI. 3\nJ. 8\nThe answer is (F)\n\nQuestion:\nWhy are parvoviruses a highly impactful parasite?\nOptions:\nA. They are able to alter the host's DNA\nB. Because they have no nucleic acid\nC. They can survive in extreme temperatures\nD. Only replicate in dividing cells\nE. They can infect multiple species\nF. They don't require a host to survive\nG. Can integrate into host chromosomes\nH. N/A\nI. N/A\nJ. N/A\nThe answer is (B)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_physics",
+      "game_instances": [
+        {
+          "game_id": 1271,
+          "input": "Question:\nThe Space Shuttle orbits 300 km above the Earth\u2019s surface; the Earth\u2019s radius is 6400 km. What is the acceleration due to Earth\u2019s gravity experienced by the Space Shuttle?\nOptions:\nA. 7.9 m/s^2\nB. 8.9 m/s^2\nC. 3.9 m/s^2\nD. 10.8 m/s^2\nE. 11.8 m/s^2\nF. 4.9 m/s^2\nG. 5.9 m/s^2\nH. 6.9 m/s^2\nI. 12.8 m/s^2\nJ. 9.8 m/s^2\n",
+          "target": "B"
+        },
+        {
+          "game_id": 316,
+          "input": "Question:\nWhat effect or effects would be most significant if the Moon's orbital plane were exactly the same as the ecliptic plane?\nOptions:\nA. Lunar eclipses would not last as long.\nB. Lunar eclipses would last much longer.\nC. Lunar eclipses would be much rarer.\nD. There would be no significant effect.\nE. Solar eclipses would last much longer.\nF. Solar eclipses would be much rarer.\nG. Solar eclipses would not last as long.\nH. Solar eclipses would be much more frequent.\n",
+          "target": "H"
+        },
+        {
+          "game_id": 484,
+          "input": "Question:\nA rifle weighing 7 pounds shoots a bullet weighing 1 ounce, giving the bullet a speed of 1120 feet per second. (a) If the rifle is free to move, what is its recoil speed? (b) If the rifle is held tight against the shoulder of a man weighing 133 pounds and if he were free to move, what would be the recoil speed of the rifle and man? (c) If the bullet imbeds itself in a block of wood weighing 3 pounds and 7 ounces and if the block were free to move, what would be the speed of the block plus bullet?\nOptions:\nA. Recoil speed: 6 ft/sec backwards, 0.2 ft/sec backwards, 12 ft/sec forwards\nB. Recoil speed: 14 ft/sec backwards, 0.8 ft/sec backwards, 22 ft/sec forwards\nC. Recoil speed: 15 ft/sec backwards, 1 ft/sec backwards, 30 ft/sec forwards\nD. Recoil speed: 9 ft/sec backwards, 0.6 ft/sec backwards, 24 ft/sec forwards\nE. Recoil speed: 10 ft/sec backwards, 0.5 ft/sec backwards, 20 ft/sec forwards\nF. Recoil speed: 7 ft/sec backwards, 0.3 ft/sec backwards, 17 ft/sec forwards\nG. Recoil speed: 20 ft/sec backwards, 0.7 ft/sec backwards, 25 ft/sec forwards\nH. Recoil speed: 8 ft/sec backwards, 0.6 ft/sec backwards, 15 ft/sec forwards\nI. Recoil speed: 12 ft/sec backwards, 0.4 ft/sec backwards, 18 ft/sec forwards\nJ. Recoil speed: 5 ft/sec backwards, 0.3 ft/sec backwards, 10 ft/sec forwards\n",
+          "target": "E"
+        },
+        {
+          "game_id": 332,
+          "input": "Question:\nCalculate $\\Delta G$ for the isothermal expansion of $2.25 \\mathrm{~mol}$ of an ideal gas at $325 \\mathrm{~K}$ from an initial pressure of 12.0 bar to a final pressure of 2.5 bar.\nOptions:\nA. -7.89 $10^3 \\mathrm{~J}$\nB. -12.75 $10^3 \\mathrm{~J}$\nC. -8.01 $10^3 \\mathrm{~J}$\nD. -10.02 $10^3 \\mathrm{~J}$\nE. -11.32 $10^3 \\mathrm{~J}$\nF. -5.89 $10^3 \\mathrm{~J}$\nG. -6.47 $10^3 \\mathrm{~J}$\nH.  -9.54 $10^3 \\mathrm{~J}$\nI. -10.76 $10^3 \\mathrm{~J}$\nJ. -8.23 $10^3 \\mathrm{~J}$\n",
+          "target": "H"
+        },
+        {
+          "game_id": 362,
+          "input": "Question:\nThe spherical shell of a Van de Graaff generator is to be charged to a potential of 10^6 V. Calculate the minimum radius the shell can have if the dielectric strength of air is 3 \u00d7 10^6 V\\bulletm^-1.\nOptions:\nA. 1m\nB. 1/3m\nC. 2/3m\nD. 3/4m\nE. 2m\nF. 1/5m\nG. 1/4m\nH. 5/3m\nI. 1/6m\nJ. 1/2m\n",
+          "target": "B"
+        },
+        {
+          "game_id": 844,
+          "input": "Question:\nAir consists of a mixture of gas molecules which are constantly moving. Compute the kinetic energy K of a molecule that is moving with a speed of 500 m/s. Assume that the mass of this particle is 4.6 \u00d7 10^-26 kg.\nOptions:\nA. 7.3 \u00d7 10^-26 J\nB. 9.2 \u00d7 10^-21 J\nC. 3.45 \u00d7 10^-21 J\nD. 2.3 \u00d7 10^-21 J\nE. 4.6 \u00d7 10^-26 J\nF. 2.875 \u00d7 10^-20 J\nG. 6.9 \u00d7 10^-22 J\nH. 1.15 \u00d7 10^-19 J\nI. 5.75 \u00d7 10^-21 J\nJ. 1.15 \u00d7 10^-20 J\n",
+          "target": "I"
+        },
+        {
+          "game_id": 50,
+          "input": "Question:\nThe turntable of a record player is accelerated from rest to a speed of 33.3 rpm in 2 sec. What is the angular acceleration?\nOptions:\nA. 1.74 sec^-2\nB. 0.58 sec^-2\nC. 0.87 sec^-2\nD. 3.14 sec^-2\nE. 1.21 sec^-2\nF. 2.35 sec^-2\nG. 4.68 sec^-2\nH. 5.20 sec^-2\nI. 3.48 sec^-2\nJ. 2.92 sec^-2\n",
+          "target": "A"
+        },
+        {
+          "game_id": 367,
+          "input": "Question:\nA train whose speed is 60 mi/hr rounds a curve whose radius of curvature is 484 ft. What is its acceleration?\nOptions:\nA. 18 ft/sec^2\nB. 8 ft/sec^2\nC. 20 ft/sec^2\nD. 14 ft/sec^2\nE. 22 ft/sec^2\nF. 10 ft/sec^2\nG. 26 ft/sec^2\nH. 16 ft/sec^2\nI. 24 ft/sec^2\nJ. 12 ft/sec^2\n",
+          "target": "H"
+        },
+        {
+          "game_id": 680,
+          "input": "Question:\nMercury orbits the sun in about one-fifth of an Earth year. If 1 AU is defined as the distance from the Earth to the sun, what is the approximate distance between Mercury and the sun?\nOptions:\nA. (1/2) AU\nB. (1/4) AU\nC. (1/25) AU\nD. (1/9) AU\nE. (1/5) AU\nF. (1/3) AU\nG. (1/15) AU\nH. (1/7) AU\nI. (1/10) AU\nJ. (1/20) AU\n",
+          "target": "F"
+        },
+        {
+          "game_id": 843,
+          "input": "Question:\nWhat is the force between two positive charges of 100\\mu coulombs and 200\\mu coulombs, respectively, when they are separated a distance of 3 centimeters?\nOptions:\nA. 5 x 10^5nt\nB. 1 x 10^5nt\nC. 7 x 10^5nt\nD. 3 x 10^5nt\nE. 6 x 10^5nt\nF. 4 x 10^5nt\nG. 8 x 10^5nt\nH. 9 x 10^5nt\nI. 1 x 10^6nt\nJ. 2 x 10^5nt\n",
+          "target": "J"
+        },
+        {
+          "game_id": 508,
+          "input": "Question:\nWhen an element ejects a beta particle, the atomic number of that element\nOptions:\nA. reduces by 1\nB. increases by 3\nC. increases by 1\nD. reduces by half\nE. increases by 4\nF. reduces by 2\nG. reduces by 3\nH. doubles\nI. remains the same\nJ. increases by 2\n",
+          "target": "C"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about physics. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_physics",
+        "task_alias": "physics",
+        "process_docs": "utils.process_physics"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about physics. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nSay the pupil of your eye has a diameter of 5 mm and you have a telescope with an aperture of 50 cm. How much more light can the telescope gather than your eye?\nOptions:\nA. 1000 times more\nB. 50 times more\nC. 5000 times more\nD. 500 times more\nE. 10000 times more\nF. 20000 times more\nG. 2000 times more\nH. 100 times more\nI. 10 times more\nJ. N/A\nThe answer is (E)\n\nQuestion:\nWhere do most short-period comets come from and how do we know?\nOptions:\nA. The Kuiper belt; short period comets tend to be in the plane of the solar system just like the Kuiper belt.\nB. The asteroid belt; short period comets tend to come from random directions indicating a spherical distribution of comets called the asteroid belt.\nC. The asteroid belt; short period comets tend to be in the plane of the solar system just like the asteroid belt.\nD. The Oort cloud; short period comets have orbital periods similar to asteroids like Vesta and are found in the plane of the solar system just like the Oort cloud.\nE. The Oort Cloud; short period comets tend to come from random directions indicating a spherical distribution of comets called the Oort Cloud.\nF. The Oort cloud; short period comets tend to be in the plane of the solar system just like the Oort cloud.\nG. The asteroid belt; short period comets have orbital periods similar to asteroids like Vesta and are found in the plane of the solar system just like the asteroid belt.\nH. N/A\nI. N/A\nJ. N/A\nThe answer is (A)\n\nQuestion:\nA refracting telescope consists of two converging lenses separated by 100 cm. The eye-piece lens has a focal length of 20 cm. The angular magnification of the telescope is\nOptions:\nA. 10\nB. 40\nC. 6\nD. 25\nE. 15\nF. 50\nG. 30\nH. 4\nI. 5\nJ. 20\nThe answer is (H)\n\nQuestion:\nColors in a soap bubble result from light\nOptions:\nA. dispersion\nB. deflection\nC. refraction\nD. reflection\nE. interference\nF. converted to a different frequency\nG. polarization\nH. absorption\nI. diffraction\nJ. transmission\nThe answer is (E)\n\nQuestion:\nA microwave oven is connected to an outlet, 120 V, and draws a current of 2 amps. At what rate is energy being used by the microwave oven?\nOptions:\nA. 240 W\nB. 120 W\nC. 10 W\nD. 480 W\nE. 360 W\nF. 200 W\nG. 30 W\nH. 150 W\nI. 60 W\nJ. 300 W\nThe answer is (A)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_biology",
+      "game_instances": [
+        {
+          "game_id": 273,
+          "input": "Question:\nWhat are some advantages of doing genetics in bacteria and yeastinstead of in larger organisms (i.e.,multicellular eukaryotes)?\nOptions:\nA. Bacteria and yeast are more complex organisms.\nB. Bacteria and yeast have longer life cycles, allowing for extended study over time.\nC. Bacteria and yeast can perform more complex behaviors than multicellular organisms, which makes them better for study.\nD. Bacteria and yeast have larger genomes, providing more genetic material to work with.\nE. Bacteria and yeast are less susceptible to genetic diseases, making them more stable for experimentation.\nF. Bacteria and yeast have a slower rate of mutation.\nG. Bacteria and yeast do not require ethical considerations when used in experiments.\nH. Bacteria and yeast grow quickly, inexpensively, in a small space and have a high probability of mutation. Prokaryotes are haploid, making single inactivation more likely. Yeast are eukaryotic, closely related to multicellular animals and plants, and can be grown in either the haploid or diploid state.\nI. Bacteria and yeast have a lower rate of genetic recombination, making genetic mapping simpler.\nJ. Bacteria and yeast are easier to maintain in a lab.\n",
+          "target": "H"
+        },
+        {
+          "game_id": 163,
+          "input": "Question:\nWe know that radiation and chemicals can cause cancer. Can viruses be a cause of cancer?\nOptions:\nA. Only radiation can cause cancer\nB. Only chemicals can cause cancer\nC. Only inherited genetics can cause cancer\nD. Only lifestyle factors such as diet and exercise can cause cancer\nE. Yes, viruses can be a cause of cancer\nF. No, viruses cannot cause cancer\nG. Viruses can increase the risk but are not a direct cause of cancer\nH. Yes, but only bacteria, not viruses, can be a cause of cancer\n",
+          "target": "E"
+        },
+        {
+          "game_id": 110,
+          "input": "Question:\nWhich of the following statements about lipids is correct?\nOptions:\nA. Lipids are the primary source of energy for cellular processes.\nB. Lipids are soluble in water but insoluble in organic solvents.\nC. Phospholipids are water soluble.\nD. Steroids are lipids that consist of glycerol and fatty acids.\nE. Lipids make up most cell surface receptors.\nF. Lipids are primarily composed of proteins and carbohydrates.\nG. All lipids have a similar structure and function in the body.\nH. Lipids are incapable of crossing cell membranes.\nI. All lipids are solid at room temperature.\nJ. Unsaturated fatty acids are linked to heart disease.\n",
+          "target": "C"
+        },
+        {
+          "game_id": 391,
+          "input": "Question:\nWhich of the following is a biotic factor that could affect the growth rate of a population?\nOptions:\nA. Flash flood\nB. Tsunami\nC. Sudden reduction in the animal food resource\nD. Destruction of the ozone layer\nE. Drought\nF. Increase in the plant food resource\nG. Earthquake\nH. Solar radiation\nI. Volcanic eruption\nJ. Glacier melting\n",
+          "target": "D"
+        },
+        {
+          "game_id": 39,
+          "input": "Question:\nWhy are the elements carbon, hydrogen, oxygen, and nitrogen (C, H, O, N) of immense importance in living matter ?\nOptions:\nA. These elements are the only elements that can form gases at room temperature\nB. These elements are abundant in living organisms, can readily form covalent bonds and are the lightest elements that can form such bonds.\nC. These elements are the primary sources of energy for living organisms\nD. These elements are radioactive, which is vital for cellular processes\nE. These elements are capable of undergoing sublimation, which is crucial for life functions\nF. These elements are rare and thus more valuable\nG. These elements give color to living organisms\nH. These elements can only be found in DNA and proteins\nI. These elements are the heaviest elements in living organisms\nJ. These elements have magnetic properties that are essential for life\n",
+          "target": "B"
+        },
+        {
+          "game_id": 481,
+          "input": "Question:\nIn an animal with a haploid number of 10, how many chromosomesare present in (a)aspermatogonium? (b)inthe first polar body? (c)inthe second polar body? (d)inthe secondaryoocyte? Assume that the animal is diploid.\nOptions:\nA. 20 chromosomes, 30 chromatids, 10 chromosomes, 15 chromatids\nB. 20 chromosomes, 40 chromatids, 20 chromosomes, 40 chromatids\nC. 10 chromosomes, 10 chromatids, 20 chromosomes, 10 chromatids\nD. 20 chromosomes, 10 chromatids, 20 chromosomes, 10 chromatids\nE. 10 chromosomes, 5 chromatids, 10 chromosomes, 5 chromatids\nF. 15 chromosomes, 15 chromatids, 15 chromosomes, 15 chromatids\nG. 20 chromosomes, 20 chromatids, 10 chromosomes, 20 chromatids\nH. 10 chromosomes, 20 chromatids, 10 chromosomes, 20 chromatids\nI. 20 chromosomes, 10 chromatids, 10 chromosomes, 5 chromatids\nJ. 5 chromosomes, 10 chromatids, 5 chromosomes, 10 chromatids\n",
+          "target": "G"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about biology. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_biology",
+        "task_alias": "biology",
+        "process_docs": "utils.process_biology"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about biology. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nWhich of the following represents an accurate statement concerning arthropods?\nOptions:\nA. They possess an exoskeleton composed primarily of peptidoglycan.\nB. They possess an open circulatory system with a dorsal heart.\nC. They are members of a biologically unsuccessful phylum incapable of exploiting diverse habitats and nutrition sources.\nD. They lack paired, jointed appendages.\nE. N/A\nF. N/A\nG. N/A\nH. N/A\nI. N/A\nJ. N/A\nThe answer is (B)\n\nQuestion:\nIn a given population, 1 out of every 400 people has a cancer caused by a completely recessive allele, b. Assuming the population is in Hardy-Weinberg equilibrium, which of the following is the expected proportion of individuals who carry the b allele but are not expected to develop the cancer?\nOptions:\nA. 19/400\nB. 1/400\nC. 40/400\nD. 38/400\nE. 2/400\nF. 1/200\nG. 20/400\nH. 50/400\nI. N/A\nJ. N/A\nThe answer is (D)\n\nQuestion:\nA mutation in a bacterial enzyme changed a previously polar amino acid into a nonpolar amino acid. This amino acid was located at a site distant from the enzyme\u2019s active site. How might this mutation alter the enzyme\u2019s substrate specificity?\nOptions:\nA. By changing the enzyme\u2019s pH optimum\nB. By changing the enzyme's molecular weight\nC. An amino acid change away from the active site increases the enzyme's substrate specificity.\nD. By changing the shape of the protein\nE. By changing the enzyme's temperature optimum\nF. By altering the enzyme's ability to be denatured\nG. By changing the enzyme\u2019s location in the cell\nH. By changing the enzyme's color\nI. An amino acid change away from the active site cannot alter the enzyme\u2019s substrate specificity.\nJ. By altering the enzyme's rate of reaction\nThe answer is (D)\n\nQuestion:\nWhich of the following is not a way to form recombinant DNA?\nOptions:\nA. Translation\nB. Conjugation\nC. Specialized transduction\nD. Transformation\nE. N/A\nF. N/A\nG. N/A\nH. N/A\nI. N/A\nJ. N/A\nThe answer is (A)\n\nQuestion:\nWhich of the following is not known to be involved in the control of cell division?\nOptions:\nA. Microtubules\nB. Checkpoints\nC. DNA polymerase\nD. Centrosomes\nE. Cyclins\nF. Mitochondria\nG. Protein kinases\nH. Fibroblast cells\nI. N/A\nJ. N/A\nThe answer is (H)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_computer_science",
+      "game_instances": [
+        {
+          "game_id": 113,
+          "input": "Question:\nDefine the following terms, making clear the distinctions between them:a) Bitb) Bytec) Word.\nOptions:\nA. Byte is a collection of 4 bits, Bit is the smallest unit of storage, Word is a fixed size of bytes determined by the operating system.\nB. Bit is a group of 8 units, Byte is dependent upon the hardware architecture, Word is the most elementary data unit.\nC. Bit is a variable-length unit of data, Byte is a standard size across all platforms, Word is the most complex unit of data.\nD. Byte is a group of 10 bits, Bit is the smallest unit of measure, Word can be any number of bytes as specified by the user.\nE. Byte is the elementary data unit, Bit is a group of 8 bytes, Word is dependent on the software.\nF. Word is a collection of 16 bits, Bit is the largest unit of data, Byte is a fixed size of words.\nG. Word is the elementary data unit, Byte is a group of 8 bits, Bit is dependent on the hardware architecture.\nH. Word is a group of 1024 bits, Bit is the smallest data unit but is not used in storage, Byte is a group of 4 or 8 bits depending on the processor.\nI. Bit is a group of 2 bytes, Byte is the standard unit of data transfer, Word is the amount of data that a processor can handle at one time.\nJ. Bit is the most elementary data unit, Byte is a group of 8 bits, Word is dependent upon the hardware architecture of the computer.\n",
+          "target": "J"
+        },
+        {
+          "game_id": 102,
+          "input": "Question:\nWhich of the following is not an example of presentation layer issues?\nOptions:\nA. Poor handling of unexpected input can lead to the execution of arbitrary instructions\nB. Unintentional or ill-directed use of superficially supplied input\nC. Cryptographic flaws in the system may get exploited to evade privacy\nD. Weak or non-existent authentication mechanisms\n",
+          "target": "D"
+        },
+        {
+          "game_id": 235,
+          "input": "Question:\nA starvation-free job-scheduling policy guarantees that no job waits indefinitely for service. Which of the following job-scheduling policies is starvation-free?\nOptions:\nA. Youngest job first\nB. Least frequently used\nC. Round-robin\nD. Most recently used\nE. Longest job first\nF. Random job selection\nG. Priority queuing\nH. Shortest job first\n",
+          "target": "C"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about computer science. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_computer_science",
+        "task_alias": "computer science",
+        "process_docs": "utils.process_computer_science"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about computer science. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nA certain pipelined RISC machine has 8 general-purpose registers R0, R1, . . . , R7 and supports the following operations:\nADD Rs1, Rs2, Rd (Add Rs1 to Rs2 and put the sum in Rd)\nMUL Rs1, Rs2, Rd (Multiply Rs1 by Rs2 and put the product in Rd)\nAn operation normally takes one cycle; however, an operation takes two cycles if it produces a result required by the immediately following operation in an operation sequence.\nConsider the expression AB + ABC + BC, where variables A, B, C are located in registers R0, R1, R2. If the contents of these three registers must not be modified, what is the minimum number of clock cycles required for an operation sequence that computes the value of AB + ABC + BC?\nOptions:\nA. 10\nB. 6\nC. 9\nD. 5\nE. 12\nF. 4\nG. 7\nH. 8\nI. N/A\nJ. N/A\nThe answer is (B)\n\nQuestion:\nA compiler generates code for the following assignment statement.\nG := (A + B) * C - (D + E) * F\nThe target machine has a single accumulator and a single-address instruction set consisting of instructions load, store, add, subtract, and multiply. For the arithmetic operations, the left operand is taken from the accumulator and the result appears in the accumulator. The smallest possible number of instructions in the resulting code is\nOptions:\nA. 7\nB. 5\nC. 12\nD. 4\nE. 11\nF. 6\nG. 8\nH. 10\nI. 9\nJ. 3\nThe answer is (I)\n\nQuestion:\nSHA-1 has a message digest of\nOptions:\nA. 628 bits\nB. 780 bits\nC. 160 bits\nD. 256 bits\nE. 2048 bits\nF. 820 bits\nG. 128 bits\nH. 512 bits\nI. 1024 bits\nJ. 64 bits\nThe answer is (C)\n\nQuestion:\n_____________ can modify data on your system \u2013 so that your system doesn\u2019t run correctly or you can no longer access specific data, or it may even ask for ransom in order to give your access.\nOptions:\nA. Email Trojans\nB. Backdoor Trojans\nC. Rootkit Trojans\nD. Banking Trojans\nE. Trojan-Downloader\nF. Spyware Trojans\nG. Network Trojans\nH. Worm Trojans\nI. Ransom Trojan\nJ. IM \u2013 Trojans\nThe answer is (I)\n\nQuestion:\nIn the program below, the initial value of X is 5 and the initial value of Y is 10.\nIF (X < 0){\n DISPLAY (\"Foxtrot\")\n} ELSE {\n IF (X > Y){\n  DISPLAY (\"Hotel\")\n } ELSE {\n  IF (Y > 0){\n   DISPLAY (\"November\")\n  } ELSE {\n   DISPLAY (\"Yankee\")\n  }\n }\n}\nWhat is displayed as a result of running the program?\nOptions:\nA. November\nB. Foxtrot\nC. Zulu\nD. Alpha\nE. Charlie\nF. Bravo\nG. Yankee\nH. Echo\nI. Hotel\nJ. Delta\nThe answer is (A)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_law",
+      "game_instances": [
+        {
+          "game_id": 716,
+          "input": "Question:\nThere is a voting law that is going to be reviewed by the court. If the law is upheld, what must be true?\nOptions:\nA. The law is necessary for a legitimate government purpose.\nB. The law is rationally related to an important government purpose.\nC. The law is unnecessarily related to a compelling government purpose.\nD. The law is substantially related to an important government purpose.\nE. The law is necessary to achieve a compelling government purpose.\nF. The law is moderately related to a compelling government purpose.\nG. The law is rationally related to a legitimate government purpose.\nH. The law is vaguely related to a significant government purpose.\nI. The law is substantially unrelated to any government purpose.\nJ. The law is substantially related to a legitimate government purpose.\n",
+          "target": "E"
+        },
+        {
+          "game_id": 625,
+          "input": "Question:\nAfter having several drinks in a bar, a man and his friend drove by a large home with its lights out. With the man sitting in the passenger seat, the friend pulled the car over. They were feeling drunk and aggressive from the drinks. After discussing it, they decided it was a safe bet to enter the home and see what they could take. They broke in and took several bags of jewelry. While driving away, they were stopped and arrested for burglary. The passenger used the defense that he was too intoxicated to form the specific intent to enter the home for the purpose of committing a felony therein. Do the facts described here indicate that the defense will likely prevail at a trial on the merits?\nOptions:\nA. Yes, because the alcohol impaired his judgment, making it impossible for him to make a rational decision.\nB. No, because intoxication is never a defense to the commission of a felony.\nC. Yes, because the feeling of being drunk and aggressive were not his natural mental state and therefore mens rea was defeated.\nD. No, because they had the intent to commit the crime before they even entered the home.\nE. Yes, because he was in fact too intoxicated to form the intent needed to prove burglary.\nF. Yes, because he was the passenger and not the driver, thus was not directly involved in the act.\nG. No, because the act of discussing and deciding to commit the act shows intent, regardless of intoxication.\nH. No, because being intoxicated does not diminish the fact that a felony was committed.\nI. No, because the facts indicate that he wasn't too intoxicated to form the necessary intent for burglary.\nJ. Yes, because he was under the influence of alcohol and therefore cannot be held responsible for his actions.\n",
+          "target": "I"
+        },
+        {
+          "game_id": 466,
+          "input": "Question:\nA bank teller was on trial for embezzlement. The prosecution offered into evidence the bank's daily deposit and tally records for a six month period, to show that total deposits did not reconcile with the total funds received and recorded. The prosecution tried to enter the records as exhibits without certification or the testimony of an official bank custodian of records. Defense counsel objected on the basis of hearsay. Is the court likely to order the evidence inadmissible without further proof of authenticity?\nOptions:\nA. Yes, because a qualified bank employee must first authenticate them in person or provide a certification in compliance with the rules.\nB. No, because the records are considered public documents and do not need further authentication.\nC. No, because the defense did not provide any counter evidence to dispute the records.\nD. Yes, because the prosecution must also prove the bank teller had access to manipulate these records.\nE. Yes, because bank records are not included in the hearsay exception for business records.\nF. No, because the records are self-authenticating and do not require additional proof of authenticity.\nG. No, because business records kept on a regular basis are allowed as an exception to the hearsay rule and no further qualification is required.\nH. Yes, because the prosecution failed to provide a chain of custody for the records.\nI. No, because the trial court has wide discretion in allowing documentary evidence that is regularly kept by a business.\nJ. Yes, because the records must be certified by a public official, not just a bank employee.\n",
+          "target": "A"
+        },
+        {
+          "game_id": 456,
+          "input": "Question:\nA federal statute governing food stamp fraud makes it a crime to knowingly acquire or possess food coupons in a manner not authorized by the statute or the regulations. A grocery store owner purchased discounted food stamps from an undercover agent, and was arrested for violating the statute. At trial, the store owner claimed that the government must prove that he had the specific intent to commit a crime. The government contended it only had to show that he knowingly acquired food stamps, and that this was not a specific intent crime. The trial judge adopted the government's interpretation, and the store owner was convicted. His appeal made it all the way to the U.S. Supreme Court. Will the Court likely reverse or affirm the conviction and why?\nOptions:\nA. Conviction reversed, because a store owner is exempt from the statute, which applies only to consumers who use food stamps illegally.\nB. Conviction affirmed, because the statute does not require the government to prove that the defendant knew his actions were in violation of the law.\nC. Conviction affirmed, because the meaning of knowingly does not connote that there must be specific knowledge by the actor that what he is doing is illegal.\nD. Conviction reversed, because the statute does not clearly define 'knowingly' and thus is too vague to enforce.\nE. Conviction affirmed, because the modern trend of the law is to recognize criminal liability without mens rea or specific criminal intent.\nF. Conviction reversed, because the law is unfairly biased against store owners who might unknowingly purchase discounted food stamps.\nG. Conviction affirmed, because the statute only requires proof of intent to commit the act, not intent to violate the law.\nH. Conviction reversed, because the better interpretation is that mens rea is included, and the owner must know his conduct is in violation of the criminal laws.\nI. Conviction reversed, because the government failed to prove the store owner was aware that his actions were illegal.\n",
+          "target": "H"
+        },
+        {
+          "game_id": 48,
+          "input": "Question:\nThe owner of a large family estate decided to sell the property. The owner entered into a valid written brokerage agreement with a real estate broker. According to terms of the agreement, the broker promised to undertake best efforts to sell the estate for a purchase price of not less than $1,250,000. The contract also provided that the broker was to be paid a commission of 5 percent on the gross sale price following the consummation of the sale and transfer of title. The brokerage agreement was effective for a period of two months. One month later, the broker notified the owner that she had found a buyer who wanted to purchase the property for $1,500,000. That same day, the broker handed the owner a real estate sales contract, signed by the buyer, in which the buyer agreed to pay $1,500,000 for the purchase of the estate. The owner investigated the buyer and discovered he had sufficient funds to purchase the estate. However, the owner changed his mind and decided not to sell the property. He told the broker that he would not sign the agreement. In addition, the owner told the broker that he was canceling their brokerage agreement because he was withdrawing the estate from the market. The owner also refused to pay the broker any commission. If the broker now sues the owner for breach of contract, which of the following, if anything, is the broker's proper measure of recovery?\nOptions:\nA. $75,000, or the commission equivalent of 5 percent on the sale of the property for$1,500,000, plus punitive damages for breach of contract.\nB. Nothing, because the owner has the right to withdraw the property from the market at any time.\nC. $75,000, or the commission equivalent of 5 percent on the sale of the property for$1,500,000, since all conditions precedent to the owner's duty to pay the commission were fulfilled when the broker produced a buyer who was ready, willing and able to perform.\nD. The broker can seek recovery for any expenses incurred during the process of finding a buyer.\nE. Nothing, because a condition precedent, namely the consummation of the sale and transfer of title, has failed to occur.\nF. $75,000, or the commission equivalent of 5 percent on the sale of the property for$1,500,000, since the consummation condition to the owner's duty to pay the commission was excused by the owner's refusal without cause to accept the buyer's offer and perform the land sale contract.\nG. Quantum meruit for the reasonable value for services rendered in obtaining a buyer for the property.\nH. $75,000, or the commission equivalent of 5 percent on the sale of the property for$1,500,000, since the broker had obtained a buyer who was willing and able to purchase at a price higher than the minimum set in the brokerage agreement.\nI. $62,500, or the commission equivalent of 5 percent on the original minimum sale price of the property for $1,250,000, since the broker had fulfilled her duty by finding a potential buyer.\nJ. A court injunction forcing the owner to complete the sale, thus entitling the broker to the full commission.\n",
+          "target": "F"
+        },
+        {
+          "game_id": 395,
+          "input": "Question:\nAn employee wdrked as a delivery person for a drugstore. As part of the employee's duties and responsibilities, he would regularly deliver prescriptions and other items (such as toiletries, cosmetics, vitamins, and gift products) to customers. One afternoon while the employee was on duty, he remembered that it was his girlfriend's birthday. He went ahead and bought her a bottle of perfume from the pharmacy's cosmetics department. The employee paid the full price of $79. 95 for the perfume and had the perfume gift wrapped. He then drove to the girlfriend's house in the company van to personally deliver the birthday present. This trip took place during the employee's regular working hours while he was en route to make another delivery from his van. As he was traveling to the girlfriend's house, he was in such a hurry that he drove through a red light and collided with a vehicle owned and operated by a driver. The driver, who had entered the intersection on the green light, tried unsuccessfully to swerve and stop but was unable to avoid the employee's vehicle. The driver was injured in the accident, which caused extensive damage to both vehicles. If the driver brings suit against the drugstore to recover damages arising from the accident, the driver will probably\nOptions:\nA. prevail, because the employee was using the company van at the time of the accident.\nB. not prevail, because the employee paid for the perfume with his own money.\nC. prevail, because the driver had the right of way at the time of the accident.\nD. prevail, because the employee was under the control and direction of the drugstore at the time of the accident.\nE. not prevail, because the employee was personally responsible for the accident.\nF. not prevail, because the drugstore did not directly cause the accident.\nG. not prevail, because the drugstore was not negligent in hiring the employee.\nH. prevail, because the employee was on duty at the time of the accident.\nI. not prevail, because the employee was acting outside the scope of the employment relationship at the time of the accident.\nJ. prevail, because the employee paid for the perfume.\n",
+          "target": "D"
+        },
+        {
+          "game_id": 816,
+          "input": "Question:\nBuyer purchases an item from a merchant that turns out to be unfit, defective and unsafe for its ordinary purposes. Assuming no other warranties, which of the following can be invoked by the buyer? \nOptions:\nA. Warranty of quality\nB. Warranty of safety\nC. Warranty of non-infringement\nD. Warranty of suitability\nE. Warranty of durability\nF. Express warranty\nG. Warranty of title\nH. Warranty of fitness for a particular purpose\nI. Implied warranty\nJ. Warranty of merchantability\n",
+          "target": "J"
+        },
+        {
+          "game_id": 672,
+          "input": "Question:\nA defendant was indicted and arrested for bank robbery. The defendant had an initial appearance before a magistrate judge in which he was notified of the charges and told that counsel would be appointed for him the next day. The police then required the defendant to participate with other prisoners in a lineup in which each person had to wear a white T-shirt and say, \"Put your hands in the air.\" At the lineup, witnesses to the bank robbery identified the defendant as the bank robber. The next day, the defendant was arraigned on the charges. The defendant argues that his Sixth Amendment right to counsel was violated when he was denied counsel at two critical stages of the proceeding: his initial appearance in court before the magistrate initial appearance in court before the magistrate judge and the lineup identification. Was the defendant's Sixth Amendment right to counsel violated?\nOptions:\nA. No, because the defendant was not yet formally charged.\nB. No.\nC. Yes, based on the denial of counsel at both stages of the proceeding.\nD. Yes, but only if the defendant specifically requested counsel at both stages.\nE. No, because the Sixth Amendment right to counsel does not apply to initial appearances or lineups.\nF. Yes, but only because the defendant was not provided a lawyer immediately after arrest.\nG. Yes, but only if the defendant could not afford his own lawyer.\nH. Yes, based only on the denial of counsel at the initial appearance.\nI. No, because the defendant was provided counsel before the arraignment.\nJ. Yes, based only on the denial of counsel at the lineup.\n",
+          "target": "J"
+        },
+        {
+          "game_id": 570,
+          "input": "Question:\nA women's action group attempted for many months, unsuccessfully, to reach an agreement with the local professional men's club to admit women to membership. The women's group instituted a suit for a declaratory judgment in federal court to determine whether the men's club was subject to the state's anti-discrimination act. Prior to the elections for city officials, four members of the women's group were sent to picket the offices of the mayor and district attorney, both prominent members of the men's club. Two members walked outside the front of the mayor's office building, carrying signs that read, \"The mayor is supposed to serve all the people but his lunch club is for men ONLY. So don't vote for him. \" The other two pickets walked outside the rear of the district attorney's office building, carrying similar signs, telling the public not to vote for him. This picketing was carried on from 9 A. M. to 5 P. M. The same day, two more pickets were assigned to carry identical signs in front of the mayor's official residence. Two pickets also carried duplicate signs in front of the district attorney's suburban home during the early evening hours. The picketing at all sites was held peacefully without any disturbance. The relevant city ordinances concerning picketing read as follows:\"Section 201. No picketing shall be permitted inside of, or on any sidewalk or street immediately adjacent or contiguous to, city hall, without express permission of the mayor. Applications for such permission shall be filed at least three days before such picketing is intended to begin and shall state the purpose, place, and time of the proposed picketing. Section 202. It shall be unlawful for any person to engage in picketing before or about the residence of an individual. Nothing herein shall be deemed to prohibit the holding of a meeting or assembly on any premises used for the discussion of subjects of general public interest. \"The federal district court will most likely avoid making a decision on the merits of the suit for declaratory judgment because\nOptions:\nA. the women's group lacks standing.\nB. the women's group has not exhausted all other legal remedies.\nC. the federal court does not have jurisdiction over state laws.\nD. the men's club is not a public entity.\nE. the women's group did not obtain the mayor's permission for picketing.\nF. the picketing does not violate the city ordinances.\nG. the relief sought is essentially for an advisory opinion.\nH. there is no case or controversy.\nI. the case lacks adequate ripeness.\nJ. the picketing was peaceful and did not cause any disturbance.\n",
+          "target": "G"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about law. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_law",
+        "task_alias": "law",
+        "process_docs": "utils.process_law"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about law. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nWhat is the judge ad hoc?\nOptions:\nA. Judge ad hoc is the president of the ICJ\nB. Judge ad hoc is a temporary judge appointed for a specific period of time\nC. Judge ad hoc is the judge that each party will always nominate in every contentious case\nD. Judge ad hoc is the member of the bench of the ICJ with a casting vote\nE. Judge ad hoc is a judge who is nominated by the parties involved in a contentious case, irrespective of their nationality\nF. Judge ad hoc is a judge who decides on the admissibility of cases before the ICJ\nG. Judge ad hoc is a judge appointed by the Security Council of the United Nations\nH. Judge ad hoc is a surrogate judge, in case a judge is disqualified or passes away\nI. If a party to a contentious case before the ICJ does not have a national sitting as judge, it is entitled to nominate someone as a judge solely for that case, with the title of judge ad hoc\nJ. N/A\nThe answer is (I)\n\nQuestion:\nFunctions of the law include all but which of the following?\nOptions:\nA. defining the limits of government power\nB. regulating the use of public spaces\nC. keeping the peace\nD. maximizing individual freedom\nE. maintaining order and stability\nF. preventing environmental degradation\nG. providing a basis for compromise\nH. promoting social justice\nI. promoting the principles of the free enterprise system\nJ. encouraging economic growth\nThe answer is (I)\n\nQuestion:\nThe ________ School of jurisprudence postulates that the law is based on what is \"correct.\"\nOptions:\nA. Legal Pragmatism\nB. Legal Formalism\nC. Comparative\nD. Analytical\nE. Sociological\nF. Historical\nG. Critical Legal Studies\nH. Realist\nI. Positivist\nJ. Natural Law\nThe answer is (J)\n\nQuestion:\nWhich word best summarizes Weber's explanation of the development of formally rational law?\nOptions:\nA. Socialism.\nB. Legitimacy.\nC. Authority.\nD. Democracy.\nE. Bureaucracy.\nF. Conflict.\nG. Capitalism.\nH. Charisma.\nI. Co-operation.\nJ. Tradition.\nThe answer is (G)\n\nQuestion:\nA state has recently enacted a statute prohibiting the disposal of any nuclear wastes within the state. This law does not contravene or conflict with any federal statutes. A man operates a company in the state that is engaged in the disposal of nuclear wastes. Subsequent to the passage of the state statute, the man, not yet aware of the new law, entered into contracts with many out-of-state firms to dispose of their nuclear wastes in the state. On account of this new law, however, the man will be unable to perform these contracts. Assume that the man has standing to challenge this state law. Which of the following presents his strongest constitutional grounds to challenge the state law prohibiting the disposal of nuclear wastes within the state?\nOptions:\nA. The second amendment - the right to bear arms.\nB. The due process clause of the Fourteenth Amendment.\nC. The tenth amendment - powers not delegated to the United States by the Constitution.\nD. The first amendment - freedom of speech.\nE. The privileges and immunities clause of Article IV, Section 2.\nF. The commerce clause.\nG. The sixth amendment - right to a fair trial.\nH. The eighth amendment - prohibition of cruel and unusual punishment.\nI. The equal protection clause of the Fourteenth Amendment.\nJ. N/A\nThe answer is (F)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_philosophy",
+      "game_instances": [
+        {
+          "game_id": 442,
+          "input": "Question:\n Select the best translation into predicate logic: Not all lobsters are red.\nOptions:\nA. ~(\u2200x)(Lx \u2283 Rx)\nB. (\u2200x)(~Lx \u2022 Rx)\nC. (\u2200x)(Lx \u2283 ~Rx)\nD. (\u2203x)(~Lx \u2022 Rx)\nE. ~(\u2200x)(Lx \u2022 Rx)\nF. (\u2203x)(Lx \u2022 ~Rx)\nG. ~(\u2203x)(Lx \u2022 Rx)\nH. (\u2203x)(Lx \u2283 ~Rx)\nI. ~(\u2200x)(~Lx \u2283 Rx)\nJ. ~(\u2203x)(Lx \u2283 Rx)\n",
+          "target": "A"
+        },
+        {
+          "game_id": 35,
+          "input": "Question:\nAristotle claims that:\nOptions:\nA. vice is in our power, but virtue is not.\nB. virtue is in our power, and so is vice.\nC. vice is in our power, and so is virtue.\nD. both virtue and vice are not in our power.\nE. virtue is in our power, but vice is not.\nF. neither virtue nor vice is in our power.\nG. neither virtue nor vice are within our control.\nH. virtue is not in our power, but vice is.\nI. virtue is in our power, but vice is within our control.\nJ. vice is in our power, but virtue is within our control.\n",
+          "target": "B"
+        },
+        {
+          "game_id": 495,
+          "input": "Question:\nOf the two versions of the principle that Singer considers:\nOptions:\nA. he considers the stronger version to be correct.\nB. he considers the weaker version to be correct.\nC. he proposes a third, completely different principle.\nD. he argues that the weaker version is stronger.\nE. he claims that they are equivalent.\nF. he supports both the stronger and the weaker versions.\nG. he suggests that the principles are contradictory.\nH. he does not distinguish between the two principles.\nI. he states that both principles are incorrect.\nJ. he ends up rejecting them both.\n",
+          "target": "A"
+        },
+        {
+          "game_id": 395,
+          "input": "Question:\nAccording to Anscombe, \u201cmoral obligation\u201d currently signifies:\nOptions:\nA. the beliefs of a certain culture.\nB. the laws of a country.\nC. the thoughts of an influential person.\nD. the commands of God.\nE. the feelings of an individual.\nF. the desires of a community.\nG. no real concept at all.\nH. the teachings of philosophy.\nI. the norms of a society.\nJ. the rules of a religious institution.\n",
+          "target": "G"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about philosophy. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_philosophy",
+        "task_alias": "philosophy",
+        "process_docs": "utils.process_philosophy"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about philosophy. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nWhich of the given formulas of PL is the best symbolization of the following sentence?\nTurtles live long lives and are happy creatures, unless they are injured.\nOptions:\nA. (L \u2022 H) \u2261 I\nB. (L \u2022 H) \u2228 I\nC. L \u2022 (H \u2228 I)\nD. L \u2022 (H \u2283 R).\nE. N/A\nF. N/A\nG. N/A\nH. N/A\nI. N/A\nJ. N/A\nThe answer is (B)\n\nQuestion:\nSelect the best translation into predicate logic.George borrows Hector's lawnmower. (g: George; h: Hector; l: Hector's lawnmower; Bxyx: x borrows y from z).\nOptions:\nA. Bhgh\nB. Bggh\nC. Bhlh\nD. Bghl\nE. Bhlg\nF. Blhg\nG. Bllg\nH. Blgh\nI. Bhhg\nJ. Bglh\nThe answer is (J)\n\nQuestion:\nThe study of reality in the broadest sense, an inquiry into the elemental nature of the universe and the things in it, is known as _____.\nOptions:\nA. quantum physics\nB. metaphysics\nC. ontology\nD. phenomenology\nE. cosmology\nF. teleology\nG. epistemology\nH. axiology\nI. N/A\nJ. N/A\nThe answer is (B)\n\nQuestion:\nAccording to Moore\u2019s \u201cideal utilitarianism,\u201d the right action is the one that brings about the greatest amount of:\nOptions:\nA. wealth.\nB. virtue.\nC. fairness.\nD. pleasure.\nE. peace.\nF. justice.\nG. happiness.\nH. power.\nI. good.\nJ. knowledge.\nThe answer is (I)\n\nQuestion:\nWhat is the sign of the covenant for Jewish males?\nOptions:\nA. Fasting on Yom Kippur\nB. Lighting Shabbat candles\nC. The rainbow\nD. Circumcision\nE. The Torah\nF. Bar mitzvah\nG. Keeping kosher\nH. Wearing a kippah\nI. A son\nJ. The Star of David\nThe answer is (D)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_engineering",
+      "game_instances": [
+        {
+          "game_id": 285,
+          "input": "Question:\nGiven the transfer function of a two port network H( \\omega ) = \\vertH(\\omega_0)\\vert exp(-j\\textphi). \\omega Derive an expression for output as a function of time, for the single frequency input v_i =cos\\omega_0t. \\omega\nOptions:\nA. |H(\u03c9_0)|cos(2\u03c9_0t - \u03c6)\nB. \u000bertH(\\omega_0)\u000bertcos(\\omega_0t)\nC. |H(\u03c9_0)|exp(-j\u03c9_0t)\nD. \u000bertH(\\omega_0)\u000bertcos(\\omega_0t - \textphi)\nE. \u000bertH(\\omega_0)\u000bertcos(\\omega_0t + \textphi)\nF. |H(\u03c9_0)|exp(j\u03c9_0t)\nG. |H(\u03c9_0)|sin(2\u03c9_0t + \u03c6)\nH. |H(\u03c9_0)|sin(\u03c9_0t - \u03c6)\nI. |H(\u03c9_0)|sin(\u03c9_0t + \u03c6)\nJ. \u000bertH(\\omega_0)\u000bertsin(\\omega_0t - \textphi)\n",
+          "target": "D"
+        },
+        {
+          "game_id": 359,
+          "input": "Question:\nTwo large tanks, each contain a mixture of nitrogen (A) and oxygen(B), but at different concentrations. Tank 1 has 85 molepercent N_2 and 15 mole percent O_2, while tank 2 has 25 mole percent N_2 and 75 mole percent O_2. A tube 1.5 m long with an inside diameter of 0.150 m connects the two tanks. If the pressure is 1atmand the temperature is 0\u00b0C, calculate the rate of diffusion of N_2 between the tanks assuming steady state transfer.\nOptions:\nA. 7.85 \u00d7 10^-8 kgmol/sec\nB. 6.02 \u00d7 10^-9 kgmol/sec\nC. 2.0 \u00d7 10^-9kgmol/ sec\nD. 1.23 \u00d7 10^-5 kgmol/sec\nE. 5.71 \u00d7 10^-7kgmol/ sec\nF. 5.71 \u00d7 10^-9kgmol/ sec\nG. 4.22 \u00d7 10^-7 kgmol/sec\nH. 9.67 \u00d7 10^-10 kgmol/sec\nI. 3.14 \u00d7 10^-6 kgmol/sec\nJ. 1.81 \u00d7 10^-5kgmol/ sec\n",
+          "target": "F"
+        },
+        {
+          "game_id": 656,
+          "input": "Question:\nWater at 57\u00b0C is flowing at a rate of 12 liters/min through a standard (1/2) in. schedule 40 pipe. Calculate the heat transfer coefficient.\nOptions:\nA. 5422.8 W/m^2-\u00b0C\nB. 5622.8 W/m^2-\u00b0C\nC. 5322.8 W/m^2-\u00b0C\nD. 5822.8 W/m^2-\u00b0C\n",
+          "target": "B"
+        },
+        {
+          "game_id": 521,
+          "input": "Question:\nThe probability density of a signal is given by f(x) = K e^-\\vertx\\vertfor \\vertx\\vert < 4 and = 0otherwise (a) What is the step size S if there are four quanti-zation levels. (b) Find the value of the constant K. (c) Assume that there are four quantization levels and that f(x) is not constant over each level. Deter-mine the variance of the quantization error.\nOptions:\nA. Step size: 3; Constant K: 0.5093; Variance: 0.3739\nB. Step size: 2; Constant K: 0.8; Variance: 0.3739\nC. Step size: 2; Constant K: 0.5093; Variance: 0.7\nD. Step size: 2; Constant K: 0.4; Variance: 0.3739\nE. Step size: 1; Constant K: 0.5093; Variance: 0.5\nF. Step size: 2; Constant K: 0.5093; Variance: 0.3739\nG. Step size: 3; Constant K: 0.5093; Variance: 0.5\nH. Step size: 2; Constant K: 0.5093; Variance: 0.5\nI. Step size: 2; Constant K: 0.6; Variance: 0.25\nJ. Step size: 4; Constant K: 0.2; Variance: 0.3739\n",
+          "target": "F"
+        },
+        {
+          "game_id": 409,
+          "input": "Question:\nA 50 V pulse is incident on a 30 ohm load in a line with characteristic resistance of 50 ohms. Find the following a) Incident Current Pulse, b) Reflection Coefficient, c) Reflected Voltage Pulse, d) Reflected Current Pulse, e) Net voltage and current at the load.\nOptions:\nA. Incident Current Pulse: 1 Ampere, Reflection Coefficient: 0, Reflected Voltage Pulse: 0V, Reflected Current Pulse: 0 Amperes, Net voltage at the load: 50V, Net current at the load: 1 Ampere\nB. Incident Current Pulse: 1.1 Ampere, Reflection Coefficient: -0.1, Reflected Voltage Pulse: 5V, Reflected Current Pulse: -0.11 Amperes, Net voltage at the load: 45V, Net current at the load: 1.21 Amperes\nC. Incident Current Pulse: 1.2 Ampere, Reflection Coefficient: 0.2, Reflected Voltage Pulse: 10V, Reflected Current Pulse: 0.24 Amperes, Net voltage at the load: 40V, Net current at the load: 1.44 Amperes\nD. Incident Current Pulse: 2 Amperes, Reflection Coefficient: -0.5, Reflected Voltage Pulse: 15V, Reflected Current Pulse: -0.3 Amperes, Net voltage at the load: 35V, Net current at the load: 1.5 Amperes\nE. Incident Current Pulse: 0.8 Ampere, Reflection Coefficient: -0.4, Reflected Voltage Pulse: 20V, Reflected Current Pulse: -0.32 Amperes, Net voltage at the load: 30V, Net current at the load: 1.12 Amperes\nF. Incident Current Pulse: 0.5 Ampere, Reflection Coefficient: -0.1, Reflected Voltage Pulse: 10V, Reflected Current Pulse: -0.2 Amperes, Net voltage at the load: 40V, Net current at the load: 1 Amperes\nG. Incident Current Pulse: 0.6 Ampere, Reflection Coefficient: -0.2, Reflected Voltage Pulse: 5V, Reflected Current Pulse: -0.1 Amperes, Net voltage at the load: 45V, Net current at the load: 0.7 Amperes\nH. Incident Current Pulse: 1 Ampere, Reflection Coefficient: -0.25, Reflected Voltage Pulse: 12.5V, Reflected Current Pulse: -0.25 Amperes, Net voltage at the load: 37.5V, Net current at the load: 1.25 Amperes\nI. Incident Current Pulse: 0.75 Ampere, Reflection Coefficient: 0.4, Reflected Voltage Pulse: 20V, Reflected Current Pulse: 0.3 Amperes, Net voltage at the load: 30V, Net current at the load: 1.05 Amperes\nJ. Incident Current Pulse: 1.5 Ampere, Reflection Coefficient: -0.3, Reflected Voltage Pulse: 15V, Reflected Current Pulse: -0.35 Amperes, Net voltage at the load: 35V, Net current at the load: 1.35 Amperes\n",
+          "target": "H"
+        },
+        {
+          "game_id": 695,
+          "input": "Question:\nPropane burns in dry 125 percent theoretical air (21% O_2, 79% N_2) and the reaction is given by: C_3H_8 + 5O_2 + 18.8N_2 \\rightarrow 3CO_2 + 4H_2O + 18.8N_2 Calculate the dew point and the mole fractions of the combustionproducts when the air is at 1atmpressure.\nOptions:\nA. Dew Point: 133F, Mole Fractions: CO2: 0.097, H2O: 0.123, O2: 0.042, N2: 0.738\nB. Dew Point: 138F, Mole Fractions: CO2: 0.094, H2O: 0.126, O2: 0.04, N2: 0.74\nC. Dew Point: 110F, Mole Fractions: CO2: 0.1, H2O: 0.14, O2: 0.055, N2: 0.705\nD. Dew Point: 115F, Mole Fractions: CO2: 0.105, H2O: 0.11, O2: 0.06, N2: 0.725\nE. Dew Point: 142F, Mole Fractions: CO2: 0.088, H2O: 0.132, O2: 0.035, N2: 0.745\nF. Dew Point: 125F, Mole Fractions: CO2: 0.092, H2O: 0.117, O2: 0.048, N2: 0.743\nG. Dew Point: 120F, Mole Fractions: CO2: 0.1, H2O: 0.13, O2: 0.05, N2: 0.75\nH. Dew Point: 145F, Mole Fractions: CO2: 0.09, H2O: 0.12, O2: 0.03, N2: 0.76\nI. Dew Point: 150F, Mole Fractions: CO2: 0.085, H2O: 0.135, O2: 0.025, N2: 0.755\nJ. Dew Point: 130F, Mole Fractions: CO2: 0.095, H2O: 0.125, O2: 0.045, N2: 0.735\n",
+          "target": "B"
+        },
+        {
+          "game_id": 863,
+          "input": "Question:\nA three-wire circuit supplies 500 lamps each taking 1/2 ampere; 275 lamps being on one side of the neutral and 225 on the other side, all at a distance of 1,000 feet from a 231- volt three-wire generator. The voltage between the neutral and either outside main is maintained at 115.5 volts at the generator. The outside wires are of No. 0000A.w.g. copper wire and the neutral consists of No. 0 wire. Find the voltage across each set of lamps.\nOptions:\nA. 116 volts across 275 lamps and 122 volts across 225 lamps\nB. 102.5 volts across 275 lamps and 117.5 volts across 225 lamps\nC. 100 volts across 275 lamps and 110 volts across 225 lamps\nD. 137.5 volts across 275 lamps and 112.5 volts across 225 lamps\nE. 108 volts across 275 lamps and 114 volts across 225 lamps\nF. 113 volts across 275 lamps and 117 volts across 225 lamps\nG. 115.5 volts across both sets of lamps\nH. 106.125 volts across 275 lamps and 112.375 volts across 225 lamps\nI. 110 volts across 275 lamps and 120 volts across 225 lamps\nJ. 120 volts across both sets of lamps\n",
+          "target": "H"
+        },
+        {
+          "game_id": 549,
+          "input": "Question:\nThe inductance of linear time-varying inductor is given by L(t) = L_0(t +tanht) and the current through it is given by i (t) =cos\\omegat Find the voltage across this inductor.\nOptions:\nA. U(t) = L_0 (1 - tanht)cos\\omegat + \\omegaL_0 (t - sech^2t)sin\\omegat\nB. U(t) = L_0 (1 + sech^2t)cos\\omegat+ \\omegaL_0 (t +tanht)sin\\omegat\nC. U(t) = L_0 (1 + sech^2t)cos\\omegat- \\omegaL_0 (t +tanht)sin\\omegat\nD. U(t) = L_0 (1 - sech^2t)cos\\omegat- \\omegaL_0 (t +tanht)sin\\omegat\nE. U(t) = -L_0 (1 + sech^2t)sin\\omegat + \\omegaL_0 (t + tanht)cos\\omegat\nF. U(t) = L_0 (1 + tanht)cos\\omegat - \\omegaL_0 (t - sech^2t)sin\\omegat\nG. U(t) = L_0 (1 + tanht)sin\\omegat - \\omegaL_0 (t + sech^2t)cos\\omegat\nH. U(t) = L_0 (1 - sech^2t)sin\\omegat + \\omegaL_0 (t + tanht)cos\\omegat\nI. U(t) = L_0 (2 + tanht)cos\\omegat - \\omegaL_0 sech^2t sin\\omegat\nJ. U(t) = L_0 (1 + sech^2t)sin\\omegat- \\omegaL_0 (t +tanht)cos\\omegat\n",
+          "target": "C"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about engineering. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_engineering",
+        "task_alias": "engineering",
+        "process_docs": "utils.process_engineering"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about engineering. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nA point pole has a strength of 4\u03c0 * 10^-4 weber. The force in newtons on a point pole of 4\u03c0 * 1.5 * 10^-4 weber placed at a distance of 10 cm from it will be\nOptions:\nA. 25 N.\nB. 12.5 N.\nC. 15 N.\nD. 10 N.\nE. 7.5 N.\nF. 20 N.\nG. 5 N.\nH. 3.75 N.\nI. N/A\nJ. N/A\nThe answer is (C)\n\nQuestion:\nThe coil of a moving coil meter has 100 turns, is 40 mm long and 30 mm wide. The control torque is 240*10-6 N-m on full scale. If magnetic flux density is 1Wb/m2 range of meter is\nOptions:\nA. 2 mA.\nB. 5 mA.\nC. 1.5 mA.\nD. 0.5 mA.\nE. 6 mA.\nF. 4 mA.\nG. 3 mA.\nH. 1 mA.\nI. 2.5 mA.\nJ. 3.5 mA.\nThe answer is (A)\n\nQuestion:\nIn an SR latch built from NOR gates, which condition is not allowed\nOptions:\nA. S=0, R=2\nB. S=2, R=2\nC. S=1, R=1\nD. S=1, R=-1\nE. S=1, R=2\nF. S=0, R=0\nG. S=2, R=0\nH. S=1, R=0\nI. S=2, R=1\nJ. S=0, R=1\nThe answer is (C)\n\nQuestion:\nTwo long parallel conductors carry 100 A. If the conductors are separated by 20 mm, the force per meter of length of each conductor will be\nOptions:\nA. 100 N.\nB. 0.01 N.\nC. 10 N.\nD. 0.5 N.\nE. 0.001 N.\nF. 5 N.\nG. 1 N.\nH. 50 N.\nI. 0.1 N.\nJ. 0.0001 N.\nThe answer is (I)\n\nQuestion:\nIn a 2 pole lap winding dc machine , the resistance of one conductor is 2\u03a9 and total number of conductors is 100. Find the total resistance\nOptions:\nA. 50\u03a9\nB. 1\u03a9\nC. 25\u03a9\nD. 200\u03a9\nE. 10\u03a9\nF. 100\u03a9\nG. 500\u03a9\nH. 150\u03a9\nI. 75\u03a9\nJ. 20\u03a9\nThe answer is (A)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_psychology",
+      "game_instances": [
+        {
+          "game_id": 339,
+          "input": "Question:\nResearch on women who have had abortions indicates that\nOptions:\nA. most women regret their decision immediately after the procedure\nB. the experience frequently has serious psychological consequences, usually in the form of guilt and depression\nC. women who have abortions are more likely to have difficulty conceiving in the future\nD. the experience often leads to long-term physical health issues\nE. the psychological consequences are no worse than they are for women who have chosen to continue their pregnancies and give birth\nF. most women who have abortions think no more about the event than they would about having a wisdom tooth removed\nG. subsequent problems in sexual adjustment and in relationships with men are common\nH. women who have abortions are less likely to want children in the future\nI. the majority of women experience severe post-traumatic stress disorder\nJ. most women who have abortions suffer from severe depression and anxiety for years afterward\n",
+          "target": "E"
+        },
+        {
+          "game_id": 28,
+          "input": "Question:\nCertain cross-cultural studies have suggested that six facial expressions are recognized by people of virtually every culture. Which of the following correctly lists these expressions?\nOptions:\nA. Happiness, sadness, desire, repulsion, fear, and surprise\nB. Joy, sorrow, fear, rage, astonishment, and repugnance\nC. Happiness, sadness, anger, loathing, lust, and surprise\nD. Elation, melancholy, panic, ire, stupefaction, and detestation\nE. Glee, gloom, terror, outrage, amazement, and abhorrence\nF. Happiness, sadness, fright, anger, shock, and revulsion\nG. Happiness, sadness, indifference, fright, surprise, and dislike\nH. Delight, despair, dread, fury, wonder, and aversion\nI. Happiness, sadness, fear, wrath, startle, and repulse\nJ. Happiness, sadness, fear, anger, surprise, and disgust\n",
+          "target": "J"
+        },
+        {
+          "game_id": 118,
+          "input": "Question:\nWhat is psychodrama and what is itsrationale ?\nOptions:\nA. Psychodrama is an artistic movement that emphasizes the expression of psychological themes through visual art.\nB. Psychodrama is a form of group therapy in which participants act out their feelings as if they were actors in a play. It is used to stimulate participants to bring forth their feelings and thoughts in a structured form.\nC. Psychodrama is a communication strategy used in business to resolve conflicts.\nD. Psychodrama is a form of physical exercise to improve mental health.\nE. Psychodrama is a solo counseling technique where an individual speaks to an empty chair.\nF. Psychodrama is a method of meditation.\nG. Psychodrama is a psychological disorder.\nH. Psychodrama is a branch of psychoanalysis focused on interpreting dreams.\nI. Psychodrama is a type of theatrical performance.\nJ. Psychodrama is a scientific theory explaining psychological phenomena through dramatic principles.\n",
+          "target": "B"
+        },
+        {
+          "game_id": 267,
+          "input": "Question:\n\"Rosenhan\u2019s research involving \u201cpseudopatients\"\" who were admitted to psychiatric hospitals:\"\nOptions:\nA. showed that the environment in\ufb02uences how a person's behavior is perceived.\nB. demonstrated that all hospitals treat mental health patients in the same way.\nC. showed that pseudopatients were treated better than regular patients.\nD. proved that psychiatric treatment methods are ineffective.\nE. \"showed that \u201ccentral traits\"\" have a greater impact than other traits on impression formation.\"\nF. indicated that the majority of psychiatrists can easily distinguish between real and pseudopatients.\nG. revealed that pseudopatients were always recognized by hospital staff.\n",
+          "target": "A"
+        },
+        {
+          "game_id": 182,
+          "input": "Question:\nWhen a 17-year-old student is failing at school, which society would most likely hold the parents accountable?\nOptions:\nA. Brazilian\nB. English\nC. Indian\nD. United States of America\nE. Japanese\nF. South African\nG. Australian\nH. French\nI. Russian\nJ. Canadian\n",
+          "target": "E"
+        },
+        {
+          "game_id": 594,
+          "input": "Question:\nLight enters the eye through an opening in the\nOptions:\nA. retina.\nB. cornea.\nC. iris.\nD. blind spot.\nE. lens.\nF. vitreous humor.\nG. pupil.\nH. sclera.\nI. optic nerve.\nJ. conjunctiva.\n",
+          "target": "C"
+        },
+        {
+          "game_id": 271,
+          "input": "Question:\nYou are a psychologist in a state/province that grants the right of privileged communication to clients of psychologist. The attorney of the spouse of a client you are seeing requests that you testify in their divorce hearing. What is the most appropriate course of action if divorce is not specifically covered under the privilege law\nOptions:\nA. Share only non-confidential information\nB. Make a determination as to whether or not your testimony would be useful to your client, and testify if you think it would help\nC. Testify but refuse to answer any questions that could violate client confidentiality\nD. Testify\nE. Testify only if subpoenaed by the court\nF. Testify only if you are granted immunity from litigation\nG. Testify only if the attorney provides a compelling argument\nH. Seek advice from a legal professional before making a decision\nI. Refuse to testify under any circumstances\nJ. Refuse to testify unless you get written permission from your clients\n",
+          "target": "J"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about psychology. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_psychology",
+        "task_alias": "psychology",
+        "process_docs": "utils.process_psychology"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about psychology. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nPascale is interested in the processing strategies children use to learn new information. Pascale would best be classified as what type of psychologist?\nOptions:\nA. social\nB. school\nC. sociocultural\nD. forensic\nE. behaviorist\nF. health\nG. clinical\nH. cognitive\nI. psychoanalytic\nJ. developmental\nThe answer is (H)\n\nQuestion:\nAccording to Caplan's model of consultee-centered case consultation, the consultant is primarily interested in\nOptions:\nA. identifying the causes and solutions of the client's presenting problems\nB. establishing a hierarchy of authority to enable effective decision making\nC. ensuring the consultee adheres strictly to a predetermined action plan\nD. proposing multiple alternative solutions for the consultee to choose from\nE. identifying the strengths and weaknesses of the consultee's current approach\nF. presenting a single, well-defined and unambiguous course of action for the consultant to overcome skills deficits\nG. developing a comprehensive treatment plan for the client\nH. identifying and eliminating the causes of the consultee's difficulties in handling a problem\nI. focusing on the consultant's personal growth and development\nJ. focusing on the relationship between the client and the consultee\nThe answer is (H)\n\nQuestion:\nAccording to the Individuals with Disabilities Education Improvement Act, which of the following must an educational agency do before it changes the educational placement of a student with a disability?\nOptions:\nA. Notify the parents in writing\nB. Obtain the child's consent\nC. Obtain a court order\nD. Conduct a new evaluation of the child's disability\nE. Discuss with the child's psychologist\nF. Give the child a trial period in the new environment\nG. Obtain parental consent\nH. Notify the local education authority\nI. Arrange a meeting with all teachers and administrators\nJ. Obtain school board approval\nThe answer is (A)\n\nQuestion:\nAni believes that her attitudes and behavior play a central role in what happens to her. Such a belief is likely to be associated with\nOptions:\nA. low self-esteem.\nB. a strong id.\nC. a high level of anxiety.\nD. a strong superego.\nE. high levels of self-consciousness.\nF. an external locus of control.\nG. an inferiority complex.\nH. a low level of self-awareness.\nI. low self-efficacy.\nJ. an internal locus of control.\nThe answer is (J)\n\nQuestion:\nIn terms of Hofstede\u2019s (1980) five cultural dimensions, the United States scores at the top of the scale on:\nOptions:\nA. individualism and long-term orientation.\nB. individualism and power distance.\nC. uncertainty avoidance.\nD. long-term orientation.\nE. individualism.\nF. individualism and masculinity.\nG. long-term orientation and uncertainty avoidance.\nH. power distance.\nI. power distance and masculinity.\nJ. N/A\nThe answer is (E)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    },
+    {
+      "name": "mmlu_pro_other",
+      "game_instances": [
+        {
+          "game_id": 39,
+          "input": "Question:\nWhen it's noon in New York during daylight-saving time what time is it in Honolulu?\nOptions:\nA. 5:00 AM\nB. 6:00 AM\nC. 7:30 AM\nD. 9:00 AM\nE. 6:30 AM\nF. 10:00 AM\nG. 8:30 AM\nH. 8:00 AM\nI. 5:30 AM\nJ. 7:00 AM\n",
+          "target": "B"
+        },
+        {
+          "game_id": 111,
+          "input": "Question:\nWhich of these candy bars was named for a baseball player?\nOptions:\nA. Reggie Bar\nB. Baby Ruth\nC. 3 Musketeers\nD. Mars Bar\nE. Clark Bar\nF. Twix\nG. PayDay\nH. Butterfinger\nI. Snickers\nJ. Milky Way\n",
+          "target": "A"
+        },
+        {
+          "game_id": 610,
+          "input": "Question:\nIn 2016, about how many people in the United States were homeless?\nOptions:\nA. 55,000\nB. 500,000\nC. 10,000,000\nD. 1,500,000\nE. 600,000\nF. 5,500,000\nG. 100,000\nH. 55,000,000\nI. 1,000,000\nJ. 550,000\n",
+          "target": "J"
+        },
+        {
+          "game_id": 444,
+          "input": "Question:\nWhich of the following statements best describes the characteristics of a weak state?\nOptions:\nA. Weak states are characterized by a high level of social-political cohesion and a strong monopoly over the instruments of violence. The regime is often legitimized through the use of force.\nB. Weak states have a well-developed bureaucracy and are able to enforce their policies through a cohesive social-political structure. They often rely on the legitimacy of the regime to maintain control.\nC. Weak states possess high levels of social-political cohesion which is correlated to the hegemonic enforcement idea of the regime, which in turn becomes accepted to the point of being legitimized as the social norm.\nD. Weak states have strong military capabilities and maintain absolute loyalty from the armed forces. They frequently intervene in social matters to maintain control.\nE. Weak states do not utilize coercive capabilities in normal policy. State institutions typically have a developed bureaucracy which legitimizes the regime's ability to rule. Paradoxically, however, the more a weak state exercises its coercive power the more it reinforces its infrastructural power but reduces its ability to rule.\nF. Weak states have a monopoly on the instruments of violence and have the coercive capability to force compliance even when social actors attempt to resist. The regimes lack popular legitimacy, the integrity of the regime's survival is consolidated by power resulting in the naturalization of violence within society.\nG. Weak states have a monopoly over social actors and are able to maintain control through the use of force. They also have well-equipped and well-managed armed forces.\nH. The most important characteristics of weak states are their frequent inability to establish and maintain a monopoly of control over the instruments of violence. Even within states with well developed coercive power they do not always retain absolute loyalty and are faced with a real possibility of military intervention. Whilst armed forces are ill-equipped, poorly managed and prone to factional divisions, social actors are powerful enough to resist governance. Therefore, monopoly over the instruments of violence is infrequent.\n",
+          "target": "H"
+        },
+        {
+          "game_id": 353,
+          "input": "Question:\nBale Co. incurred $100,000 of acquisition costs related to the purchase of the net assets of Dixon Co. The $100,000 should be\nOptions:\nA. Treated as a separate asset and depreciated over its useful life\nB. Capitalized as part of goodwill and tested annually for impairment\nC. Capitalized as part of the cost of investment and tested annually for impairment\nD. Expensed as incurred in the subsequent period\nE. Allocated on a pro rata basis to the monetary assets acquired.\nF. Capitalized as part of inventory and expensed as incurred\nG. Capitalized as an other asset and amortized over five years.\nH. Expensed over the next five years\nI. Expensed as incurred in the current period\nJ. Allocated on a pro rata basis to the nonmonetary assets acquired.\n",
+          "target": "I"
+        },
+        {
+          "game_id": 746,
+          "input": "Question:\nIn what city is TV's 'The Mary Tyler Moore Show' set?\nOptions:\nA. New York\nB. Dallas\nC. Seattle\nD. San Francisco\nE. Los Angeles\nF. Boston\nG. Philadelphia\nH. Chicago\nI. Minneapolis\nJ. Miami\n",
+          "target": "I"
+        },
+        {
+          "game_id": 805,
+          "input": "Question:\nIn 1997, the World Bank found that the fraction of the world\u2019s population living in low and lower-middle income countries\u2014that is, countries with per capita incomes of $1230 or less\u2014was approximately\nOptions:\nA. 70%\nB. 25%\nC. 30%\nD. 40%\nE. 50%\nF. 55%\nG. 60%\nH. 75%\nI. 80%\nJ. 45%\n",
+          "target": "H"
+        },
+        {
+          "game_id": 321,
+          "input": "Question:\nWhat kind of angle is formed where two perpendicular lines meet?\nOptions:\nA. reflex\nB. complementary\nC. supplementary\nD. zero\nE. right\nF. invisible\nG. full rotation\nH. acute\nI. straight\nJ. obtuse\n",
+          "target": "E"
+        }
+      ],
+      "meta": {
+        "dataset_path": "TIGER-Lab/MMLU-Pro",
+        "test_split": "test",
+        "fewshot_split": "validation",
+        "fewshot_config": {
+          "sampler": "first_n",
+          "doc_to_text": "utils.fewshot_to_text",
+          "doc_to_target": ""
+        },
+        "output_type": "generate_until",
+        "doc_to_text": "utils.doc_to_text",
+        "doc_to_target": "answer",
+        "doc_to_choices": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']",
+        "filter_list": [
+          {
+            "name": "custom-extract",
+            "filter": [
+              {
+                "function": "regex",
+                "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+              },
+              {
+                "function": "take_first"
+              }
+            ]
+          }
+        ],
+        "generation_kwargs": {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>"
+          ],
+          "max_gen_toks": 2048,
+          "do_sample": false,
+          "temperature": 0.0
+        },
+        "num_fewshot": 5,
+        "metric_list": [
+          {
+            "metric": "exact_match",
+            "aggregation": "mean",
+            "higher_is_better": true,
+            "ignore_case": true,
+            "ignore_punctuation": true
+          }
+        ],
+        "metadata": {
+          "version": 2.1
+        },
+        "description": "The following are multiple choice questions (with answers) about other. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n",
+        "task": "playschool_mmlu_pro_other",
+        "task_alias": "other",
+        "process_docs": "utils.process_other"
+      },
+      "initial_prompt": "The following are multiple choice questions (with answers) about other. Answer only with \"The answer is (X)\" where X is the correct letter choice.\n\nQuestion:\nAs of 2017, how many of the world\u2019s 1-year-old children today have been vaccinated against some disease? *\nOptions:\nA. 30%\nB. 60%\nC. 10%\nD. 90%\nE. 80%\nF. 40%\nG. 100%\nH. 50%\nI. N/A\nJ. N/A\nThe answer is (E)\n\nQuestion:\nWhich one of the following items is an example of nonmaterial culture?\nOptions:\nA. A dove feather\nB. Dove symbol\nC. Dove body lotion\nD. Dove deodorant\nE. Dove soap\nF. Dove candy bar\nG. Dove conditioner\nH. A dove (bird).\nI. Dove chocolate\nJ. Dove shampoo\nThe answer is (B)\n\nQuestion:\nWhich of the following cases established the precedent that a defendant must be informed of the right to remain silent, the right to a lawyer, and protection from self-incrimination?\nOptions:\nA. Brown v. Board of Education\nB. Miranda v. Arizona\nC. Roe v. Wade\nD. Betts v. Brady\nE. Plessy v. Ferguson\nF. Dred Scott v. Sandford\nG. Weeks v. United States\nH. Gideon v. Wainwright\nI. Marbury v. Madison\nJ. Mapp v. Ohio\nThe answer is (B)\n\nQuestion:\nA woman who knows she has active herpes and untreated syphilis but continues to have sex without informing her partners of her condition has, in psychoanalytic terms:\nOptions:\nA. a weak conscious mind\nB. a strong conscious mind\nC. a weak id\nD. a weak ego\nE. a weak unconscious mind\nF. a strong id\nG. a strong ego\nH. a strong superego\nI. a strong preconscious mind\nJ. a weak superego\nThe answer is (J)\n\nQuestion:\nWhat place is named in the title of the 1979 live album by rock legends Cheap Trick?\nOptions:\nA. Brooklyn\nB. Beijing\nC. Budapest\nD. Boston\nE. Bhutan\nF. Barcelona\nG. Britain\nH. Brisbane\nI. Bruges\nJ. Budokan\nThe answer is (J)\n\n{{input}}",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "regex_pattern": "answer is \\(?([ABCDEFGHIJ])\\)?"
+    }
+  ]
+}

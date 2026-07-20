@@ -1,0 +1,29 @@
+{
+    "languages": [
+        "en"
+    ],
+    "n_instances": 3,
+    "modalities": {
+        "text": {
+            "objects": {
+                "3": "CLP",
+                "5": "WITCH"
+            },
+            "penalty_factor": 2,
+            "experiments": [
+                {
+                    "name": "0_easy",
+                    "grid_config": "9x9_e34_b7"
+                },
+                {
+                    "name": "1_medium",
+                    "grid_config": "9x9_e29_b11"
+                },
+                {
+                    "name": "2_hard",
+                    "grid_config": "9x9_e24_b15"
+                }
+            ]
+        }
+	}
+}

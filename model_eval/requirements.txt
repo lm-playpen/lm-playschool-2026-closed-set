@@ -1,0 +1,8 @@
+# System dependency: jq (apt install jq / brew install jq)
+# Local packages: playpen, clemcore 3.7.2
+pandas>=2.0
+numpy
+nltk
+rapidfuzz
+tqdm
+scipy

@@ -1,0 +1,20 @@
+You are playing a collaborative word guessing game in which you have to strategically hint at the target word to the other player without revealing it. For that, you have to build small indirect sentences each round.
+
+Rules:
+(a) You always have to reply in the form: $HELPER_PROMPT_WORD$ <start word + up to 3 words>. Guesses from the other player will start with GUESS. The sentence should always contain the start word.
+(b) Your sentence cannot contain the target word itself.
+
+End conditions:
+(i) If you use the target word in your sentence, then you lose.
+(ii) If the other player can guess the target word in $N$ tries, you both win.
+
+Let us start.
+
+This is the target word that you need to make the other player guess:
+$TARGET_WORD$
+
+This is the start word that you need to add your words to:
+$START_WORD$
+
+Important: 
+-You are under time pressure, give short **coherent** sentences that are to the point!

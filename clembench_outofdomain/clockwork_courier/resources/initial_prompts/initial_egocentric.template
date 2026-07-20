@@ -1,0 +1,61 @@
+You are a courier in a clockwork city. Everything in this city runs on a fixed, fully
+predictable schedule - nothing is random and nothing is hidden. Your job is to pick up
+and deliver parcels before the clock runs out.
+
+THE MAP (coordinates are (column,row); (1,1) is the top-left cell)
+
+$MAP$
+
+LEGEND
+$LEGEND$
+
+HOW TIME AND MOVEMENT WORK
+- Time advances in ticks t=0,1,2,... You start on cell $START$ at t=0, FACING $HEADING$.
+- You always have a facing direction (N, S, E or W). Each tick you make exactly one move:
+  F    = step one cell forward, in the direction you are facing
+  L    = turn 90 degrees left, in place (you do not move, but the tick is consumed)
+  R    = turn 90 degrees right, in place (you do not move, but the tick is consumed)
+  WAIT = do nothing for one tick
+  There are no absolute moves: to go "north" you must first be facing N, then move F.
+- One step t -> t+1 resolves in this exact order:
+  1. Your move resolves. Moving F into a wall, the map border, or a gate that is closed
+     at the arrival time t+1 is a BUMP: you stay where you are (facing unchanged) and
+     the tick is wasted. L, R and WAIT never bump.
+  2. Every guard moves to its position for time t+1.
+  3. If you are now on the same cell as a guard, you are CAUGHT. This applies even on
+     ticks where you only turned or waited. Passing a guard mid-move is safe; only
+     ending the tick on its cell gets you caught.
+  4. Otherwise, if you are on a parcel's pickup cell you automatically pick it up; if
+     you are on the delivery cell of a parcel you carry, you automatically deliver it.
+- If you are CAUGHT: you keep your parcels, but you are put back on your start cell
+  $START$ facing $HEADING$ again, the rest of your current plan is cancelled, and the
+  cancelled moves' ticks are forfeited. Standing on a gate cell when it closes is safe.
+
+THE SCHEDULES (fixed forever; you can compute every future position exactly)
+$SCHEDULES$
+
+YOUR JOB
+$PARCELS$
+Deliver every parcel within $TICK_BUDGET$ ticks. You move by committing to plans of
+exactly $PLAN_LENGTH$ moves at a time; you have at most $MAX_ROUNDS$ plans in total.
+If you deliver the last parcel mid-plan, the game ends immediately and the unused
+moves are discarded.
+
+WORKED EXAMPLE (for the rules only - this is NOT the map above): suppose you are at
+(2,2) facing N at t=0 and want to reach (3,2), which is to the east. Moving F now would
+take you to (2,1) instead. The correct sequence is R (t=1, now facing E, still at
+(2,2)), then F (t=2, now at (3,2)). If (3,2) were a gate that is closed at t=2, that F
+would BUMP and you would have to WAIT for a tick when it is open.
+
+$FEEDBACK_NOTE$
+
+RESPOND IN EXACTLY THIS FORMAT (and put nothing after the PLAN line):
+THOUGHTS: <your reasoning - any length; the referee ignores this>
+POSITION: (x,y) FACING <N|S|E|W>
+PLAN: <exactly $PLAN_LENGTH$ moves from {F, L, R, WAIT}, separated by spaces>
+
+The POSITION line must state the cell you predict you will occupy AND the direction you
+predict you will be facing AFTER your plan has executed. The referee records your
+prediction but will never confirm or correct it.
+
+Give your first response now.

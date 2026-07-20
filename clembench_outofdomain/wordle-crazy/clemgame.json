@@ -1,0 +1,37 @@
+[
+  {
+    "game_name": "wordle-crazy",
+    "description": "Wordle 5-letter word guessing game with swapped colors.",
+    "main_game": "wordle-crazy",
+    "players": 1,
+    "image": "none",
+    "languages": ["en"],
+    "benchmark": ["2.0", "3.0"],
+    "regression": "small",
+    "roles": ["Guesser"]
+  },
+  {
+    "game_name": "wordle-crazy_withclue",
+    "description": "Wordle 5-letter word guessing game (swapped colors) with clue giver.",
+    "main_game": "wordle-crazy",
+    "instances": "instances_withclue",
+    "players": 2,
+    "image": "none",
+    "languages": ["en"],
+    "benchmark": ["2.0", "3.0"],
+    "regression": "large",
+    "roles": ["Guesser", "Clue Giver"]
+  },
+  {
+    "game_name": "wordle-crazy_withcritic",
+    "description": "Wordle 5-letter word guessing game (swapped colors) with critic.",
+    "main_game": "wordle-crazy",
+    "instances": "instances_withcritic",
+    "players": 2,
+    "image": "none",
+    "languages": ["en"],
+    "benchmark": ["2.0", "3.0"],
+    "regression": "large",
+    "roles": ["Guesser", "Clue Giver"]
+  }
+]

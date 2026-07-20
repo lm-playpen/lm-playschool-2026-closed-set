@@ -1,0 +1,37 @@
+You are a field linguist. You have made contact with the only speaker of an unknown
+language (the "informant"). Nobody has ever written down this language before, and you
+have NO examples to start from. Your task is to work out how it works entirely on your
+own, and then translate sentences into it correctly.
+
+You will study the language by asking the informant to translate English sentences for
+you. You may only talk about a small fixed world, using exactly these English words:
+
+$VOCAB$
+
+HOW TO WRITE AN ENGLISH SENTENCE
+$SCHEMA$
+
+HOW THE SESSION WORKS
+1. INVESTIGATION: You have $NUM_ROUNDS$ rounds of questioning. In each round you may ask
+   the informant to translate up to $PROBES_PER_ROUND$ English sentences (so at most
+   $PROBE_BUDGET$ probes in total). The informant answers each one truthfully and
+   exactly. You are starting from nothing, so spend your early probes establishing the
+   basic words and word order, then test how number, case, definiteness, agreement and
+   any sound changes work. Choose your probes deliberately - test specific hypotheses.
+2. EXAM: After the investigation rounds, the informant will give you $EXAM_SIZE$ NEW
+   English sentences. You must translate each one INTO the language. Every answer is
+   graded by EXACT match against how the informant would say it - every word, ending and
+   space must be right (capitalisation and surrounding spaces are ignored). The exam
+   sentences will use the same vocabulary but in combinations you have not been shown, so
+   you must induce the general rules, not just memorise examples.
+
+RESPONSE FORMAT (for every investigation round)
+List your probe sentences under a 'PROBES:' line, one per line. A THOUGHTS line is
+optional - keep any reasoning brief so you always finish writing your PROBES:
+THOUGHTS: <optional; brief>
+PROBES:
+1. <an English sentence, written as described above>
+2. <another English sentence>
+(up to $PROBES_PER_ROUND$ lines; at least one)
+
+Begin your first round of probes now.

@@ -1,0 +1,5447 @@
+{
+  "experiments": [
+    {
+      "name": "standard",
+      "game_instances": [
+        {
+          "game_id": 0,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "start": [
+            5,
+            3
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                5,
+                1
+              ],
+              "period": 2,
+              "open_phases": [
+                1
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                2,
+                4
+              ],
+              "period": 6,
+              "open_phases": [
+                1,
+                2,
+                3
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  7,
+                  3
+                ],
+                [
+                  7,
+                  4
+                ],
+                [
+                  6,
+                  4
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  6,
+                  2
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  6,
+                  4
+                ],
+                [
+                  7,
+                  4
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                8,
+                1
+              ],
+              "dropoff": [
+                5,
+                5
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                8,
+                2
+              ],
+              "dropoff": [
+                7,
+                1
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 25,
+          "max_rounds": 5,
+          "optimal_ticks": 12,
+          "static_optimal_ticks": 12,
+          "map_render": "   123456789\n  +---------+\n 1|..#.A.y1.|\n 2|....#..2#|\n 3|p...S.q..|\n 4|#B#......|\n 5|..#.x....|\n 6|#...#....|\n 7|....#.#..|\n 8|..#......|\n 9|.#...#...|\n  +---------+",
+          "schedules_text": "Gate A at (5,1): open exactly when (t mod 2) is in {1}. So it is open at t=1,3,... and closed at t=0,2,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (2,4): open exactly when (t mod 6) is in {1, 2, 3}. So it is open at t=1,2,3,7,8,9,... and closed at t=0,4,5,6,10,11,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (1,3); t mod 6=1: (1,2); t mod 6=2: (2,2); t mod 6=3: (3,2); t mod 6=4: (2,2); t mod 6=5: (1,2). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (7,3); t mod 8=1: (7,4); t mod 8=2: (6,4); t mod 8=3: (6,3); t mod 8=4: (6,2); t mod 8=5: (6,3); t mod 8=6: (6,4); t mod 8=7: (7,4). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (8,1) (map glyph '1'), deliver it to (5,5) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (8,2) (map glyph '2'), deliver it to (7,1) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 1,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "start": [
+            7,
+            2
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                6,
+                3
+              ],
+              "period": 6,
+              "open_phases": [
+                0,
+                1,
+                2
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                7,
+                4
+              ],
+              "period": 6,
+              "open_phases": [
+                0,
+                1,
+                5
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  3,
+                  2
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  4,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  4,
+                  1
+                ],
+                [
+                  4,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  3,
+                  8
+                ],
+                [
+                  3,
+                  7
+                ],
+                [
+                  2,
+                  7
+                ],
+                [
+                  2,
+                  8
+                ],
+                [
+                  2,
+                  7
+                ],
+                [
+                  3,
+                  7
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                6,
+                8
+              ],
+              "dropoff": [
+                9,
+                4
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                4,
+                6
+              ],
+              "dropoff": [
+                3,
+                9
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 40,
+          "max_rounds": 8,
+          "optimal_ticks": 22,
+          "static_optimal_ticks": 22,
+          "map_render": "   123456789\n  +---------+\n 1|.........|\n 2|.#p...S.#|\n 3|#...#A#..|\n 4|..#...B.x|\n 5|.#.#..#..|\n 6|...2.....|\n 7|....##...|\n 8|..q..1..#|\n 9|..y......|\n  +---------+",
+          "schedules_text": "Gate A at (6,3): open exactly when (t mod 6) is in {0, 1, 2}. So it is open at t=0,1,2,6,7,8,... and closed at t=3,4,5,9,10,11,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (7,4): open exactly when (t mod 6) is in {0, 1, 5}. So it is open at t=0,1,5,6,7,11,... and closed at t=2,3,4,8,9,10,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (3,2); t mod 8=1: (4,2); t mod 8=2: (4,1); t mod 8=3: (3,1); t mod 8=4: (2,1); t mod 8=5: (3,1); t mod 8=6: (4,1); t mod 8=7: (4,2). This repeats forever.\nGuard Q: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (3,8); t mod 6=1: (3,7); t mod 6=2: (2,7); t mod 6=3: (2,8); t mod 6=4: (2,7); t mod 6=5: (3,7). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (6,8) (map glyph '1'), deliver it to (9,4) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (4,6) (map glyph '2'), deliver it to (3,9) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 2,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ],
+            [
+              9,
+              9
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                4,
+                1
+              ],
+              "period": 4,
+              "open_phases": [
+                2,
+                3
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                5,
+                2
+              ],
+              "period": 2,
+              "open_phases": [
+                1
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  8,
+                  6
+                ],
+                [
+                  8,
+                  5
+                ],
+                [
+                  8,
+                  4
+                ],
+                [
+                  7,
+                  4
+                ],
+                [
+                  8,
+                  4
+                ],
+                [
+                  8,
+                  5
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  2,
+                  8
+                ],
+                [
+                  3,
+                  8
+                ],
+                [
+                  3,
+                  9
+                ],
+                [
+                  2,
+                  9
+                ],
+                [
+                  3,
+                  9
+                ],
+                [
+                  3,
+                  8
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                8,
+                8
+              ],
+              "dropoff": [
+                2,
+                5
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                2,
+                8
+              ],
+              "dropoff": [
+                1,
+                7
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 45,
+          "max_rounds": 9,
+          "optimal_ticks": 26,
+          "static_optimal_ticks": 25,
+          "map_render": "   123456789\n  +---------+\n 1|S..A..#..|\n 2|...#B#...|\n 3|#........|\n 4|.#..#....|\n 5|.x.......|\n 6|......#p.|\n 7|y...#..##|\n 8|.2.....1#|\n 9|#..#..###|\n  +---------+",
+          "schedules_text": "Gate A at (4,1): open exactly when (t mod 4) is in {2, 3}. So it is open at t=2,3,6,7,... and closed at t=0,1,4,5,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (5,2): open exactly when (t mod 2) is in {1}. So it is open at t=1,3,... and closed at t=0,2,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (8,6); t mod 6=1: (8,5); t mod 6=2: (8,4); t mod 6=3: (7,4); t mod 6=4: (8,4); t mod 6=5: (8,5). This repeats forever.\nGuard Q: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (2,8); t mod 6=1: (3,8); t mod 6=2: (3,9); t mod 6=3: (2,9); t mod 6=4: (3,9); t mod 6=5: (3,8). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (8,8) (map glyph '1'), deliver it to (2,5) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (2,8) (map glyph '2'), deliver it to (1,7) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 3,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              9,
+              9
+            ]
+          ],
+          "start": [
+            9,
+            2
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                6,
+                9
+              ],
+              "period": 4,
+              "open_phases": [
+                1,
+                2
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                4,
+                1
+              ],
+              "period": 4,
+              "open_phases": [
+                1,
+                2
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  5,
+                  2
+                ],
+                [
+                  5,
+                  1
+                ],
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  2
+                ],
+                [
+                  7,
+                  2
+                ],
+                [
+                  6,
+                  2
+                ],
+                [
+                  6,
+                  1
+                ],
+                [
+                  5,
+                  1
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  2
+                ],
+                [
+                  5,
+                  2
+                ],
+                [
+                  6,
+                  2
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                5,
+                9
+              ],
+              "dropoff": [
+                8,
+                3
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                5,
+                4
+              ],
+              "dropoff": [
+                5,
+                5
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 40,
+          "max_rounds": 8,
+          "optimal_ticks": 21,
+          "static_optimal_ticks": 20,
+          "map_render": "   123456789\n  +---------+\n 1|...B.q...|\n 2|..##p...S|\n 3|.....#.x.|\n 4|....2#...|\n 5|....y....|\n 6|...#..#..|\n 7|.........|\n 8|.....#...|\n 9|..#.1A..#|\n  +---------+",
+          "schedules_text": "Gate A at (6,9): open exactly when (t mod 4) is in {1, 2}. So it is open at t=1,2,5,6,... and closed at t=0,3,4,7,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (4,1): open exactly when (t mod 4) is in {1, 2}. So it is open at t=1,2,5,6,... and closed at t=0,3,4,7,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (5,2); t mod 8=1: (5,1); t mod 8=2: (6,1); t mod 8=3: (6,2); t mod 8=4: (7,2); t mod 8=5: (6,2); t mod 8=6: (6,1); t mod 8=7: (5,1). This repeats forever.\nGuard Q: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (6,1); t mod 4=1: (6,2); t mod 4=2: (5,2); t mod 4=3: (6,2). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (5,9) (map glyph '1'), deliver it to (8,3) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (5,4) (map glyph '2'), deliver it to (5,5) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 4,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "start": [
+            8,
+            1
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                4,
+                5
+              ],
+              "period": 6,
+              "open_phases": [
+                0,
+                4,
+                5
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                1,
+                8
+              ],
+              "period": 2,
+              "open_phases": [
+                1
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  9,
+                  5
+                ],
+                [
+                  9,
+                  6
+                ],
+                [
+                  8,
+                  6
+                ],
+                [
+                  9,
+                  6
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  1,
+                  3
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                3,
+                4
+              ],
+              "dropoff": [
+                2,
+                4
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                2,
+                7
+              ],
+              "dropoff": [
+                3,
+                2
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 35,
+          "max_rounds": 7,
+          "optimal_ticks": 19,
+          "static_optimal_ticks": 18,
+          "map_render": "   123456789\n  +---------+\n 1|..#....S.|\n 2|q.y...###|\n 3|..#......|\n 4|.x1......|\n 5|..#A#..#p|\n 6|....#.#..|\n 7|.2##...#.|\n 8|B#....#..|\n 9|......#..|\n  +---------+",
+          "schedules_text": "Gate A at (4,5): open exactly when (t mod 6) is in {0, 4, 5}. So it is open at t=0,4,5,6,10,11,... and closed at t=1,2,3,7,8,9,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (1,8): open exactly when (t mod 2) is in {1}. So it is open at t=1,3,... and closed at t=0,2,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (9,5); t mod 4=1: (9,6); t mod 4=2: (8,6); t mod 4=3: (9,6). This repeats forever.\nGuard Q: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (1,2); t mod 6=1: (1,3); t mod 6=2: (2,3); t mod 6=3: (2,2); t mod 6=4: (2,3); t mod 6=5: (1,3). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (3,4) (map glyph '1'), deliver it to (2,4) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (2,7) (map glyph '2'), deliver it to (3,2) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 5,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "start": [
+            6,
+            6
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                3,
+                4
+              ],
+              "period": 6,
+              "open_phases": [
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                2,
+                9
+              ],
+              "period": 6,
+              "open_phases": [
+                3,
+                4,
+                5
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  9,
+                  7
+                ],
+                [
+                  9,
+                  6
+                ],
+                [
+                  9,
+                  5
+                ],
+                [
+                  9,
+                  6
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  7,
+                  7
+                ],
+                [
+                  7,
+                  6
+                ],
+                [
+                  8,
+                  6
+                ],
+                [
+                  8,
+                  5
+                ],
+                [
+                  8,
+                  6
+                ],
+                [
+                  7,
+                  6
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                7,
+                9
+              ],
+              "dropoff": [
+                4,
+                9
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                9,
+                3
+              ],
+              "dropoff": [
+                8,
+                2
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 35,
+          "max_rounds": 7,
+          "optimal_ticks": 20,
+          "static_optimal_ticks": 19,
+          "map_render": "   123456789\n  +---------+\n 1|..#....#.|\n 2|#.#....y.|\n 3|#.#.....2|\n 4|..A....#.|\n 5|..#.#....|\n 6|.....S...|\n 7|......q#p|\n 8|.#.....#.|\n 9|.B.x..1..|\n  +---------+",
+          "schedules_text": "Gate A at (3,4): open exactly when (t mod 6) is in {2, 3, 4}. So it is open at t=2,3,4,8,9,10,... and closed at t=0,1,5,6,7,11,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (2,9): open exactly when (t mod 6) is in {3, 4, 5}. So it is open at t=3,4,5,9,10,11,... and closed at t=0,1,2,6,7,8,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (9,7); t mod 4=1: (9,6); t mod 4=2: (9,5); t mod 4=3: (9,6). This repeats forever.\nGuard Q: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (7,7); t mod 6=1: (7,6); t mod 6=2: (8,6); t mod 6=3: (8,5); t mod 6=4: (8,6); t mod 6=5: (7,6). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (7,9) (map glyph '1'), deliver it to (4,9) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (9,3) (map glyph '2'), deliver it to (8,2) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 6,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "start": [
+            2,
+            4
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                1,
+                2
+              ],
+              "period": 4,
+              "open_phases": [
+                2,
+                3
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                1,
+                7
+              ],
+              "period": 4,
+              "open_phases": [
+                1,
+                2
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  2,
+                  9
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  1,
+                  8
+                ],
+                [
+                  2,
+                  8
+                ],
+                [
+                  3,
+                  8
+                ],
+                [
+                  2,
+                  8
+                ],
+                [
+                  1,
+                  8
+                ],
+                [
+                  1,
+                  9
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  5,
+                  1
+                ],
+                [
+                  4,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  4,
+                  1
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                6,
+                8
+              ],
+              "dropoff": [
+                7,
+                3
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                1,
+                4
+              ],
+              "dropoff": [
+                1,
+                1
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 50,
+          "max_rounds": 10,
+          "optimal_ticks": 28,
+          "static_optimal_ticks": 26,
+          "map_render": "   123456789\n  +---------+\n 1|y#..q....|\n 2|A#.#.....|\n 3|..#...x..|\n 4|2S#......|\n 5|#..#..#..|\n 6|..#...#..|\n 7|B#......#|\n 8|...#.1.#.|\n 9|.p.#.....|\n  +---------+",
+          "schedules_text": "Gate A at (1,2): open exactly when (t mod 4) is in {2, 3}. So it is open at t=2,3,6,7,... and closed at t=0,1,4,5,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (1,7): open exactly when (t mod 4) is in {1, 2}. So it is open at t=1,2,5,6,... and closed at t=0,3,4,7,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (2,9); t mod 8=1: (1,9); t mod 8=2: (1,8); t mod 8=3: (2,8); t mod 8=4: (3,8); t mod 8=5: (2,8); t mod 8=6: (1,8); t mod 8=7: (1,9). This repeats forever.\nGuard Q: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (5,1); t mod 6=1: (4,1); t mod 6=2: (3,1); t mod 6=3: (3,2); t mod 6=4: (3,1); t mod 6=5: (4,1). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (6,8) (map glyph '1'), deliver it to (7,3) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (1,4) (map glyph '2'), deliver it to (1,1) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 7,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              2
+            ]
+          ],
+          "start": [
+            5,
+            6
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                7,
+                9
+              ],
+              "period": 4,
+              "open_phases": [
+                0,
+                1
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                7,
+                1
+              ],
+              "period": 4,
+              "open_phases": [
+                1,
+                2
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  2,
+                  5
+                ],
+                [
+                  2,
+                  6
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  4
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                4,
+                9
+              ],
+              "dropoff": [
+                2,
+                6
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                5,
+                9
+              ],
+              "dropoff": [
+                6,
+                6
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 25,
+          "max_rounds": 5,
+          "optimal_ticks": 14,
+          "static_optimal_ticks": 13,
+          "map_render": "   123456789\n  +---------+\n 1|......B..|\n 2|..#..###.|\n 3|.........|\n 4|#q.......|\n 5|..#......|\n 6|#xp.Sy#..|\n 7|.#.#..#..|\n 8|......#..|\n 9|...12.A..|\n  +---------+",
+          "schedules_text": "Gate A at (7,9): open exactly when (t mod 4) is in {0, 1}. So it is open at t=0,1,4,5,... and closed at t=2,3,6,7,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (7,1): open exactly when (t mod 4) is in {1, 2}. So it is open at t=1,2,5,6,... and closed at t=0,3,4,7,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (3,6); t mod 4=1: (2,6); t mod 4=2: (2,5); t mod 4=3: (2,6). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (2,4); t mod 8=1: (3,4); t mod 8=2: (3,3); t mod 8=3: (2,3); t mod 8=4: (2,2); t mod 8=5: (2,3); t mod 8=6: (3,3); t mod 8=7: (3,4). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (4,9) (map glyph '1'), deliver it to (2,6) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (5,9) (map glyph '2'), deliver it to (6,6) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 8,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              8
+            ],
+            [
+              9,
+              9
+            ]
+          ],
+          "start": [
+            2,
+            7
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                6,
+                1
+              ],
+              "period": 2,
+              "open_phases": [
+                0
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                4,
+                2
+              ],
+              "period": 4,
+              "open_phases": [
+                1,
+                2
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  8,
+                  4
+                ],
+                [
+                  8,
+                  5
+                ],
+                [
+                  8,
+                  6
+                ],
+                [
+                  8,
+                  7
+                ],
+                [
+                  9,
+                  7
+                ],
+                [
+                  8,
+                  7
+                ],
+                [
+                  8,
+                  6
+                ],
+                [
+                  8,
+                  5
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  1,
+                  8
+                ],
+                [
+                  2,
+                  8
+                ],
+                [
+                  3,
+                  8
+                ],
+                [
+                  2,
+                  8
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                8,
+                8
+              ],
+              "dropoff": [
+                6,
+                6
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                9,
+                5
+              ],
+              "dropoff": [
+                4,
+                7
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 35,
+          "max_rounds": 7,
+          "optimal_ticks": 18,
+          "static_optimal_ticks": 18,
+          "map_render": "   123456789\n  +---------+\n 1|...#.A...|\n 2|...B.#...|\n 3|#..###...|\n 4|.##..#.p#|\n 5|........2|\n 6|.....x...|\n 7|.S.y#.#..|\n 8|q......1#|\n 9|.##...#.#|\n  +---------+",
+          "schedules_text": "Gate A at (6,1): open exactly when (t mod 2) is in {0}. So it is open at t=0,2,... and closed at t=1,3,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (4,2): open exactly when (t mod 4) is in {1, 2}. So it is open at t=1,2,5,6,... and closed at t=0,3,4,7,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (8,4); t mod 8=1: (8,5); t mod 8=2: (8,6); t mod 8=3: (8,7); t mod 8=4: (9,7); t mod 8=5: (8,7); t mod 8=6: (8,6); t mod 8=7: (8,5). This repeats forever.\nGuard Q: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (1,8); t mod 4=1: (2,8); t mod 4=2: (3,8); t mod 4=3: (2,8). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (8,8) (map glyph '1'), deliver it to (6,6) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (9,5) (map glyph '2'), deliver it to (4,7) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 9,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "start": [
+            5,
+            8
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                1,
+                3
+              ],
+              "period": 6,
+              "open_phases": [
+                0,
+                1,
+                5
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                1,
+                4
+              ],
+              "period": 6,
+              "open_phases": [
+                0,
+                1,
+                2
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  9,
+                  3
+                ],
+                [
+                  9,
+                  4
+                ],
+                [
+                  8,
+                  4
+                ],
+                [
+                  8,
+                  5
+                ],
+                [
+                  8,
+                  4
+                ],
+                [
+                  9,
+                  4
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  8,
+                  7
+                ],
+                [
+                  8,
+                  8
+                ],
+                [
+                  7,
+                  8
+                ],
+                [
+                  6,
+                  8
+                ],
+                [
+                  7,
+                  8
+                ],
+                [
+                  8,
+                  8
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                8,
+                7
+              ],
+              "dropoff": [
+                7,
+                9
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                3,
+                3
+              ],
+              "dropoff": [
+                9,
+                8
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 45,
+          "max_rounds": 9,
+          "optimal_ticks": 24,
+          "static_optimal_ticks": 23,
+          "map_render": "   123456789\n  +---------+\n 1|.#.#.....|\n 2|.........|\n 3|A#2.....p|\n 4|B#....#..|\n 5|..#.#.#..|\n 6|.#.##.###|\n 7|.#.....1.|\n 8|....S...y|\n 9|#.....x#.|\n  +---------+",
+          "schedules_text": "Gate A at (1,3): open exactly when (t mod 6) is in {0, 1, 5}. So it is open at t=0,1,5,6,7,11,... and closed at t=2,3,4,8,9,10,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (1,4): open exactly when (t mod 6) is in {0, 1, 2}. So it is open at t=0,1,2,6,7,8,... and closed at t=3,4,5,9,10,11,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (9,3); t mod 6=1: (9,4); t mod 6=2: (8,4); t mod 6=3: (8,5); t mod 6=4: (8,4); t mod 6=5: (9,4). This repeats forever.\nGuard Q: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (8,7); t mod 6=1: (8,8); t mod 6=2: (7,8); t mod 6=3: (6,8); t mod 6=4: (7,8); t mod 6=5: (8,8). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (8,7) (map glyph '1'), deliver it to (7,9) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (3,3) (map glyph '2'), deliver it to (9,8) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        }
+      ],
+      "feedback_mode": "rich",
+      "action_mode": "cardinal",
+      "plan_length": 5,
+      "initial_prompt": "You are a courier in a clockwork city. Everything in this city runs on a fixed, fully\npredictable schedule - nothing is random and nothing is hidden. Your job is to pick up\nand deliver parcels before the clock runs out.\n\nTHE MAP (coordinates are (column,row); (1,1) is the top-left cell)\n\n$MAP$\n\nLEGEND\n$LEGEND$\n\nHOW TIME AND MOVEMENT WORK\n- Time advances in ticks t=0,1,2,... You start on cell $START$ at t=0.\n- Each tick you make exactly one move: N (up), S (down), E (right), W (left), or WAIT.\n- One step t -> t+1 resolves in this exact order:\n  1. Your move resolves. Moving into a wall, the map border, or a gate that is closed\n     at the arrival time t+1 is a BUMP: you stay where you are and the tick is wasted.\n     WAIT never bumps.\n  2. Every guard moves to its position for time t+1.\n  3. If you are now on the same cell as a guard, you are CAUGHT. Passing a guard\n     mid-move is safe; only ending the tick on its cell gets you caught.\n  4. Otherwise, if you are on a parcel's pickup cell you automatically pick it up; if\n     you are on the delivery cell of a parcel you carry, you automatically deliver it.\n- If you are CAUGHT: you keep your parcels, but you are put back on your start cell\n  $START$, the rest of your current plan is cancelled, and the cancelled moves' ticks\n  are forfeited. Standing on a gate cell when it closes is safe - gates never trap you.\n\nTHE SCHEDULES (fixed forever; you can compute every future position exactly)\n$SCHEDULES$\n\nYOUR JOB\n$PARCELS$\nDeliver every parcel within $TICK_BUDGET$ ticks. You move by committing to plans of\nexactly $PLAN_LENGTH$ moves at a time; you have at most $MAX_ROUNDS$ plans in total.\nIf you deliver the last parcel mid-plan, the game ends immediately and the unused\nmoves are discarded.\n\nWORKED EXAMPLE (for the rules only - this is NOT the map above): suppose you stand at\n(2,2), gate G at (3,2) has period 2 and is open when (t mod 2) = 1, and it is now t=0.\nMoving E now (arriving at t=1, when the gate is open) succeeds. But moving E at t=1\n(arriving at t=2, when the gate is closed) is a BUMP: you stay at (2,2) and tick 2 is\nwasted. The right play at t=1 is to WAIT once and then move E, arriving at t=3 when\nthe gate is open again.\n\n$FEEDBACK_NOTE$\n\nRESPOND IN EXACTLY THIS FORMAT (and put nothing after the PLAN line):\nTHOUGHTS: <your reasoning - any length; the referee ignores this>\nPOSITION: (x,y)\nPLAN: <exactly $PLAN_LENGTH$ moves from {N, S, E, W, WAIT}, separated by spaces>\n\nThe POSITION line must state the cell you predict you will occupy AFTER your plan has\nexecuted. The referee records your prediction but will never confirm or correct it.\n\nGive your first response now.\n"
+    },
+    {
+      "name": "deadreckon",
+      "game_instances": [
+        {
+          "game_id": 0,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "start": [
+            3,
+            5
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                5,
+                1
+              ],
+              "period": 4,
+              "open_phases": [
+                0,
+                1
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                5,
+                9
+              ],
+              "period": 2,
+              "open_phases": [
+                1
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  2,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  7,
+                  5
+                ],
+                [
+                  7,
+                  6
+                ],
+                [
+                  7,
+                  7
+                ],
+                [
+                  6,
+                  7
+                ],
+                [
+                  7,
+                  7
+                ],
+                [
+                  7,
+                  6
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                1,
+                3
+              ],
+              "dropoff": [
+                1,
+                4
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                6,
+                7
+              ],
+              "dropoff": [
+                9,
+                3
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 40,
+          "max_rounds": 8,
+          "optimal_ticks": 21,
+          "static_optimal_ticks": 20,
+          "map_render": "   123456789\n  +---------+\n 1|##..A.#..|\n 2|.p#.#....|\n 3|1..##...y|\n 4|x#...#...|\n 5|.#S.##q..|\n 6|..#..#...|\n 7|.....2..#|\n 8|....#....|\n 9|.#..B.#..|\n  +---------+",
+          "schedules_text": "Gate A at (5,1): open exactly when (t mod 4) is in {0, 1}. So it is open at t=0,1,4,5,... and closed at t=2,3,6,7,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (5,9): open exactly when (t mod 2) is in {1}. So it is open at t=1,3,... and closed at t=0,2,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (2,2); t mod 8=1: (1,2); t mod 8=2: (1,3); t mod 8=3: (2,3); t mod 8=4: (3,3); t mod 8=5: (2,3); t mod 8=6: (1,3); t mod 8=7: (1,2). This repeats forever.\nGuard Q: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (7,5); t mod 6=1: (7,6); t mod 6=2: (7,7); t mod 6=3: (6,7); t mod 6=4: (7,7); t mod 6=5: (7,6). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (1,3) (map glyph '1'), deliver it to (1,4) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (6,7) (map glyph '2'), deliver it to (9,3) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 1,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "start": [
+            2,
+            1
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                1,
+                4
+              ],
+              "period": 2,
+              "open_phases": [
+                1
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                5,
+                3
+              ],
+              "period": 2,
+              "open_phases": [
+                1
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  5,
+                  9
+                ],
+                [
+                  4,
+                  9
+                ],
+                [
+                  3,
+                  9
+                ],
+                [
+                  4,
+                  9
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  7,
+                  5
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  5
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                1,
+                9
+              ],
+              "dropoff": [
+                8,
+                6
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                1,
+                8
+              ],
+              "dropoff": [
+                3,
+                7
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 45,
+          "max_rounds": 9,
+          "optimal_ticks": 23,
+          "static_optimal_ticks": 21,
+          "map_render": "   123456789\n  +---------+\n 1|.S.#..#..|\n 2|.........|\n 3|...#B#...|\n 4|A###.....|\n 5|...##.q.#|\n 6|......#x#|\n 7|.#y...#.#|\n 8|2......#.|\n 9|1#..p#...|\n  +---------+",
+          "schedules_text": "Gate A at (1,4): open exactly when (t mod 2) is in {1}. So it is open at t=1,3,... and closed at t=0,2,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (5,3): open exactly when (t mod 2) is in {1}. So it is open at t=1,3,... and closed at t=0,2,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (5,9); t mod 4=1: (4,9); t mod 4=2: (3,9); t mod 4=3: (4,9). This repeats forever.\nGuard Q: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (7,5); t mod 4=1: (6,5); t mod 4=2: (6,6); t mod 4=3: (6,5). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (1,9) (map glyph '1'), deliver it to (8,6) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (1,8) (map glyph '2'), deliver it to (3,7) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 2,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              2
+            ]
+          ],
+          "start": [
+            4,
+            5
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                2,
+                5
+              ],
+              "period": 6,
+              "open_phases": [
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                8,
+                1
+              ],
+              "period": 6,
+              "open_phases": [
+                2,
+                3,
+                4
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  2,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  4,
+                  9
+                ],
+                [
+                  3,
+                  9
+                ],
+                [
+                  3,
+                  8
+                ],
+                [
+                  2,
+                  8
+                ],
+                [
+                  2,
+                  7
+                ],
+                [
+                  2,
+                  8
+                ],
+                [
+                  3,
+                  8
+                ],
+                [
+                  3,
+                  9
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                4,
+                6
+              ],
+              "dropoff": [
+                8,
+                5
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                1,
+                1
+              ],
+              "dropoff": [
+                6,
+                1
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 45,
+          "max_rounds": 9,
+          "optimal_ticks": 23,
+          "static_optimal_ticks": 22,
+          "map_render": "   123456789\n  +---------+\n 1|2.#..y.B.|\n 2|p......#.|\n 3|.#..#....|\n 4|##...#...|\n 5|.A.S..#x.|\n 6|.##1.##..|\n 7|.........|\n 8|...#..#..|\n 9|...q#.#..|\n  +---------+",
+          "schedules_text": "Gate A at (2,5): open exactly when (t mod 6) is in {2, 3, 4}. So it is open at t=2,3,4,8,9,10,... and closed at t=0,1,5,6,7,11,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (8,1): open exactly when (t mod 6) is in {2, 3, 4}. So it is open at t=2,3,4,8,9,10,... and closed at t=0,1,5,6,7,11,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (1,2); t mod 4=1: (2,2); t mod 4=2: (3,2); t mod 4=3: (2,2). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (4,9); t mod 8=1: (3,9); t mod 8=2: (3,8); t mod 8=3: (2,8); t mod 8=4: (2,7); t mod 8=5: (2,8); t mod 8=6: (3,8); t mod 8=7: (3,9). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (4,6) (map glyph '1'), deliver it to (8,5) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (1,1) (map glyph '2'), deliver it to (6,1) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 3,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "start": [
+            4,
+            6
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                2,
+                2
+              ],
+              "period": 6,
+              "open_phases": [
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                9,
+                7
+              ],
+              "period": 2,
+              "open_phases": [
+                0
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  6,
+                  5
+                ],
+                [
+                  5,
+                  5
+                ],
+                [
+                  5,
+                  6
+                ],
+                [
+                  5,
+                  7
+                ],
+                [
+                  5,
+                  6
+                ],
+                [
+                  5,
+                  5
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  3
+                ],
+                [
+                  5,
+                  3
+                ],
+                [
+                  5,
+                  2
+                ],
+                [
+                  6,
+                  2
+                ],
+                [
+                  5,
+                  2
+                ],
+                [
+                  5,
+                  3
+                ],
+                [
+                  4,
+                  3
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                3,
+                3
+              ],
+              "dropoff": [
+                3,
+                4
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                4,
+                8
+              ],
+              "dropoff": [
+                3,
+                1
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 30,
+          "max_rounds": 6,
+          "optimal_ticks": 16,
+          "static_optimal_ticks": 14,
+          "map_render": "   123456789\n  +---------+\n 1|#.y#..#..|\n 2|#A#......|\n 3|..1.....#|\n 4|..x.....#|\n 5|.#...p...|\n 6|...S.#...|\n 7|..#....#B|\n 8|...2#....|\n 9|...#.....|\n  +---------+",
+          "schedules_text": "Gate A at (2,2): open exactly when (t mod 6) is in {2, 3, 4}. So it is open at t=2,3,4,8,9,10,... and closed at t=0,1,5,6,7,11,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (9,7): open exactly when (t mod 2) is in {0}. So it is open at t=0,2,... and closed at t=1,3,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (6,5); t mod 6=1: (5,5); t mod 6=2: (5,6); t mod 6=3: (5,7); t mod 6=4: (5,6); t mod 6=5: (5,5). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (3,3); t mod 8=1: (4,3); t mod 8=2: (5,3); t mod 8=3: (5,2); t mod 8=4: (6,2); t mod 8=5: (5,2); t mod 8=6: (5,3); t mod 8=7: (4,3). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (3,3) (map glyph '1'), deliver it to (3,4) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (4,8) (map glyph '2'), deliver it to (3,1) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 4,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "start": [
+            1,
+            9
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                7,
+                5
+              ],
+              "period": 2,
+              "open_phases": [
+                1
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                8,
+                6
+              ],
+              "period": 4,
+              "open_phases": [
+                0,
+                3
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  5,
+                  2
+                ],
+                [
+                  6,
+                  2
+                ],
+                [
+                  7,
+                  2
+                ],
+                [
+                  6,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  2,
+                  8
+                ],
+                [
+                  1,
+                  8
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  7
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  1,
+                  8
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                1,
+                3
+              ],
+              "dropoff": [
+                5,
+                8
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                2,
+                1
+              ],
+              "dropoff": [
+                4,
+                8
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 45,
+          "max_rounds": 9,
+          "optimal_ticks": 24,
+          "static_optimal_ticks": 23,
+          "map_render": "   123456789\n  +---------+\n 1|#2.......|\n 2|#...p....|\n 3|1......#.|\n 4|##....#..|\n 5|......A..|\n 6|......#B#|\n 7|..#.#.#.#|\n 8|.q.yx##..|\n 9|S....##..|\n  +---------+",
+          "schedules_text": "Gate A at (7,5): open exactly when (t mod 2) is in {1}. So it is open at t=1,3,... and closed at t=0,2,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (8,6): open exactly when (t mod 4) is in {0, 3}. So it is open at t=0,3,4,7,... and closed at t=1,2,5,6,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (5,2); t mod 4=1: (6,2); t mod 4=2: (7,2); t mod 4=3: (6,2). This repeats forever.\nGuard Q: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (2,8); t mod 6=1: (1,8); t mod 6=2: (1,7); t mod 6=3: (2,7); t mod 6=4: (1,7); t mod 6=5: (1,8). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (1,3) (map glyph '1'), deliver it to (5,8) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (2,1) (map glyph '2'), deliver it to (4,8) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 5,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "start": [
+            8,
+            1
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                1,
+                2
+              ],
+              "period": 4,
+              "open_phases": [
+                1,
+                2
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                4,
+                7
+              ],
+              "period": 4,
+              "open_phases": [
+                0,
+                1
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  5,
+                  5
+                ],
+                [
+                  4,
+                  5
+                ],
+                [
+                  4,
+                  6
+                ],
+                [
+                  4,
+                  5
+                ],
+                [
+                  5,
+                  5
+                ],
+                [
+                  6,
+                  5
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  3,
+                  9
+                ],
+                [
+                  3,
+                  8
+                ],
+                [
+                  4,
+                  8
+                ],
+                [
+                  4,
+                  9
+                ],
+                [
+                  5,
+                  9
+                ],
+                [
+                  4,
+                  9
+                ],
+                [
+                  4,
+                  8
+                ],
+                [
+                  3,
+                  8
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                1,
+                4
+              ],
+              "dropoff": [
+                8,
+                7
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                9,
+                1
+              ],
+              "dropoff": [
+                1,
+                3
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 50,
+          "max_rounds": 10,
+          "optimal_ticks": 26,
+          "static_optimal_ticks": 24,
+          "map_render": "   123456789\n  +---------+\n 1|.....#.S2|\n 2|A#.......|\n 3|y.#.##.##|\n 4|1.##.##..|\n 5|#........|\n 6|..#..p...|\n 7|#.#B#.#x.|\n 8|....#....|\n 9|..q..#...|\n  +---------+",
+          "schedules_text": "Gate A at (1,2): open exactly when (t mod 4) is in {1, 2}. So it is open at t=1,2,5,6,... and closed at t=0,3,4,7,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (4,7): open exactly when (t mod 4) is in {0, 1}. So it is open at t=0,1,4,5,... and closed at t=2,3,6,7,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (6,6); t mod 8=1: (6,5); t mod 8=2: (5,5); t mod 8=3: (4,5); t mod 8=4: (4,6); t mod 8=5: (4,5); t mod 8=6: (5,5); t mod 8=7: (6,5). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (3,9); t mod 8=1: (3,8); t mod 8=2: (4,8); t mod 8=3: (4,9); t mod 8=4: (5,9); t mod 8=5: (4,9); t mod 8=6: (4,8); t mod 8=7: (3,8). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (1,4) (map glyph '1'), deliver it to (8,7) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (9,1) (map glyph '2'), deliver it to (1,3) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 6,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "start": [
+            3,
+            3
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                8,
+                7
+              ],
+              "period": 4,
+              "open_phases": [
+                2,
+                3
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                1,
+                6
+              ],
+              "period": 2,
+              "open_phases": [
+                0
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  8,
+                  5
+                ],
+                [
+                  8,
+                  4
+                ],
+                [
+                  7,
+                  4
+                ],
+                [
+                  7,
+                  3
+                ],
+                [
+                  7,
+                  2
+                ],
+                [
+                  7,
+                  3
+                ],
+                [
+                  7,
+                  4
+                ],
+                [
+                  8,
+                  4
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  8,
+                  4
+                ],
+                [
+                  9,
+                  4
+                ],
+                [
+                  9,
+                  5
+                ],
+                [
+                  8,
+                  5
+                ],
+                [
+                  7,
+                  5
+                ],
+                [
+                  8,
+                  5
+                ],
+                [
+                  9,
+                  5
+                ],
+                [
+                  9,
+                  4
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                2,
+                5
+              ],
+              "dropoff": [
+                5,
+                4
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                6,
+                6
+              ],
+              "dropoff": [
+                7,
+                3
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 30,
+          "max_rounds": 6,
+          "optimal_ticks": 16,
+          "static_optimal_ticks": 14,
+          "map_render": "   123456789\n  +---------+\n 1|#...#....|\n 2|...#.....|\n 3|..S..#y..|\n 4|#...x..q.|\n 5|.1#..#.p.|\n 6|B###.2...|\n 7|......#A#|\n 8|#........|\n 9|..#......|\n  +---------+",
+          "schedules_text": "Gate A at (8,7): open exactly when (t mod 4) is in {2, 3}. So it is open at t=2,3,6,7,... and closed at t=0,1,4,5,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (1,6): open exactly when (t mod 2) is in {0}. So it is open at t=0,2,... and closed at t=1,3,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (8,5); t mod 8=1: (8,4); t mod 8=2: (7,4); t mod 8=3: (7,3); t mod 8=4: (7,2); t mod 8=5: (7,3); t mod 8=6: (7,4); t mod 8=7: (8,4). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (8,4); t mod 8=1: (9,4); t mod 8=2: (9,5); t mod 8=3: (8,5); t mod 8=4: (7,5); t mod 8=5: (8,5); t mod 8=6: (9,5); t mod 8=7: (9,4). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (2,5) (map glyph '1'), deliver it to (5,4) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (6,6) (map glyph '2'), deliver it to (7,3) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 7,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              9
+            ]
+          ],
+          "start": [
+            2,
+            9
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                9,
+                4
+              ],
+              "period": 2,
+              "open_phases": [
+                0
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                7,
+                9
+              ],
+              "period": 4,
+              "open_phases": [
+                2,
+                3
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  5,
+                  2
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  4,
+                  3
+                ],
+                [
+                  4,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  4,
+                  8
+                ],
+                [
+                  4,
+                  9
+                ],
+                [
+                  5,
+                  9
+                ],
+                [
+                  5,
+                  8
+                ],
+                [
+                  6,
+                  8
+                ],
+                [
+                  5,
+                  8
+                ],
+                [
+                  5,
+                  9
+                ],
+                [
+                  4,
+                  9
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                5,
+                3
+              ],
+              "dropoff": [
+                5,
+                6
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                8,
+                3
+              ],
+              "dropoff": [
+                8,
+                5
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 45,
+          "max_rounds": 9,
+          "optimal_ticks": 24,
+          "static_optimal_ticks": 24,
+          "map_render": "   123456789\n  +---------+\n 1|........#|\n 2|#...p....|\n 3|....1.#2.|\n 4|.......#A|\n 5|....#..y.|\n 6|#...x.###|\n 7|.......#.|\n 8|.#.q..#..|\n 9|.S#...B.#|\n  +---------+",
+          "schedules_text": "Gate A at (9,4): open exactly when (t mod 2) is in {0}. So it is open at t=0,2,... and closed at t=1,3,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (7,9): open exactly when (t mod 4) is in {2, 3}. So it is open at t=2,3,6,7,... and closed at t=0,1,4,5,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (5,2); t mod 4=1: (4,2); t mod 4=2: (4,3); t mod 4=3: (4,2). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (4,8); t mod 8=1: (4,9); t mod 8=2: (5,9); t mod 8=3: (5,8); t mod 8=4: (6,8); t mod 8=5: (5,8); t mod 8=6: (5,9); t mod 8=7: (4,9). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (5,3) (map glyph '1'), deliver it to (5,6) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (8,3) (map glyph '2'), deliver it to (8,5) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 8,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "start": [
+            4,
+            4
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                7,
+                9
+              ],
+              "period": 2,
+              "open_phases": [
+                0
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                7,
+                7
+              ],
+              "period": 4,
+              "open_phases": [
+                2,
+                3
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  7,
+                  2
+                ],
+                [
+                  8,
+                  2
+                ],
+                [
+                  8,
+                  3
+                ],
+                [
+                  8,
+                  4
+                ],
+                [
+                  8,
+                  3
+                ],
+                [
+                  8,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  2,
+                  4
+                ],
+                [
+                  1,
+                  4
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  4
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                8,
+                9
+              ],
+              "dropoff": [
+                6,
+                7
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                5,
+                8
+              ],
+              "dropoff": [
+                6,
+                3
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 35,
+          "max_rounds": 7,
+          "optimal_ticks": 17,
+          "static_optimal_ticks": 17,
+          "map_render": "   123456789\n  +---------+\n 1|.#.......|\n 2|......p..|\n 3|#....y...|\n 4|.q.S....#|\n 5|...#.....|\n 6|......#..|\n 7|.....xB..|\n 8|..#.2.#..|\n 9|#..#..A1.|\n  +---------+",
+          "schedules_text": "Gate A at (7,9): open exactly when (t mod 2) is in {0}. So it is open at t=0,2,... and closed at t=1,3,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (7,7): open exactly when (t mod 4) is in {2, 3}. So it is open at t=2,3,6,7,... and closed at t=0,1,4,5,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (7,2); t mod 6=1: (8,2); t mod 6=2: (8,3); t mod 6=3: (8,4); t mod 6=4: (8,3); t mod 6=5: (8,2). This repeats forever.\nGuard Q: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (2,4); t mod 4=1: (1,4); t mod 4=2: (1,5); t mod 4=3: (1,4). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (8,9) (map glyph '1'), deliver it to (6,7) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (5,8) (map glyph '2'), deliver it to (6,3) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 9,
+          "width": 9,
+          "height": 9,
+          "walls": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "start": [
+            8,
+            3
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                5,
+                2
+              ],
+              "period": 6,
+              "open_phases": [
+                0,
+                1,
+                5
+              ]
+            },
+            {
+              "id": "B",
+              "cell": [
+                4,
+                8
+              ],
+              "period": 6,
+              "open_phases": [
+                2,
+                3,
+                4
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  9,
+                  6
+                ],
+                [
+                  9,
+                  7
+                ],
+                [
+                  8,
+                  7
+                ],
+                [
+                  7,
+                  7
+                ],
+                [
+                  7,
+                  6
+                ],
+                [
+                  7,
+                  7
+                ],
+                [
+                  8,
+                  7
+                ],
+                [
+                  9,
+                  7
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  3,
+                  7
+                ],
+                [
+                  3,
+                  6
+                ],
+                [
+                  3,
+                  5
+                ],
+                [
+                  2,
+                  5
+                ],
+                [
+                  3,
+                  5
+                ],
+                [
+                  3,
+                  6
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                3,
+                7
+              ],
+              "dropoff": [
+                3,
+                4
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                9,
+                9
+              ],
+              "dropoff": [
+                2,
+                1
+              ]
+            }
+          ],
+          "action_mode": "cardinal",
+          "initial_heading": "N",
+          "plan_length": 5,
+          "tick_budget": 50,
+          "max_rounds": 10,
+          "optimal_ticks": 26,
+          "static_optimal_ticks": 24,
+          "map_render": "   123456789\n  +---------+\n 1|.y..#.#.#|\n 2|.##.A....|\n 3|.#..##.S.|\n 4|.#x......|\n 5|.....#..#|\n 6|##......p|\n 7|.#1......|\n 8|..#B#.#.#|\n 9|.....#..2|\n  +---------+",
+          "schedules_text": "Gate A at (5,2): open exactly when (t mod 6) is in {0, 1, 5}. So it is open at t=0,1,5,6,7,11,... and closed at t=2,3,4,8,9,10,... You can only step ONTO it at a tick t+1 where it is open.\nGate B at (4,8): open exactly when (t mod 6) is in {2, 3, 4}. So it is open at t=2,3,4,8,9,10,... and closed at t=0,1,5,6,7,11,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (9,6); t mod 8=1: (9,7); t mod 8=2: (8,7); t mod 8=3: (7,7); t mod 8=4: (7,6); t mod 8=5: (7,7); t mod 8=6: (8,7); t mod 8=7: (9,7). This repeats forever.\nGuard Q: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (3,7); t mod 6=1: (3,6); t mod 6=2: (3,5); t mod 6=3: (2,5); t mod 6=4: (3,5); t mod 6=5: (3,6). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (3,7) (map glyph '1'), deliver it to (3,4) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (9,9) (map glyph '2'), deliver it to (2,1) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        }
+      ],
+      "feedback_mode": "minimal",
+      "action_mode": "cardinal",
+      "plan_length": 5,
+      "initial_prompt": "You are a courier in a clockwork city. Everything in this city runs on a fixed, fully\npredictable schedule - nothing is random and nothing is hidden. Your job is to pick up\nand deliver parcels before the clock runs out.\n\nTHE MAP (coordinates are (column,row); (1,1) is the top-left cell)\n\n$MAP$\n\nLEGEND\n$LEGEND$\n\nHOW TIME AND MOVEMENT WORK\n- Time advances in ticks t=0,1,2,... You start on cell $START$ at t=0.\n- Each tick you make exactly one move: N (up), S (down), E (right), W (left), or WAIT.\n- One step t -> t+1 resolves in this exact order:\n  1. Your move resolves. Moving into a wall, the map border, or a gate that is closed\n     at the arrival time t+1 is a BUMP: you stay where you are and the tick is wasted.\n     WAIT never bumps.\n  2. Every guard moves to its position for time t+1.\n  3. If you are now on the same cell as a guard, you are CAUGHT. Passing a guard\n     mid-move is safe; only ending the tick on its cell gets you caught.\n  4. Otherwise, if you are on a parcel's pickup cell you automatically pick it up; if\n     you are on the delivery cell of a parcel you carry, you automatically deliver it.\n- If you are CAUGHT: you keep your parcels, but you are put back on your start cell\n  $START$, the rest of your current plan is cancelled, and the cancelled moves' ticks\n  are forfeited. Standing on a gate cell when it closes is safe - gates never trap you.\n\nTHE SCHEDULES (fixed forever; you can compute every future position exactly)\n$SCHEDULES$\n\nYOUR JOB\n$PARCELS$\nDeliver every parcel within $TICK_BUDGET$ ticks. You move by committing to plans of\nexactly $PLAN_LENGTH$ moves at a time; you have at most $MAX_ROUNDS$ plans in total.\nIf you deliver the last parcel mid-plan, the game ends immediately and the unused\nmoves are discarded.\n\nWORKED EXAMPLE (for the rules only - this is NOT the map above): suppose you stand at\n(2,2), gate G at (3,2) has period 2 and is open when (t mod 2) = 1, and it is now t=0.\nMoving E now (arriving at t=1, when the gate is open) succeeds. But moving E at t=1\n(arriving at t=2, when the gate is closed) is a BUMP: you stay at (2,2) and tick 2 is\nwasted. The right play at t=1 is to WAIT once and then move E, arriving at t=3 when\nthe gate is open again.\n\n$FEEDBACK_NOTE$\n\nRESPOND IN EXACTLY THIS FORMAT (and put nothing after the PLAN line):\nTHOUGHTS: <your reasoning - any length; the referee ignores this>\nPOSITION: (x,y)\nPLAN: <exactly $PLAN_LENGTH$ moves from {N, S, E, W, WAIT}, separated by spaces>\n\nThe POSITION line must state the cell you predict you will occupy AFTER your plan has\nexecuted. The referee records your prediction but will never confirm or correct it.\n\nGive your first response now.\n"
+    },
+    {
+      "name": "egocentric",
+      "game_instances": [
+        {
+          "game_id": 0,
+          "width": 8,
+          "height": 8,
+          "walls": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "start": [
+            6,
+            4
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                6,
+                7
+              ],
+              "period": 6,
+              "open_phases": [
+                2,
+                3,
+                4
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  8,
+                  6
+                ],
+                [
+                  7,
+                  6
+                ],
+                [
+                  7,
+                  5
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  7,
+                  5
+                ],
+                [
+                  7,
+                  6
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  2,
+                  7
+                ],
+                [
+                  3,
+                  7
+                ],
+                [
+                  4,
+                  7
+                ],
+                [
+                  3,
+                  7
+                ],
+                [
+                  2,
+                  7
+                ],
+                [
+                  2,
+                  6
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                5,
+                7
+              ],
+              "dropoff": [
+                2,
+                8
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                2,
+                3
+              ],
+              "dropoff": [
+                1,
+                6
+              ]
+            }
+          ],
+          "action_mode": "egocentric",
+          "initial_heading": "N",
+          "plan_length": 6,
+          "tick_budget": 42,
+          "max_rounds": 7,
+          "optimal_ticks": 23,
+          "static_optimal_ticks": 23,
+          "map_render": "   12345678\n  +--------+\n 1|.....#..|\n 2|....#...|\n 3|.2......|\n 4|.....S..|\n 5|........|\n 6|y.q..#.p|\n 7|....1A..|\n 8|.x...#..|\n  +--------+",
+          "schedules_text": "Gate A at (6,7): open exactly when (t mod 6) is in {2, 3, 4}. So it is open at t=2,3,4,8,9,10,... and closed at t=0,1,5,6,7,11,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (8,6); t mod 6=1: (7,6); t mod 6=2: (7,5); t mod 6=3: (6,5); t mod 6=4: (7,5); t mod 6=5: (7,6). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (3,6); t mod 8=1: (2,6); t mod 8=2: (2,7); t mod 8=3: (3,7); t mod 8=4: (4,7); t mod 8=5: (3,7); t mod 8=6: (2,7); t mod 8=7: (2,6). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (5,7) (map glyph '1'), deliver it to (2,8) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (2,3) (map glyph '2'), deliver it to (1,6) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 1,
+          "width": 8,
+          "height": 8,
+          "walls": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "start": [
+            5,
+            1
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                1,
+                2
+              ],
+              "period": 6,
+              "open_phases": [
+                1,
+                2,
+                3
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  3,
+                  7
+                ],
+                [
+                  2,
+                  7
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  2,
+                  7
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  2,
+                  7
+                ],
+                [
+                  2,
+                  8
+                ],
+                [
+                  3,
+                  8
+                ],
+                [
+                  3,
+                  7
+                ],
+                [
+                  4,
+                  7
+                ],
+                [
+                  3,
+                  7
+                ],
+                [
+                  3,
+                  8
+                ],
+                [
+                  2,
+                  8
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                4,
+                4
+              ],
+              "dropoff": [
+                1,
+                5
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                1,
+                6
+              ],
+              "dropoff": [
+                4,
+                3
+              ]
+            }
+          ],
+          "action_mode": "egocentric",
+          "initial_heading": "N",
+          "plan_length": 6,
+          "tick_budget": 42,
+          "max_rounds": 7,
+          "optimal_ticks": 22,
+          "static_optimal_ticks": 20,
+          "map_render": "   12345678\n  +--------+\n 1|.#..S...|\n 2|A#....#.|\n 3|...y....|\n 4|...1..##|\n 5|x...#...|\n 6|2...#...|\n 7|.qp.....|\n 8|...#....|\n  +--------+",
+          "schedules_text": "Gate A at (1,2): open exactly when (t mod 6) is in {1, 2, 3}. So it is open at t=1,2,3,7,8,9,... and closed at t=0,4,5,6,10,11,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (3,7); t mod 8=1: (2,7); t mod 8=2: (2,6); t mod 8=3: (1,6); t mod 8=4: (1,7); t mod 8=5: (1,6); t mod 8=6: (2,6); t mod 8=7: (2,7). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (2,7); t mod 8=1: (2,8); t mod 8=2: (3,8); t mod 8=3: (3,7); t mod 8=4: (4,7); t mod 8=5: (3,7); t mod 8=6: (3,8); t mod 8=7: (2,8). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (4,4) (map glyph '1'), deliver it to (1,5) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (1,6) (map glyph '2'), deliver it to (4,3) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 2,
+          "width": 8,
+          "height": 8,
+          "walls": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "start": [
+            3,
+            3
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                2,
+                8
+              ],
+              "period": 2,
+              "open_phases": [
+                1
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  6,
+                  4
+                ],
+                [
+                  7,
+                  4
+                ],
+                [
+                  7,
+                  3
+                ],
+                [
+                  7,
+                  4
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  2
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                7,
+                4
+              ],
+              "dropoff": [
+                5,
+                2
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                7,
+                3
+              ],
+              "dropoff": [
+                5,
+                3
+              ]
+            }
+          ],
+          "action_mode": "egocentric",
+          "initial_heading": "N",
+          "plan_length": 6,
+          "tick_budget": 30,
+          "max_rounds": 5,
+          "optimal_ticks": 15,
+          "static_optimal_ticks": 13,
+          "map_render": "   12345678\n  +--------+\n 1|#......#|\n 2|q...x...|\n 3|..S.y.2.|\n 4|#....p1.|\n 5|...#....|\n 6|##...#..|\n 7|.#.#....|\n 8|.A......|\n  +--------+",
+          "schedules_text": "Gate A at (2,8): open exactly when (t mod 2) is in {1}. So it is open at t=1,3,... and closed at t=0,2,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (6,4); t mod 4=1: (7,4); t mod 4=2: (7,3); t mod 4=3: (7,4). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (1,2); t mod 8=1: (2,2); t mod 8=2: (2,1); t mod 8=3: (3,1); t mod 8=4: (3,2); t mod 8=5: (3,1); t mod 8=6: (2,1); t mod 8=7: (2,2). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (7,4) (map glyph '1'), deliver it to (5,2) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (7,3) (map glyph '2'), deliver it to (5,3) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 3,
+          "width": 8,
+          "height": 8,
+          "walls": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              7,
+              2
+            ]
+          ],
+          "start": [
+            2,
+            6
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                4,
+                8
+              ],
+              "period": 2,
+              "open_phases": [
+                1
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  3,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  4,
+                  1
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  5,
+                  2
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  4,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  7,
+                  1
+                ],
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  2
+                ],
+                [
+                  6,
+                  1
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                2,
+                5
+              ],
+              "dropoff": [
+                3,
+                4
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                8,
+                1
+              ],
+              "dropoff": [
+                5,
+                3
+              ]
+            }
+          ],
+          "action_mode": "egocentric",
+          "initial_heading": "N",
+          "plan_length": 6,
+          "tick_budget": 42,
+          "max_rounds": 7,
+          "optimal_ticks": 23,
+          "static_optimal_ticks": 23,
+          "map_render": "   12345678\n  +--------+\n 1|....#.q2|\n 2|..p...#.|\n 3|....y...|\n 4|.#x.....|\n 5|#1......|\n 6|.S#.....|\n 7|.#.#....|\n 8|.#.A....|\n  +--------+",
+          "schedules_text": "Gate A at (4,8): open exactly when (t mod 2) is in {1}. So it is open at t=1,3,... and closed at t=0,2,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (3,2); t mod 8=1: (3,1); t mod 8=2: (4,1); t mod 8=3: (4,2); t mod 8=4: (5,2); t mod 8=5: (4,2); t mod 8=6: (4,1); t mod 8=7: (3,1). This repeats forever.\nGuard Q: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (7,1); t mod 4=1: (6,1); t mod 4=2: (6,2); t mod 4=3: (6,1). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (2,5) (map glyph '1'), deliver it to (3,4) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (8,1) (map glyph '2'), deliver it to (5,3) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 4,
+          "width": 8,
+          "height": 8,
+          "walls": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "start": [
+            4,
+            5
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                2,
+                7
+              ],
+              "period": 2,
+              "open_phases": [
+                1
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  5,
+                  7
+                ],
+                [
+                  5,
+                  6
+                ],
+                [
+                  5,
+                  5
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  5,
+                  5
+                ],
+                [
+                  5,
+                  6
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  8,
+                  2
+                ],
+                [
+                  7,
+                  2
+                ],
+                [
+                  6,
+                  2
+                ],
+                [
+                  7,
+                  2
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                3,
+                2
+              ],
+              "dropoff": [
+                4,
+                2
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                6,
+                8
+              ],
+              "dropoff": [
+                7,
+                3
+              ]
+            }
+          ],
+          "action_mode": "egocentric",
+          "initial_heading": "N",
+          "plan_length": 6,
+          "tick_budget": 48,
+          "max_rounds": 8,
+          "optimal_ticks": 26,
+          "static_optimal_ticks": 26,
+          "map_render": "   12345678\n  +--------+\n 1|..#....#|\n 2|#.1x...q|\n 3|......y.|\n 4|.##...#.|\n 5|#..S..#.|\n 6|........|\n 7|#A##p...|\n 8|.....2..|\n  +--------+",
+          "schedules_text": "Gate A at (2,7): open exactly when (t mod 2) is in {1}. So it is open at t=1,3,... and closed at t=0,2,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (5,7); t mod 6=1: (5,6); t mod 6=2: (5,5); t mod 6=3: (6,5); t mod 6=4: (5,5); t mod 6=5: (5,6). This repeats forever.\nGuard Q: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (8,2); t mod 4=1: (7,2); t mod 4=2: (6,2); t mod 4=3: (7,2). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (3,2) (map glyph '1'), deliver it to (4,2) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (6,8) (map glyph '2'), deliver it to (7,3) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 5,
+          "width": 8,
+          "height": 8,
+          "walls": [
+            [
+              1,
+              7
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "start": [
+            1,
+            6
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                7,
+                2
+              ],
+              "period": 2,
+              "open_phases": [
+                1
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  3,
+                  8
+                ],
+                [
+                  3,
+                  7
+                ],
+                [
+                  3,
+                  6
+                ],
+                [
+                  4,
+                  6
+                ],
+                [
+                  5,
+                  6
+                ],
+                [
+                  4,
+                  6
+                ],
+                [
+                  3,
+                  6
+                ],
+                [
+                  3,
+                  7
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  7,
+                  3
+                ],
+                [
+                  8,
+                  3
+                ],
+                [
+                  8,
+                  4
+                ],
+                [
+                  8,
+                  3
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                1,
+                4
+              ],
+              "dropoff": [
+                3,
+                5
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                3,
+                7
+              ],
+              "dropoff": [
+                5,
+                6
+              ]
+            }
+          ],
+          "action_mode": "egocentric",
+          "initial_heading": "N",
+          "plan_length": 6,
+          "tick_budget": 30,
+          "max_rounds": 5,
+          "optimal_ticks": 16,
+          "static_optimal_ticks": 15,
+          "map_render": "   12345678\n  +--------+\n 1|..#.....|\n 2|..#..#A#|\n 3|......q.|\n 4|1..##.#.|\n 5|..x.....|\n 6|S...y...|\n 7|#.2.#...|\n 8|..p...##|\n  +--------+",
+          "schedules_text": "Gate A at (7,2): open exactly when (t mod 2) is in {1}. So it is open at t=1,3,... and closed at t=0,2,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (3,8); t mod 8=1: (3,7); t mod 8=2: (3,6); t mod 8=3: (4,6); t mod 8=4: (5,6); t mod 8=5: (4,6); t mod 8=6: (3,6); t mod 8=7: (3,7). This repeats forever.\nGuard Q: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (7,3); t mod 4=1: (8,3); t mod 4=2: (8,4); t mod 4=3: (8,3). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (1,4) (map glyph '1'), deliver it to (3,5) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (3,7) (map glyph '2'), deliver it to (5,6) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 6,
+          "width": 8,
+          "height": 8,
+          "walls": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              6
+            ]
+          ],
+          "start": [
+            5,
+            5
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                8,
+                3
+              ],
+              "period": 6,
+              "open_phases": [
+                3,
+                4,
+                5
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  5,
+                  2
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  4,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  7,
+                  1
+                ],
+                [
+                  8,
+                  1
+                ],
+                [
+                  8,
+                  2
+                ],
+                [
+                  7,
+                  2
+                ],
+                [
+                  8,
+                  2
+                ],
+                [
+                  8,
+                  1
+                ],
+                [
+                  7,
+                  1
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                1,
+                4
+              ],
+              "dropoff": [
+                6,
+                1
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                4,
+                8
+              ],
+              "dropoff": [
+                5,
+                1
+              ]
+            }
+          ],
+          "action_mode": "egocentric",
+          "initial_heading": "N",
+          "plan_length": 6,
+          "tick_budget": 48,
+          "max_rounds": 8,
+          "optimal_ticks": 26,
+          "static_optimal_ticks": 26,
+          "map_render": "   12345678\n  +--------+\n 1|...#yx..|\n 2|....p...|\n 3|......#A|\n 4|1###..#.|\n 5|..#.S...|\n 6|.......#|\n 7|.#......|\n 8|...2#...|\n  +--------+",
+          "schedules_text": "Gate A at (8,3): open exactly when (t mod 6) is in {3, 4, 5}. So it is open at t=3,4,5,9,10,11,... and closed at t=0,1,2,6,7,8,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (5,2); t mod 6=1: (4,2); t mod 6=2: (3,2); t mod 6=3: (3,1); t mod 6=4: (3,2); t mod 6=5: (4,2). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (6,1); t mod 8=1: (7,1); t mod 8=2: (8,1); t mod 8=3: (8,2); t mod 8=4: (7,2); t mod 8=5: (8,2); t mod 8=6: (8,1); t mod 8=7: (7,1). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (1,4) (map glyph '1'), deliver it to (6,1) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (4,8) (map glyph '2'), deliver it to (5,1) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 7,
+          "width": 8,
+          "height": 8,
+          "walls": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "start": [
+            6,
+            1
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                8,
+                6
+              ],
+              "period": 4,
+              "open_phases": [
+                1,
+                2
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  7,
+                  5
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  7
+                ],
+                [
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  5
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  2,
+                  2
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                4,
+                2
+              ],
+              "dropoff": [
+                5,
+                3
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                3,
+                7
+              ],
+              "dropoff": [
+                7,
+                8
+              ]
+            }
+          ],
+          "action_mode": "egocentric",
+          "initial_heading": "N",
+          "plan_length": 6,
+          "tick_budget": 48,
+          "max_rounds": 8,
+          "optimal_ticks": 26,
+          "static_optimal_ticks": 25,
+          "map_render": "   12345678\n  +--------+\n 1|#q#..S..|\n 2|...1.#..|\n 3|....x.#.|\n 4|...#...#|\n 5|..#...p.|\n 6|......#A|\n 7|..2...#.|\n 8|.#..#.y.|\n  +--------+",
+          "schedules_text": "Gate A at (8,6): open exactly when (t mod 4) is in {1, 2}. So it is open at t=1,2,5,6,... and closed at t=0,3,4,7,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 6. Its position at tick t is determined by (t mod 6) as follows: t mod 6=0: (7,5); t mod 6=1: (6,5); t mod 6=2: (6,6); t mod 6=3: (6,7); t mod 6=4: (6,6); t mod 6=5: (6,5). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (2,1); t mod 8=1: (2,2); t mod 8=2: (3,2); t mod 8=3: (3,3); t mod 8=4: (2,3); t mod 8=5: (3,3); t mod 8=6: (3,2); t mod 8=7: (2,2). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (4,2) (map glyph '1'), deliver it to (5,3) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (3,7) (map glyph '2'), deliver it to (7,8) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 8,
+          "width": 8,
+          "height": 8,
+          "walls": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "start": [
+            7,
+            6
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                8,
+                3
+              ],
+              "period": 2,
+              "open_phases": [
+                1
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  6,
+                  4
+                ],
+                [
+                  7,
+                  4
+                ],
+                [
+                  7,
+                  5
+                ],
+                [
+                  8,
+                  5
+                ],
+                [
+                  8,
+                  6
+                ],
+                [
+                  8,
+                  5
+                ],
+                [
+                  7,
+                  5
+                ],
+                [
+                  7,
+                  4
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  5,
+                  8
+                ],
+                [
+                  6,
+                  8
+                ],
+                [
+                  6,
+                  7
+                ],
+                [
+                  7,
+                  7
+                ],
+                [
+                  7,
+                  8
+                ],
+                [
+                  7,
+                  7
+                ],
+                [
+                  6,
+                  7
+                ],
+                [
+                  6,
+                  8
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                1,
+                5
+              ],
+              "dropoff": [
+                8,
+                4
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                1,
+                4
+              ],
+              "dropoff": [
+                3,
+                6
+              ]
+            }
+          ],
+          "action_mode": "egocentric",
+          "initial_heading": "N",
+          "plan_length": 6,
+          "tick_budget": 48,
+          "max_rounds": 8,
+          "optimal_ticks": 25,
+          "static_optimal_ticks": 25,
+          "map_render": "   12345678\n  +--------+\n 1|..#..#..|\n 2|..#.....|\n 3|......#A|\n 4|2#...p.x|\n 5|1.......|\n 6|..y...S.|\n 7|....#...|\n 8|#...q...|\n  +--------+",
+          "schedules_text": "Gate A at (8,3): open exactly when (t mod 2) is in {1}. So it is open at t=1,3,... and closed at t=0,2,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (6,4); t mod 8=1: (7,4); t mod 8=2: (7,5); t mod 8=3: (8,5); t mod 8=4: (8,6); t mod 8=5: (8,5); t mod 8=6: (7,5); t mod 8=7: (7,4). This repeats forever.\nGuard Q: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (5,8); t mod 8=1: (6,8); t mod 8=2: (6,7); t mod 8=3: (7,7); t mod 8=4: (7,8); t mod 8=5: (7,7); t mod 8=6: (6,7); t mod 8=7: (6,8). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (1,5) (map glyph '1'), deliver it to (8,4) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (1,4) (map glyph '2'), deliver it to (3,6) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        },
+        {
+          "game_id": 9,
+          "width": 8,
+          "height": 8,
+          "walls": [
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ]
+          ],
+          "start": [
+            8,
+            8
+          ],
+          "gates": [
+            {
+              "id": "A",
+              "cell": [
+                4,
+                1
+              ],
+              "period": 2,
+              "open_phases": [
+                0
+              ]
+            }
+          ],
+          "patrols": [
+            {
+              "id": "P",
+              "route": [
+                [
+                  8,
+                  1
+                ],
+                [
+                  8,
+                  2
+                ],
+                [
+                  8,
+                  3
+                ],
+                [
+                  7,
+                  3
+                ],
+                [
+                  7,
+                  4
+                ],
+                [
+                  7,
+                  3
+                ],
+                [
+                  8,
+                  3
+                ],
+                [
+                  8,
+                  2
+                ]
+              ]
+            },
+            {
+              "id": "Q",
+              "route": [
+                [
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  7,
+                  5
+                ],
+                [
+                  6,
+                  5
+                ]
+              ]
+            }
+          ],
+          "parcels": [
+            {
+              "id": 1,
+              "pickup": [
+                6,
+                7
+              ],
+              "dropoff": [
+                1,
+                7
+              ]
+            },
+            {
+              "id": 2,
+              "pickup": [
+                6,
+                5
+              ],
+              "dropoff": [
+                7,
+                3
+              ]
+            }
+          ],
+          "action_mode": "egocentric",
+          "initial_heading": "N",
+          "plan_length": 6,
+          "tick_budget": 48,
+          "max_rounds": 8,
+          "optimal_ticks": 24,
+          "static_optimal_ticks": 23,
+          "map_render": "   12345678\n  +--------+\n 1|...A...p|\n 2|...#....|\n 3|..#...y.|\n 4|#...#..#|\n 5|...#.2.#|\n 6|.....q..|\n 7|x....1..|\n 8|.....#.S|\n  +--------+",
+          "schedules_text": "Gate A at (4,1): open exactly when (t mod 2) is in {0}. So it is open at t=0,2,... and closed at t=1,3,... You can only step ONTO it at a tick t+1 where it is open.\nGuard P: walks a fixed cycle of length 8. Its position at tick t is determined by (t mod 8) as follows: t mod 8=0: (8,1); t mod 8=1: (8,2); t mod 8=2: (8,3); t mod 8=3: (7,3); t mod 8=4: (7,4); t mod 8=5: (7,3); t mod 8=6: (8,3); t mod 8=7: (8,2). This repeats forever.\nGuard Q: walks a fixed cycle of length 4. Its position at tick t is determined by (t mod 4) as follows: t mod 4=0: (6,6); t mod 4=1: (6,5); t mod 4=2: (7,5); t mod 4=3: (6,5). This repeats forever.",
+          "parcels_text": "Parcel 1: pick it up at (6,7) (map glyph '1'), deliver it to (1,7) (map glyph 'x'). Pickup and delivery happen automatically when you end a tick on the cell.\nParcel 2: pick it up at (6,5) (map glyph '2'), deliver it to (7,3) (map glyph 'y'). Pickup and delivery happen automatically when you end a tick on the cell."
+        }
+      ],
+      "feedback_mode": "rich",
+      "action_mode": "egocentric",
+      "plan_length": 6,
+      "initial_prompt": "You are a courier in a clockwork city. Everything in this city runs on a fixed, fully\npredictable schedule - nothing is random and nothing is hidden. Your job is to pick up\nand deliver parcels before the clock runs out.\n\nTHE MAP (coordinates are (column,row); (1,1) is the top-left cell)\n\n$MAP$\n\nLEGEND\n$LEGEND$\n\nHOW TIME AND MOVEMENT WORK\n- Time advances in ticks t=0,1,2,... You start on cell $START$ at t=0, FACING $HEADING$.\n- You always have a facing direction (N, S, E or W). Each tick you make exactly one move:\n  F    = step one cell forward, in the direction you are facing\n  L    = turn 90 degrees left, in place (you do not move, but the tick is consumed)\n  R    = turn 90 degrees right, in place (you do not move, but the tick is consumed)\n  WAIT = do nothing for one tick\n  There are no absolute moves: to go \"north\" you must first be facing N, then move F.\n- One step t -> t+1 resolves in this exact order:\n  1. Your move resolves. Moving F into a wall, the map border, or a gate that is closed\n     at the arrival time t+1 is a BUMP: you stay where you are (facing unchanged) and\n     the tick is wasted. L, R and WAIT never bump.\n  2. Every guard moves to its position for time t+1.\n  3. If you are now on the same cell as a guard, you are CAUGHT. This applies even on\n     ticks where you only turned or waited. Passing a guard mid-move is safe; only\n     ending the tick on its cell gets you caught.\n  4. Otherwise, if you are on a parcel's pickup cell you automatically pick it up; if\n     you are on the delivery cell of a parcel you carry, you automatically deliver it.\n- If you are CAUGHT: you keep your parcels, but you are put back on your start cell\n  $START$ facing $HEADING$ again, the rest of your current plan is cancelled, and the\n  cancelled moves' ticks are forfeited. Standing on a gate cell when it closes is safe.\n\nTHE SCHEDULES (fixed forever; you can compute every future position exactly)\n$SCHEDULES$\n\nYOUR JOB\n$PARCELS$\nDeliver every parcel within $TICK_BUDGET$ ticks. You move by committing to plans of\nexactly $PLAN_LENGTH$ moves at a time; you have at most $MAX_ROUNDS$ plans in total.\nIf you deliver the last parcel mid-plan, the game ends immediately and the unused\nmoves are discarded.\n\nWORKED EXAMPLE (for the rules only - this is NOT the map above): suppose you are at\n(2,2) facing N at t=0 and want to reach (3,2), which is to the east. Moving F now would\ntake you to (2,1) instead. The correct sequence is R (t=1, now facing E, still at\n(2,2)), then F (t=2, now at (3,2)). If (3,2) were a gate that is closed at t=2, that F\nwould BUMP and you would have to WAIT for a tick when it is open.\n\n$FEEDBACK_NOTE$\n\nRESPOND IN EXACTLY THIS FORMAT (and put nothing after the PLAN line):\nTHOUGHTS: <your reasoning - any length; the referee ignores this>\nPOSITION: (x,y) FACING <N|S|E|W>\nPLAN: <exactly $PLAN_LENGTH$ moves from {F, L, R, WAIT}, separated by spaces>\n\nThe POSITION line must state the cell you predict you will occupy AND the direction you\npredict you will be facing AFTER your plan has executed. The referee records your\nprediction but will never confirm or correct it.\n\nGive your first response now.\n"
+    }
+  ]
+}
