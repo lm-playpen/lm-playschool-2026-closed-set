@@ -186,3 +186,9 @@ clem score -g all -r results/outofdomain
 clem eval -r results/outofdomain
 ```
 
+## 6. Verify all the games ran correctly 
+
+```bash
+python check_scores_files.py -r results/indomain
+python check_scores_files.py -r results/outofdomain
+```
