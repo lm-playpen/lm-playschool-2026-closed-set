@@ -1,0 +1,537 @@
+{
+  "experiments": [
+    {
+      "name": "full_v1.5_default",
+      "game_instances": [
+        {
+          "game_id": 1169,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pre-conditions has a direct effect on vaccination and disease. Vaccination has a direct effect on disease. The overall probability of getting the vaccine is 59%. The probability of vaccine refusal and recovering from the disease is 24%. The probability of getting the vaccine and recovering from the disease is 20%. Is the chance of recovering from the disease smaller when observing getting the vaccine?",
+          "target": "yes"
+        },
+        {
+          "game_id": 9980,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Hwax has a direct effect on pexu and rukz. Pexu has a direct effect on rukz. We know that hwax causes pexu. hwax and pexu causes rukz. We observed an individual is not hwax. Would an individual is not rukz if not pexu instead of pexu?",
+          "target": "yes"
+        },
+        {
+          "game_id": 2803,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: The man in the room has a direct effect on room. The candle has a direct effect on room. We know that blowing out the candle and candle with wax causes dark room. We observed the candle is out of wax. Would the room is bright if blowing out the candle instead of not blowing out the candle?",
+          "target": "yes"
+        },
+        {
+          "game_id": 8751,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yupt has a direct effect on zupj. Zupj has a direct effect on muvq. For those who are not yupt, the probability of muvq is 25%. For those who are yupt, the probability of muvq is 25%. For those who are yupt, would it be more likely to see muvq if the individual was not yupt?",
+          "target": "no"
+        },
+        {
+          "game_id": 4010,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Liking spicy food has a direct effect on parents' social status and child's intelligence. Other unobserved factors has a direct effect on parents' social status and child's intelligence. Parents' social status has a direct effect on child's intelligence. Other unobserved factors is unobserved. The overall probability of liking spicy food is 51%. The probability of not liking spicy food and intelligent child is 18%. The probability of liking spicy food and intelligent child is 34%. Is the chance of intelligent child larger when observing liking spicy food?",
+          "target": "yes"
+        },
+        {
+          "game_id": 2677,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gene has a direct effect on smoking and lung cancer. Pollution has a direct effect on smoking and lung cancer. Smoking has a direct effect on lung cancer. Pollution is unobserved. Method 1: We look at how gene correlates with lung cancer case by case according to smoking. Method 2: We look directly at how gene correlates with lung cancer in general. To understand how gene affects lung cancer, is it more correct to use the Method 1 than Method 2?",
+          "target": "no"
+        },
+        {
+          "game_id": 7573,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax and rukz. Hwax has a direct effect on rukz. For those who are not pexu, the probability of rukz is 17%. For those who are pexu, the probability of rukz is 80%. For those who are pexu, would it be more likely to see rukz if the individual was not pexu?",
+          "target": "no"
+        },
+        {
+          "game_id": 6216,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on smoking and peanut allergy. Smoking has a direct effect on tar deposit. Tar deposit has a direct effect on peanut allergy. Gender is unobserved. We know that female causes smoking. smoking causes absence of tar deposit. female or high tar deposit causes being allergic to peanuts. We observed the person is non-female. Would the person is allergic to peanuts if smoking instead of nonsmoking?",
+          "target": "no"
+        },
+        {
+          "game_id": 4422,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on smoking and peanut allergy. Smoking has a direct effect on tar deposit. Tar deposit has a direct effect on peanut allergy. Gender is unobserved. For nonsmokers, the probability of high tar deposit is 18%. For smokers, the probability of high tar deposit is 64%. For nonsmokers and with no tar deposit, the probability of being allergic to peanuts is 46%. For nonsmokers and with high tar deposit, the probability of being allergic to peanuts is 77%. For smokers and with no tar deposit, the probability of being allergic to peanuts is 17%. For smokers and with high tar deposit, the probability of being allergic to peanuts is 43%. The overall probability of smoking is 49%. Will smoking decrease the chance of being allergic to peanuts?",
+          "target": "no"
+        },
+        {
+          "game_id": 9125,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Kraz has a direct effect on pexu and rukz. Pexu has a direct effect on hwax. Hwax has a direct effect on rukz. Kraz is unobserved. For those who are not pexu and are not hwax, the probability of rukz is 19%. For those who are not pexu and are hwax, the probability of rukz is 29%. For those who are pexu and are not hwax, the probability of rukz is 20%. For those who are pexu and are hwax, the probability of rukz is 31%. For those who are not pexu, the probability of hwax is 16%. For those who are pexu, the probability of hwax is 90%. For those who are pexu, would it be less likely to see rukz if the individual was not pexu?",
+          "target": "yes"
+        },
+        {
+          "game_id": 3598,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Having a sister has a direct effect on blood pressure and heart condition. Blood pressure has a direct effect on heart condition. For people who do not have a sister and with low blood pressure, the probability of healthy heart is 63%. For people who do not have a sister and with high blood pressure, the probability of healthy heart is 31%. For people who have a sister and with low blood pressure, the probability of healthy heart is 72%. For people who have a sister and with high blood pressure, the probability of healthy heart is 41%. For people who do not have a sister, the probability of high blood pressure is 66%. For people who have a sister, the probability of high blood pressure is 38%. Does having a sister positively affect heart condition through blood pressure?",
+          "target": "yes"
+        },
+        {
+          "game_id": 5313,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Liking spicy food has a direct effect on occupation and salary. Skill has a direct effect on occupation and salary. Occupation has a direct effect on salary. Skill is unobserved. The overall probability of liking spicy food is 2%. The probability of not liking spicy food and high salary is 45%. The probability of liking spicy food and high salary is 1%. Is the chance of high salary smaller when observing liking spicy food?",
+          "target": "yes"
+        },
+        {
+          "game_id": 916,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Smoking has a direct effect on effort and college admission. Effort has a direct effect on college admission. For nonsmokers and are lazy, the probability of college admission is 47%. For nonsmokers and are hard-working, the probability of college admission is 88%. For smokers and are lazy, the probability of college admission is 23%. For smokers and are hard-working, the probability of college admission is 54%. For nonsmokers, the probability of being hard-working is 40%. For smokers, the probability of being hard-working is 61%. If we disregard the mediation effect through effort, would smoking negatively affect college admission?",
+          "target": "yes"
+        },
+        {
+          "game_id": 3752,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Listening to jazz has a direct effect on elite institution admission status. Effort has a direct effect on elite institution admission status. For students accepted to elite institutions, the correlation between listening to jazz and being hard-working is -0.09. If we look at students accepted to elite institutions, does it mean that listening to jazz affects being hard-working?",
+          "target": "no"
+        },
+        {
+          "game_id": 525,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Unobserved confounders has a direct effect on drug taken and cholesterol level. Treatment assignment has a direct effect on drug taken. Drug taken has a direct effect on cholesterol level. Unobserved confounders is unobserved. For patients not assigned the drug treatment, the probability of low cholesterol is 63%. For patients assigned the drug treatment, the probability of low cholesterol is 52%. For patients not assigned the drug treatment, the probability of taking of all assigned drugs is 37%. For patients assigned the drug treatment, the probability of taking of all assigned drugs is 74%. Will taking of all assigned drugs increase the chance of low cholesterol?",
+          "target": "no"
+        },
+        {
+          "game_id": 5168,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Talent has a direct effect on elite institution admission status. Brown eyes has a direct effect on elite institution admission status. The overall probability of talent is 97%. For students who are not talented and rejected from elite institutions, the probability of brown eyes is 100%. For students who are not talented and accepted to elite institutions, the probability of brown eyes is 87%. For students who are talented and rejected from elite institutions, the probability of brown eyes is 97%. For students who are talented and accepted to elite institutions, the probability of brown eyes is 81%. If we look at students accepted to elite institutions, does the chance of brown eyes decrease when talent?",
+          "target": "yes"
+        },
+        {
+          "game_id": 6572,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Kwox has a direct effect on kwoz. Swoq has a direct effect on kwoz. For those who are not kwox, the probability of kwoz is 82%. For those who are kwox, the probability of kwoz is 32%. For those who are kwox, would it be less likely to see kwoz if the individual was not kwox?",
+          "target": "no"
+        },
+        {
+          "game_id": 4386,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on smoking and peanut allergy. Smoking has a direct effect on tar deposit. Tar deposit has a direct effect on peanut allergy. Gender is unobserved. For nonsmokers and with no tar deposit, the probability of being allergic to peanuts is 35%. For nonsmokers and with high tar deposit, the probability of being allergic to peanuts is 63%. For smokers and with no tar deposit, the probability of being allergic to peanuts is 25%. For smokers and with high tar deposit, the probability of being allergic to peanuts is 49%. For nonsmokers, the probability of high tar deposit is 22%. For smokers, the probability of high tar deposit is 73%. For smokers, would it be more likely to see being allergic to peanuts if the person had been a nonsmoker?",
+          "target": "no"
+        },
+        {
+          "game_id": 1084,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Age has a direct effect on hospital costs and recovery. Hospital costs has a direct effect on recovery. The overall probability of high hospital bill is 51%. The probability of low hospital bill and recovery is 37%. The probability of high hospital bill and recovery is 17%. Is the chance of recovery larger when observing high hospital bill?",
+          "target": "no"
+        },
+        {
+          "game_id": 3456,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Solar eclipse has a direct effect on Alice arriving to school. Traffic has a direct effect on Alice arriving to school. Method 1: We look at how solar eclipse correlates with Alice arriving to school case by case according to traffic. Method 2: We look directly at how solar eclipse correlates with Alice arriving to school in general. To understand how solar eclipse affects Alice arriving to school, is it more correct to use the Method 1 than Method 2?",
+          "target": "no"
+        },
+        {
+          "game_id": 9292,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Zory has a direct effect on zuph and glimx. Zuph has a direct effect on jyka. Jyka has a direct effect on glimx. Zory is unobserved. The overall probability of zuph is 36%. The probability of not zuph and glimx is 30%. The probability of zuph and glimx is 31%. Is the chance of glimx smaller when observing zuph?",
+          "target": "no"
+        },
+        {
+          "game_id": 5155,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Talent has a direct effect on elite institution admission status. Brown eyes has a direct effect on elite institution admission status. Method 1: We look at how talent correlates with brown eyes case by case according to elite institution admission status. Method 2: We look directly at how talent correlates with brown eyes in general. To understand how talent affects brown eyes, is it more correct to use the Method 1 than Method 2?",
+          "target": "no"
+        },
+        {
+          "game_id": 3483,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tanning salon treatment has a direct effect on foot size. Going to the beach has a direct effect on foot size. The overall probability of tanning salon treatment is 10%. For people not using tanning salon treatments, the probability of large feet is 13%. For people who went to tanning salons, the probability of large feet is 70%. Is large feet more likely than small feet overall?",
+          "target": "no"
+        },
+        {
+          "game_id": 8179,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Xevo has a direct effect on tijv and gyzp. Tijw has a direct effect on tijv and gyzp. Tijv has a direct effect on gyzp. Tijw is unobserved. Method 1: We look directly at how xevo correlates with gyzp in general. Method 2: We look at this correlation case by case according to tijv. To understand how xevo affects gyzp, is it more correct to use the Method 1 than Method 2?",
+          "target": "yes"
+        },
+        {
+          "game_id": 6482,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Kwox has a direct effect on swoq and kwoz. Swoq has a direct effect on kwoz. For those who are not kwox, the probability of kwoz is 36%. For those who are kwox, the probability of kwoz is 56%. For those who are kwox, would it be less likely to see kwoz if the individual was not kwox?",
+          "target": "yes"
+        },
+        {
+          "game_id": 7517,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on vubr and zuph. Zuph has a direct effect on uvzi. Vubr has a direct effect on uvzi. Method 1: We look at how zuph correlates with uvzi case by case according to vubr. Method 2: We look directly at how zuph correlates with uvzi in general. To understand how zuph affects uvzi, is it more correct to use the Method 1 than Method 2?",
+          "target": "yes"
+        },
+        {
+          "game_id": 2340,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Eating citrus has a direct effect on vitmain C. Vitmain C has a direct effect on scurvy. For patients not consuming citrus, the probability of scurvy is 73%. For patients consuming citrus, the probability of scurvy is 54%. Does eating citrus positively affect scurvy through vitmain C?",
+          "target": "no"
+        },
+        {
+          "game_id": 4339,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Maternal smoking status has a direct effect on infant's birth weight and freckles. Health condition has a direct effect on infant's birth weight and freckles. Infant's birth weight has a direct effect on freckles. Health condition is unobserved. Method 1: We look at how maternal smoking status correlates with freckles case by case according to infant's birth weight. Method 2: We look directly at how maternal smoking status correlates with freckles in general. To understand how maternal smoking status affects freckles, is it more correct to use the Method 1 than Method 2?",
+          "target": "no"
+        },
+        {
+          "game_id": 2287,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Smoking has a direct effect on effort and college admission. Effort has a direct effect on college admission. The overall probability of smoking is 93%. The probability of nonsmoking and college admission is 3%. The probability of smoking and college admission is 62%. Is the chance of college admission smaller when observing smoking?",
+          "target": "no"
+        },
+        {
+          "game_id": 4040,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Smoking has a direct effect on effort and lactose intolerance. Effort has a direct effect on lactose intolerance. For nonsmokers, the probability of being lactose intolerant is 77%. For smokers, the probability of being lactose intolerant is 37%. Will smoking decrease the chance of being lactose intolerant?",
+          "target": "yes"
+        },
+        {
+          "game_id": 9197,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Hwax has a direct effect on kraz and pexu. Pexu has a direct effect on rukz. Kraz has a direct effect on rukz. The overall probability of pexu is 82%. The probability of not pexu and rukz is 13%. The probability of pexu and rukz is 47%. Is the chance of rukz smaller when observing pexu?",
+          "target": "yes"
+        },
+        {
+          "game_id": 8830,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Xyfo has a direct effect on yupt and muvq. Zupj has a direct effect on yupt. Yupt has a direct effect on muvq. Xyfo is unobserved. Method 1: We look at how yupt correlates with muvq case by case according to xyfo. Method 2: We look directly at how yupt correlates with muvq in general. To understand how yupt affects muvq, is it more correct to use the Method 1 than Method 2?",
+          "target": "yes"
+        },
+        {
+          "game_id": 4304,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pre-conditions has a direct effect on vaccination and lactose intolerance. Vaccination has a direct effect on lactose intolerance. The overall probability of getting the vaccine is 35%. The probability of vaccine refusal and being lactose intolerant is 40%. The probability of getting the vaccine and being lactose intolerant is 9%. Is the chance of being lactose intolerant larger when observing getting the vaccine?",
+          "target": "no"
+        },
+        {
+          "game_id": 9577,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijw has a direct effect on xevo and gyzp. Xevo has a direct effect on tijv. Tijv has a direct effect on gyzp. Tijw is unobserved. We know that tijw causes xevo. xevo causes tijv. tijw or tijv causes gyzp. We observed an individual is not tijw. Would an individual is not gyzp if not xevo instead of xevo?",
+          "target": "yes"
+        },
+        {
+          "game_id": 7019,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Hwax has a direct effect on gyzp and jyka. Jyka has a direct effect on lirg. Gyzp has a direct effect on lirg. Method 1: We look at how jyka correlates with lirg case by case according to gyzp. Method 2: We look directly at how jyka correlates with lirg in general. To understand how jyka affects lirg, is it more correct to use the Method 1 than Method 2?",
+          "target": "yes"
+        },
+        {
+          "game_id": 9560,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp. We know that tijv causes not xevo. tijv and xevo causes gyzp. We observed an individual is not tijv. Would an individual is gyzp if not xevo instead of xevo?",
+          "target": "no"
+        },
+        {
+          "game_id": 6543,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Kwox has a direct effect on muvy and swoq. Swoq has a direct effect on kwoz. Muvy has a direct effect on kwoz. For those who are not kwox, the probability of kwoz is 34%. For those who are kwox, the probability of kwoz is 55%. Will kwox increase the chance of kwoz?",
+          "target": "yes"
+        },
+        {
+          "game_id": 5930,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Drinking coffee has a direct effect on wife and alarm clock. Wife has a direct effect on alarm clock. We know that drinking coffee causes alarm set by wife. drinking coffee or alarm set by wife causes ringing alarm. Would the alarm rings the next morning if drinking coffee instead of not drinking coffee?",
+          "target": "yes"
+        },
+        {
+          "game_id": 3593,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Having a sister has a direct effect on blood pressure and heart condition. Blood pressure has a direct effect on heart condition. Method 1: We look at how having a sister correlates with heart condition case by case according to blood pressure. Method 2: We look directly at how having a sister correlates with heart condition in general. To understand how having a sister affects heart condition, is it more correct to use the Method 1 than Method 2?",
+          "target": "no"
+        },
+        {
+          "game_id": 2266,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Parents' intelligence has a direct effect on parents' social status and child's intelligence. Other unobserved factors has a direct effect on parents' social status and child's intelligence. Parents' social status has a direct effect on child's intelligence. Other unobserved factors is unobserved. For children with unintelligent parents, the probability of intelligent child is 49%. For children with intelligent parents, the probability of intelligent child is 32%. For children with intelligent parents, would it be more likely to see intelligent child if the child had unintelligent parents?",
+          "target": "yes"
+        },
+        {
+          "game_id": 8348,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on cwoi and gwet. Gwet has a direct effect on xevu. Cwoi has a direct effect on xevu. The overall probability of yomx is 22%. The probability of not yomx and xevu is 48%. The probability of yomx and xevu is 7%. Is the chance of xevu larger when observing yomx?",
+          "target": "no"
+        },
+        {
+          "game_id": 8085,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Kwox has a direct effect on kwoz. Swoq has a direct effect on kwoz. For those who are not kwox, the probability of kwoz is 35%. For those who are kwox, the probability of kwoz is 65%. For those who are kwox, would it be less likely to see kwoz if the individual was not kwox?",
+          "target": "yes"
+        },
+        {
+          "game_id": 1489,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: The man in the room has a direct effect on room. The candle has a direct effect on room. For people not blowing out candles, the probability of dark room is 88%. For people who blow out candles, the probability of dark room is 56%. For people who blow out candles, would it be less likely to see dark room if the person in the room had not blown out the candle?",
+          "target": "no"
+        },
+        {
+          "game_id": 771,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on occupation and salary. Skill has a direct effect on occupation and salary. Occupation has a direct effect on salary. Skill is unobserved. For individuals who are not male and blue-collar workers, the probability of high salary is 26%. For individuals who are not male and white-collar workers, the probability of high salary is 61%. For individuals who are male and blue-collar workers, the probability of high salary is 55%. For individuals who are male and white-collar workers, the probability of high salary is 68%. For individuals who are not male and with low skill levels, the probability of white-collar job is 40%. For individuals who are not male and with high skill levels, the probability of white-collar job is 15%. For individuals who are male and with low skill levels, the probability of white-collar job is 2%. For individuals who are male and with high skill levels, the probability of white-collar job is 24%. The overall probability of high skill level is 11%. If we disregard the mediation effect through occupation, would gender negatively affect salary?",
+          "target": "no"
+        },
+        {
+          "game_id": 1796,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: My decision has a direct effect on penguin mood and penguin survival. Penguin mood has a direct effect on penguin survival. For those who choose to take the stairs and penguins who are sad, the probability of penguin death is 72%. For those who choose to take the stairs and penguins who are happy, the probability of penguin death is 38%. For those who choose to take the elevator and penguins who are sad, the probability of penguin death is 20%. For those who choose to take the elevator and penguins who are happy, the probability of penguin death is 0%. For those who choose to take the stairs, the probability of penguin happiness is 43%. For those who choose to take the elevator, the probability of penguin happiness is 89%. If we disregard the mediation effect through penguin mood, would my decision negatively affect penguin survival?",
+          "target": "yes"
+        },
+        {
+          "game_id": 2504,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Kidney stone size has a direct effect on treatment and recovery. Treatment has a direct effect on recovery. For patients who have small kidney stones and not receiving treatment, the probability of recovery is 88%. For patients who have small kidney stones and receiving treatment, the probability of recovery is 72%. For patients who have large kidney stones and not receiving treatment, the probability of recovery is 16%. For patients who have large kidney stones and receiving treatment, the probability of recovery is 4%. The overall probability of large kidney stone is 41%. For patients receiving treatment, would it be less likely to see recovery if the patient had received no treatment?",
+          "target": "no"
+        },
+        {
+          "game_id": 2621,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on smoking and lung cancer. Smoking has a direct effect on tar deposit. Tar deposit has a direct effect on lung cancer. Gender is unobserved. Method 1: We look directly at how smoking correlates with lung cancer in general. Method 2: We look at this correlation case by case according to gender. To understand how smoking affects lung cancer, is it more correct to use the Method 1 than Method 2?",
+          "target": "no"
+        },
+        {
+          "game_id": 6916,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on hwax. Lirg has a direct effect on hwax. Method 1: We look at how jyka correlates with lirg case by case according to hwax. Method 2: We look directly at how jyka correlates with lirg in general. To understand how jyka affects lirg, is it more correct to use the Method 1 than Method 2?",
+          "target": "no"
+        },
+        {
+          "game_id": 9771,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on yupt and kwox. Yupt has a direct effect on kwox. We know that jyka causes yupt. jyka or yupt causes kwox. Would an individual is kwox if not jyka instead of jyka?",
+          "target": "no"
+        },
+        {
+          "game_id": 1040,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Demand has a direct effect on supply and price. Yield per acre has a direct effect on supply. Supply has a direct effect on price. Demand is unobserved. The overall probability of increased supply is 42%. The probability of reduced supply and increased price is 42%. The probability of increased supply and increased price is 22%. Is the chance of increased price smaller when observing increased supply?",
+          "target": "yes"
+        },
+        {
+          "game_id": 6304,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Zuph has a direct effect on rixq and xevu. Rixq has a direct effect on xevu. The overall probability of rixq is 32%. The probability of not rixq and xevu is 35%. The probability of rixq and xevu is 21%. Is the chance of xevu smaller when observing rixq?",
+          "target": "no"
+        },
+        {
+          "game_id": 6252,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Unobserved confounders has a direct effect on maternal smoking status and brown eyes. Cigarette tax has a direct effect on maternal smoking status. Maternal smoking status has a direct effect on brown eyes. Unobserved confounders is unobserved. We know that confounder active and high cigarette tax causes smoking mother. confounder active and smoking mother causes brown eyes. We observed the cigarette tax is high and confounder active. Would the infant has blue eyes if smoking mother instead of nonsmoking mother?",
+          "target": "no"
+        },
+        {
+          "game_id": 9763,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yupt has a direct effect on jyka and kwox. Jyka has a direct effect on kwox. We know that yupt causes jyka. yupt and jyka causes kwox. We observed an individual is yupt. Would an individual is kwox if not jyka instead of jyka?",
+          "target": "no"
+        },
+        {
+          "game_id": 7668,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Hwax has a direct effect on kraz and pexu. Pexu has a direct effect on rukz. Kraz has a direct effect on rukz. The overall probability of pexu is 41%. For those who are not pexu, the probability of rukz is 66%. For those who are pexu, the probability of rukz is 22%. Is rukz more likely than not rukz overall?",
+          "target": "no"
+        },
+        {
+          "game_id": 8669,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on yupt and kwox. Qwiu has a direct effect on yupt and kwox. Yupt has a direct effect on kwox. Qwiu is unobserved. The overall probability of jyka is 0%. The probability of not jyka and kwox is 11%. The probability of jyka and kwox is 0%. Is the chance of kwox smaller when observing jyka?",
+          "target": "no"
+        },
+        {
+          "game_id": 4119,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Eating citrus has a direct effect on vitmain C. Vitmain C has a direct effect on curly hair. For patients not consuming citrus, the probability of curly hair is 47%. For patients consuming citrus, the probability of curly hair is 15%. Will citrus intake decrease the chance of curly hair?",
+          "target": "yes"
+        },
+        {
+          "game_id": 9064,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz. Method 1: We look at how pexu correlates with rukz case by case according to hwax. Method 2: We look directly at how pexu correlates with rukz in general. To understand how pexu affects rukz, is it more correct to use the Method 1 than Method 2?",
+          "target": "no"
+        },
+        {
+          "game_id": 188,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: The captain has a direct effect on the private and the corporal. The corporal has a direct effect on prisoner. The private has a direct effect on prisoner. Method 1: We look directly at how the captain correlates with prisoner in general. Method 2: We look at this correlation case by case according to the private. To understand how the captain affects prisoner, is it more correct to use the Method 1 than Method 2?",
+          "target": "yes"
+        },
+        {
+          "game_id": 1876,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Medication has a direct effect on blood pressure and heart condition. Blood pressure has a direct effect on heart condition. For people not taking any medication, the probability of healthy heart is 64%. For people taking medication, the probability of healthy heart is 21%. For people taking medication, would it be more likely to see healthy heart if the person had taken no medication?",
+          "target": "yes"
+        },
+        {
+          "game_id": 8797,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Xyfo has a direct effect on yupt and muvq. Yupt has a direct effect on zupj. Zupj has a direct effect on muvq. Xyfo is unobserved. For those who are not yupt and are not zupj, the probability of muvq is 90%. For those who are not yupt and are zupj, the probability of muvq is 54%. For those who are yupt and are not zupj, the probability of muvq is 96%. For those who are yupt and are zupj, the probability of muvq is 57%. For those who are not yupt, the probability of zupj is 51%. For those who are yupt, the probability of zupj is 34%. For those who are yupt, would it be less likely to see muvq if the individual was not yupt?",
+          "target": "yes"
+        },
+        {
+          "game_id": 4371,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on smoking and peanut allergy. Smoking has a direct effect on tar deposit. Tar deposit has a direct effect on peanut allergy. Gender is unobserved. For nonsmokers, the probability of high tar deposit is 28%. For smokers, the probability of high tar deposit is 58%. For nonsmokers and with no tar deposit, the probability of being allergic to peanuts is 49%. For nonsmokers and with high tar deposit, the probability of being allergic to peanuts is 77%. For smokers and with no tar deposit, the probability of being allergic to peanuts is 27%. For smokers and with high tar deposit, the probability of being allergic to peanuts is 62%. The overall probability of smoking is 58%. Will smoking increase the chance of being allergic to peanuts?",
+          "target": "yes"
+        },
+        {
+          "game_id": 5573,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and peanut allergy. Treatment has a direct effect on peanut allergy. For patients who are not male and not receiving treatment, the probability of being allergic to peanuts is 98%. For patients who are not male and receiving treatment, the probability of being allergic to peanuts is 87%. For patients who are male and not receiving treatment, the probability of being allergic to peanuts is 34%. For patients who are male and receiving treatment, the probability of being allergic to peanuts is 14%. The overall probability of male gender is 43%. For patients receiving treatment, would it be less likely to see being allergic to peanuts if the patient had received no treatment?",
+          "target": "no"
+        },
+        {
+          "game_id": 1827,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Vaccination status has a direct effect on vaccination reaction and getting smallpox. Getting smallpox has a direct effect on smallpox survival. Vaccination reaction has a direct effect on smallpox survival. Method 1: We look at how vaccination status correlates with smallpox survival case by case according to vaccination reaction. Method 2: We look directly at how vaccination status correlates with smallpox survival in general. To understand how vaccination status affects smallpox survival, is it more correct to use the Method 1 than Method 2?",
+          "target": "no"
+        },
+        {
+          "game_id": 4808,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Ability to speak english has a direct effect on the forest. The smoker has a direct effect on the forest. The overall probability of speaking english is 90%. The probability of not speaking english and the forest on fire is 8%. The probability of speaking english and the forest on fire is 46%. Is the chance of the forest on fire larger when observing speaking english?",
+          "target": "no"
+        },
+        {
+          "game_id": 7123,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on yupt and kwox. Yupt has a direct effect on kwox. Method 1: We look at how jyka correlates with kwox case by case according to yupt. Method 2: We look directly at how jyka correlates with kwox in general. To understand how jyka affects kwox, is it more correct to use the Method 1 than Method 2?",
+          "target": "no"
+        },
+        {
+          "game_id": 2591,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on smoking and lung cancer. Smoking has a direct effect on tar deposit. Tar deposit has a direct effect on lung cancer. Gender is unobserved. For nonsmokers, the probability of high tar deposit is 77%. For smokers, the probability of high tar deposit is 26%. For nonsmokers and with no tar deposit, the probability of lung cancer is 71%. For nonsmokers and with high tar deposit, the probability of lung cancer is 45%. For smokers and with no tar deposit, the probability of lung cancer is 63%. For smokers and with high tar deposit, the probability of lung cancer is 37%. The overall probability of smoking is 39%. Will smoking decrease the chance of lung cancer?",
+          "target": "no"
+        },
+        {
+          "game_id": 7433,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Vubr has a direct effect on zuph and uvzi. Zuph has a direct effect on wibl. Wibl has a direct effect on uvzi. Vubr is unobserved. The overall probability of zuph is 32%. The probability of not zuph and uvzi is 61%. The probability of zuph and uvzi is 29%. Is the chance of uvzi smaller when observing zuph?",
+          "target": "no"
+        },
+        {
+          "game_id": 53,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: The man in the room has a direct effect on room. The candle has a direct effect on room. Method 1: We look directly at how the man in the room correlates with room in general. Method 2: We look at this correlation case by case according to the candle. To understand how the man in the room affects room, is it more correct to use the Method 1 than Method 2?",
+          "target": "yes"
+        },
+        {
+          "game_id": 4315,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Maternal smoking status has a direct effect on infant's birth weight and freckles. Health condition has a direct effect on infant's birth weight and freckles. Infant's birth weight has a direct effect on freckles. Health condition is unobserved. For infants with nonsmoking mothers and low infant birth weight, the probability of freckles is 46%. For infants with nonsmoking mothers and normal infant birth weight, the probability of freckles is 21%. For infants with smoking mothers and low infant birth weight, the probability of freckles is 74%. For infants with smoking mothers and normal infant birth weight, the probability of freckles is 47%. For infants with nonsmoking mothers and with poor health, the probability of normal infant birth weight is 51%. For infants with nonsmoking mothers and with good health, the probability of normal infant birth weight is 72%. For infants with smoking mothers and with poor health, the probability of normal infant birth weight is 3%. For infants with smoking mothers and with good health, the probability of normal infant birth weight is 35%. The overall probability of good health is 90%. If we disregard the mediation effect through infant's birth weight, would maternal smoking status negatively affect freckles?",
+          "target": "no"
+        },
+        {
+          "game_id": 8201,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on tijw and xevo. Xevo has a direct effect on gyzp. Tijw has a direct effect on gyzp. For those who are not xevo and are not tijw, the probability of gyzp is 76%. For those who are not xevo and are tijw, the probability of gyzp is 76%. For those who are xevo and are not tijw, the probability of gyzp is 12%. For those who are xevo and are tijw, the probability of gyzp is 14%. For those who are not xevo, the probability of tijw is 28%. For those who are xevo, the probability of tijw is 14%. For those who are xevo, would it be more likely to see gyzp if the individual was not xevo?",
+          "target": "yes"
+        },
+        {
+          "game_id": 2927,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Unobserved confounders has a direct effect on education level and salary. Proximity to a college has a direct effect on education level. Education level has a direct effect on salary. Unobserved confounders is unobserved. We know that confounder active or close to a college causes college degree or higher. confounder active and college degree or higher causes high salary. We observed the person lives close to a college and confounder active. Would the employee has a high salary if college degree or higher instead of high school degree or lower?",
+          "target": "yes"
+        },
+        {
+          "game_id": 8317,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Cwoi has a direct effect on yomx and xevu. Yomx has a direct effect on gwet. Gwet has a direct effect on xevu. Cwoi is unobserved. For those who are not yomx, the probability of gwet is 70%. For those who are yomx, the probability of gwet is 44%. For those who are not yomx and are not gwet, the probability of xevu is 64%. For those who are not yomx and are gwet, the probability of xevu is 49%. For those who are yomx and are not gwet, the probability of xevu is 58%. For those who are yomx and are gwet, the probability of xevu is 89%. The overall probability of yomx is 43%. Does yomx negatively affect xevu through gwet?",
+          "target": "yes"
+        },
+        {
+          "game_id": 1743,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Alice waking up has a direct effect on Alice arriving to school. Traffic has a direct effect on Alice arriving to school. For days when Alice wakes up on time, the probability of arriving to school on time is 46%. For days when Alice wakes up late, the probability of arriving to school on time is 78%. For days when Alice wakes up late, would it be more likely to see arriving to school on time if Alice had gotten up on time?",
+          "target": "no"
+        },
+        {
+          "game_id": 4889,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tanning salon treatment has a direct effect on black hair. Going to the beach has a direct effect on black hair. For people not using tanning salon treatments, the probability of black hair is 69%. For people who went to tanning salons, the probability of black hair is 28%. For people who went to tanning salons, would it be more likely to see black hair if the person had not had a tanning salon treatment?",
+          "target": "yes"
+        },
+        {
+          "game_id": 9977,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Hwax has a direct effect on pexu and rukz. Pexu has a direct effect on rukz. We know that hwax causes pexu. hwax or pexu causes rukz. We observed an individual is not hwax. Would an individual is rukz if pexu instead of not pexu?",
+          "target": "yes"
+        },
+        {
+          "game_id": 3258,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee. The overall probability of having visited England is 19%. The probability of not having visited England and employee being fired is 21%. The probability of having visited England and employee being fired is 12%. Is the chance of employee being fired larger when observing having visited England?",
+          "target": "yes"
+        },
+        {
+          "game_id": 6126,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Smoking has a direct effect on effort and lactose intolerance. Effort has a direct effect on lactose intolerance. We know that smoking causes being lazy. smoking and being hard-working causes being lactose intolerant. Would the student is lactose intolerant if nonsmoking instead of smoking?",
+          "target": "no"
+        },
+        {
+          "game_id": 2646,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on smoking and lung cancer. Smoking has a direct effect on tar deposit. Tar deposit has a direct effect on lung cancer. Gender is unobserved. For nonsmokers and with no tar deposit, the probability of lung cancer is 79%. For nonsmokers and with high tar deposit, the probability of lung cancer is 49%. For smokers and with no tar deposit, the probability of lung cancer is 71%. For smokers and with high tar deposit, the probability of lung cancer is 40%. For nonsmokers, the probability of high tar deposit is 79%. For smokers, the probability of high tar deposit is 40%. For smokers, would it be more likely to see lung cancer if the person had been a nonsmoker?",
+          "target": "no"
+        },
+        {
+          "game_id": 8837,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yupt has a direct effect on zupj and muvq. Xyfo has a direct effect on zupj and muvq. Zupj has a direct effect on muvq. Xyfo is unobserved. For those who are not yupt and are not zupj, the probability of muvq is 44%. For those who are not yupt and are zupj, the probability of muvq is 51%. For those who are yupt and are not zupj, the probability of muvq is 57%. For those who are yupt and are zupj, the probability of muvq is 10%. For those who are not yupt and are not xyfo, the probability of zupj is 42%. For those who are not yupt and are xyfo, the probability of zupj is 87%. For those who are yupt and are not xyfo, the probability of zupj is 26%. For those who are yupt and are xyfo, the probability of zupj is 44%. The overall probability of xyfo is 22%. Does yupt negatively affect muvq through zupj?",
+          "target": "yes"
+        },
+        {
+          "game_id": 8689,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on qwiu and yupt. Yupt has a direct effect on kwox. Qwiu has a direct effect on kwox. The overall probability of jyka is 53%. For those who are not jyka, the probability of kwox is 60%. For those who are jyka, the probability of kwox is 50%. Is kwox less likely than not kwox overall?",
+          "target": "no"
+        },
+        {
+          "game_id": 9,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Husband has a direct effect on wife and alarm clock. Wife has a direct effect on alarm clock. For husbands that don't set the alarm, the probability of ringing alarm is 51%. For husbands that set the alarm, the probability of ringing alarm is 49%. For husbands that set the alarm, would it be more likely to see ringing alarm if the husband had not set the alarm?",
+          "target": "yes"
+        },
+        {
+          "game_id": 9813,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on kwox. Yupt has a direct effect on kwox. We know that jyka or yupt causes kwox. We observed an individual is not yupt. Would an individual is kwox if jyka instead of not jyka?",
+          "target": "yes"
+        },
+        {
+          "game_id": 5310,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Liking spicy food has a direct effect on occupation and salary. Skill has a direct effect on occupation and salary. Occupation has a direct effect on salary. Skill is unobserved. Method 1: We look at how liking spicy food correlates with salary case by case according to occupation. Method 2: We look directly at how liking spicy food correlates with salary in general. To understand how liking spicy food affects salary, is it more correct to use the Method 1 than Method 2?",
+          "target": "no"
+        },
+        {
+          "game_id": 8005,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Kwox has a direct effect on swoq and kwoz. Swoq has a direct effect on kwoz. For those who are not kwox, the probability of kwoz is 35%. For those who are kwox, the probability of kwoz is 57%. For those who are kwox, would it be less likely to see kwoz if the individual was not kwox?",
+          "target": "yes"
+        },
+        {
+          "game_id": 319,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tanning salon treatment has a direct effect on skin. Going to the beach has a direct effect on skin. For people not using tanning salon treatments, the probability of tanned skin is 24%. For people who went to tanning salons, the probability of tanned skin is 68%. Will tanning salon treatment increase the chance of tanned skin?",
+          "target": "yes"
+        },
+        {
+          "game_id": 1832,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Vaccination status has a direct effect on vaccination reaction and getting smallpox. Getting smallpox has a direct effect on smallpox survival. Vaccination reaction has a direct effect on smallpox survival. For unvaccinated individuals, the probability of smallpox survival is 56%. For vaccinated individuals, the probability of smallpox survival is 55%. Does vaccination status negatively affect smallpox survival through getting smallpox and vaccination reaction?",
+          "target": "yes"
+        },
+        {
+          "game_id": 5947,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee. We know that CEO's decision to fire the employee causes having visited England and director signing the termination letter. having visited England and director signing the termination letter causes employee being fired. We observed the CEO decides to retain the employee. Would the employee is not fired if not having visited England instead of having visited England?",
+          "target": "yes"
+        },
+        {
+          "game_id": 5038,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Ability to speak english has a direct effect on fame. Talent has a direct effect on fame. The overall probability of speaking english is 89%. For people who do not speak english and are not famous, the probability of talent is 99%. For people who do not speak english and are famous, the probability of talent is 97%. For people who speak english and are not famous, the probability of talent is 99%. For people who speak english and are famous, the probability of talent is 57%. If we look at people who are famous, does the chance of talent decrease when speaking english?",
+          "target": "yes"
+        },
+        {
+          "game_id": 3923,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Having visited England has a direct effect on occupation and salary. Skill has a direct effect on occupation and salary. Occupation has a direct effect on salary. Skill is unobserved. The overall probability of having visited England is 43%. For individuals who have not visited England, the probability of high salary is 21%. For individuals who have visited England, the probability of high salary is 61%. Is high salary less likely than low salary overall?",
+          "target": "yes"
+        },
+        {
+          "game_id": 949,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Obesity has a direct effect on diabetes and lifespan. Smoking has a direct effect on diabetes and lifespan. Diabetes has a direct effect on lifespan. Smoking is unobserved. The overall probability of obesity is 10%. For normal weight people, the probability of long lifespan is 86%. For obese people, the probability of long lifespan is 54%. Is long lifespan less likely than short lifespan overall?",
+          "target": "no"
+        },
+        {
+          "game_id": 3946,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Respiratory issues has a direct effect on hospitalization status. Black hair has a direct effect on hospitalization status. For hospitalized individuals, the correlation between respiratory issues and black hair is -0.08. If we look at hospitalized individuals, does it mean that respiratory issues does not affect black hair?",
+          "target": "yes"
+        },
+        {
+          "game_id": 9295,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Zory has a direct effect on zuph and glimx. Zuph has a direct effect on jyka. Jyka has a direct effect on glimx. Zory is unobserved. The overall probability of zuph is 96%. The probability of not zuph and glimx is 3%. The probability of zuph and glimx is 30%. Is the chance of glimx smaller when observing zuph?",
+          "target": "yes"
+        },
+        {
+          "game_id": 1290,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on smoking and lung cancer. Smoking has a direct effect on tar deposit. Tar deposit has a direct effect on lung cancer. Gender is unobserved. For nonsmokers, the probability of high tar deposit is 36%. For smokers, the probability of high tar deposit is 84%. For nonsmokers and with no tar deposit, the probability of lung cancer is 12%. For nonsmokers and with high tar deposit, the probability of lung cancer is 44%. For smokers and with no tar deposit, the probability of lung cancer is 15%. For smokers and with high tar deposit, the probability of lung cancer is 50%. The overall probability of smoking is 67%. Will smoking increase the chance of lung cancer?",
+          "target": "yes"
+        },
+        {
+          "game_id": 1403,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Unobserved confounders has a direct effect on maternal smoking status and infant's birth weight. Cigarette tax has a direct effect on maternal smoking status. Maternal smoking status has a direct effect on infant's birth weight. Unobserved confounders is unobserved. The overall probability of smoking mother is 37%. The probability of nonsmoking mother and normal infant birth weight is 50%. The probability of smoking mother and normal infant birth weight is 16%. Is the chance of normal infant birth weight larger when observing smoking mother?",
+          "target": "no"
+        },
+        {
+          "game_id": 7962,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Rixq has a direct effect on xevu. Zuph has a direct effect on xevu. For those who are not rixq, the probability of xevu is 44%. For those who are rixq, the probability of xevu is 24%. Will rixq decrease the chance of xevu?",
+          "target": "yes"
+        },
+        {
+          "game_id": 1133,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Kidney stone size has a direct effect on treatment and recovery. Treatment has a direct effect on recovery. For patients who have small kidney stones and not receiving treatment, the probability of recovery is 3%. For patients who have small kidney stones and receiving treatment, the probability of recovery is 33%. For patients who have large kidney stones and not receiving treatment, the probability of recovery is 60%. For patients who have large kidney stones and receiving treatment, the probability of recovery is 93%. The overall probability of large kidney stone is 49%. Will receives treatment increase the chance of recovery?",
+          "target": "yes"
+        },
+        {
+          "game_id": 8727,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on kwox. Yupt has a direct effect on kwox. For those who are not jyka, the probability of kwox is 32%. For those who are jyka, the probability of kwox is 38%. Will jyka increase the chance of kwox?",
+          "target": "yes"
+        },
+        {
+          "game_id": 2060,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Encouragement level has a direct effect on studying habit and exam score. Studying habit has a direct effect on exam score. The overall probability of encouragement is 91%. For students who are not encouraged, the probability of high exam score is 72%. For students who are encouraged, the probability of high exam score is 52%. Is high exam score more likely than low exam score overall?",
+          "target": "yes"
+        },
+        {
+          "game_id": 2103,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and admission status. Department competitiveness has a direct effect on admission status. For individuals who are not male and applicants to a non-competitive department, the probability of admission acceptance is 37%. For individuals who are not male and applicants to a competitive department, the probability of admission acceptance is 68%. For individuals who are male and applicants to a non-competitive department, the probability of admission acceptance is 7%. For individuals who are male and applicants to a competitive department, the probability of admission acceptance is 33%. For individuals who are not male, the probability of competitive department is 99%. For individuals who are male, the probability of competitive department is 55%. Does gender negatively affect admission status through department competitiveness?",
+          "target": "yes"
+        },
+        {
+          "game_id": 7787,
+          "input": "Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Zuph has a direct effect on zory and jyka. Jyka has a direct effect on glimx. Zory has a direct effect on glimx. The overall probability of zuph is 9%. For those who are not zuph, the probability of glimx is 56%. For those who are zuph, the probability of glimx is 62%. Is glimx less likely than not glimx overall?",
+          "target": "no"
+        }
+      ],
+      "meta": {
+        "task": "playschool_cladder",
+        "dataset_path": "clembench-playpen/cladder",
+        "dataset_name": "full_v1.5_default",
+        "test_split": "default",
+        "output_type": "generate_until",
+        "doc_to_text": "You are an expert in causal inference. The following question is not a typical commonsense query, but rather a meticulously designed question created by a professor specializing in causal inference, intended to assess the students' mastery of the course content.\n{{prompt}}\nStart your answer with 'Yes' or 'No', followed by additional reasoning or evidence to support your explanation.",
+        "doc_to_target": "label",
+        "doc_to_choice": "{{['yes', 'no']}}",
+        "generation_kwargs": {
+          "max_gen_toks": 10
+        },
+        "metric_list": [
+          {
+            "metric": "acc",
+            "aggregation": "mean",
+            "higher_is_better": true
+          }
+        ],
+        "metadata": {
+          "version": 0.0
+        }
+      },
+      "initial_prompt": "You are an expert in causal inference. The following question is not a typical commonsense query, but rather a meticulously designed question created by a professor specializing in causal inference, intended to assess the students' mastery of the course content.\n{{prompt}}\nStart your answer with 'Yes' or 'No', followed by additional reasoning or evidence to support your explanation.",
+      "choices": [
+        "yes",
+        "no"
+      ]
+    }
+  ]
+}

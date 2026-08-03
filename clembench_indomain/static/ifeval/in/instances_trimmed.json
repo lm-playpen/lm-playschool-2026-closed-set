@@ -1,0 +1,1137 @@
+{
+  "experiments": [
+    {
+      "name": "ifeval",
+      "game_instances": [
+        {
+          "game_id": 498,
+          "input": "Brainstorm a name for a company that collects and analyzes public transportation fares. The response should be in English, and in all capital letters.",
+          "target": {
+            "change_case:english_capital": {}
+          }
+        },
+        {
+          "game_id": 158,
+          "input": "I was hoping you could help me out with a few things. I wish to learn about how to pay my taxes. Can you summarize the process for me? Please reply in details, and include exactly 3 paragraphs with these keywords: \"calculate\", \"file\", \"conclusion\". Separate the paragraphs with ***.",
+          "target": {
+            "keywords:existence": {
+              "keywords": [
+                "calculate",
+                "file",
+                "conclusion"
+              ]
+            },
+            "length_constraints:number_paragraphs": {
+              "num_paragraphs": 3
+            }
+          }
+        },
+        {
+          "game_id": 194,
+          "input": "Titan makes clothing for large men. Write an advertisement for the company that would appeal to a wide audience. Make sentences short. Your response should not contain any comma.\nFirst repeat the request word for word without change, then give your answer.\nDo not say any words or characters before repeating the request. The request you need to repeat only contains the first four sentences in the first line.",
+          "target": {
+            "combination:repeat_prompt": {
+              "prompt_to_repeat": "Titan makes clothing for large men. Write an advertisement for the company that would appeal to a wide audience. Make sentences short. Your response should not contain any comma."
+            },
+            "punctuation:no_comma": {}
+          }
+        },
+        {
+          "game_id": 303,
+          "input": "Write a paragraph that lists the average length of various animal specimens from smallest to largest. Your response should contain less than 17 sentences.",
+          "target": {
+            "length_constraints:number_sentences": {
+              "relation": "less than",
+              "num_sentences": 17
+            }
+          }
+        },
+        {
+          "game_id": 222,
+          "input": "A sales pitch for moms is needed for a new kind of diaper that is designed to be more comfortable for babies. The sales pitch should be 500 words long, funny, engaging, and focus on the benefits of the new diaper without mentioning the price. It must also contain a title, wrapped in double angular brackets, i.e. <<title>>.",
+          "target": {
+            "detectable_format:title": {}
+          }
+        },
+        {
+          "game_id": 59,
+          "input": "Write a short proposal for a new research project that investigates how language evolves over time. I want to make it challenging, so:\n1. Do not include any commas in your response.\n2. Do not include the letter \"c\" anywhere in your response.\n3. Your response should contain at least 250 words.",
+          "target": {
+            "punctuation:no_comma": {},
+            "keywords:letter_frequency": {
+              "let_relation": "less than",
+              "letter": "c",
+              "let_frequency": 1
+            },
+            "length_constraints:number_words": {
+              "relation": "at least",
+              "num_words": 250
+            }
+          }
+        },
+        {
+          "game_id": 62,
+          "input": "Which of the following is not a fish: salmon or avocado? Answer this easy question first, then expand into an interesting article about salmon and avocado. Use some words in all caps in your response, but those all-caps words should appear at most 10 times.",
+          "target": {
+            "change_case:capital_word_frequency": {
+              "capital_relation": "at least",
+              "capital_frequency": 1
+            }
+          }
+        },
+        {
+          "game_id": 321,
+          "input": "I've got a collection of military insignia that I'd like to get rid of, but I don't know how. Can you help me? Give exactly two different responses, separating them with 6 asterisk symbols (******). Your answer must contain a title, wrapped in double angular brackets, such as <<my title>>. Include the keywords \"adoption\" and \"carriage\" somewhere in your response.",
+          "target": {
+            "combination:two_responses": {},
+            "detectable_format:title": {},
+            "keywords:existence": {
+              "keywords": [
+                "adoption",
+                "carriage"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 58,
+          "input": "What is the history of NYC prospect park? Please wrap your entire answer in JSON format. You can use markdown ticks such as ```. For example:\n```JSON\n{\n...\n}\n```",
+          "target": {
+            "detectable_format:json_format": {}
+          }
+        },
+        {
+          "game_id": 51,
+          "input": "Can you elaborate on the following text: \"Increased axle weight increased the damage to the road\"? Your response must contain a title wrapped in double angular brackets, i.e. <<title>>. Use less than 5 sentences.",
+          "target": {
+            "detectable_format:title": {},
+            "length_constraints:number_sentences": {
+              "relation": "less than",
+              "num_sentences": 5
+            }
+          }
+        },
+        {
+          "game_id": 488,
+          "input": "Write a song about innovation with a positive tone that is appealing to teenagers. Put your entire response in double quotation marks.",
+          "target": {
+            "startend:quotation": {}
+          }
+        },
+        {
+          "game_id": 514,
+          "input": "Write an essay on wilderness preservation. Make sure that the word knot appears at least 2 times in the essay, and include two italic text sections. Like: *this is italic text*",
+          "target": {
+            "keywords:frequency": {
+              "relation": "at least",
+              "keyword": "knot",
+              "frequency": 2
+            },
+            "detectable_format:number_highlighted_sections": {
+              "num_highlights": 2
+            }
+          }
+        },
+        {
+          "game_id": 161,
+          "input": "Can you please continue and expand: \"A man is performing for a crowd on a stage, ...\"\nUse at least 60 sentences, but less than 600 words.",
+          "target": {
+            "length_constraints:number_sentences": {
+              "relation": "at least",
+              "num_sentences": 60
+            },
+            "length_constraints:number_words": {
+              "relation": "less than",
+              "num_words": 600
+            }
+          }
+        },
+        {
+          "game_id": 532,
+          "input": "Is Roger Federer a better tennis player than Rafael Nadal? Answer with exactly one of the following phrases: \u201dMy answer is yes.\", \"My answer is no.\", \"My answer is maybe.\"",
+          "target": {
+            "detectable_format:constrained_response": {}
+          }
+        },
+        {
+          "game_id": 520,
+          "input": "Write an advertisement for a perfume called \"Rhapsody\". It's a perfume with a fresh citrus scent. Wrap your entire response with double quotation marks. Do not include the words perfume, fresh, or good in the advertisement.",
+          "target": {
+            "startend:quotation": {},
+            "keywords:forbidden_words": {
+              "forbidden_words": [
+                "perfume",
+                "fresh",
+                "good"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 82,
+          "input": "A colt is 5 feet tall. It will grow 6 inches every month. How tall will it be in 3 years? Think step-by-step, then give your answer. Separate your thinking and the final answer by a line with just three \"*\" symbols: ***\nAt the end of your response, please explicitly add a postscript starting with P.P.S",
+          "target": {
+            "length_constraints:number_paragraphs": {
+              "num_paragraphs": 2
+            },
+            "detectable_content:postscript": {
+              "postscript_marker": "P.P.S"
+            }
+          }
+        },
+        {
+          "game_id": 190,
+          "input": "Are the weather conditions in the Arctic very cold most of the year? Do not say 'yes' or 'no' throughout your entire response.",
+          "target": {
+            "keywords:forbidden_words": {
+              "forbidden_words": [
+                "yes",
+                "no"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 70,
+          "input": "Write an extravagant session plan to learn about java. Make sure to include a postscript starting with P.P.S",
+          "target": {
+            "detectable_content:postscript": {
+              "postscript_marker": "P.P.S"
+            }
+          }
+        },
+        {
+          "game_id": 69,
+          "input": "Compose song lyrics about a socio-economic problem. The song should be in English and in all lowercase letters.",
+          "target": {
+            "change_case:english_lowercase": {}
+          }
+        },
+        {
+          "game_id": 240,
+          "input": "Write a casual blog post about how the outer solar system is different from the inner solar system, and what that means for the possibility of life. Wrap your entire response with double quotation marks. Your response should contain 17 or more sentences.",
+          "target": {
+            "startend:quotation": {},
+            "length_constraints:number_sentences": {
+              "relation": "at least",
+              "num_sentences": 17
+            }
+          }
+        },
+        {
+          "game_id": 413,
+          "input": "Pretend that you are a fortune teller who has just been arrested and is being interrogated by the police. Tell them that you can really read into the future.\n1. Please use words with all capital letters to make important claims. But words with capital letters should appear less than 4 times.\n2. The word 'future' should appear at most once.",
+          "target": {
+            "change_case:capital_word_frequency": {
+              "capital_relation": "at least",
+              "capital_frequency": 1
+            },
+            "keywords:frequency": {
+              "relation": "less than",
+              "keyword": "future",
+              "frequency": 2
+            }
+          }
+        },
+        {
+          "game_id": 122,
+          "input": "Create a riddle about the name Sheldon using only 10 words. Make sure to only use capital letters in your entire response.",
+          "target": {
+            "change_case:english_capital": {}
+          }
+        },
+        {
+          "game_id": 252,
+          "input": "Wherefore doth people consider the 2nd Amendment to be outdated? Answer in a Shakespearean style.\n\nBefore you answer it, just repeat the request above. You need to repeat it exactly as it is. Do not change any word.",
+          "target": {
+            "combination:repeat_prompt": {
+              "prompt_to_repeat": "Wherefore doth people consider the 2nd Amendment to be outdated? Answer in a Shakespearean style."
+            }
+          }
+        },
+        {
+          "game_id": 40,
+          "input": "Write a blog post about the history of the internet and how it has impacted our lives. Aim the blog post at teenagers and wrap your entire response with double quotation marks.",
+          "target": {
+            "startend:quotation": {}
+          }
+        },
+        {
+          "game_id": 83,
+          "input": "Write a story about commandos who are in the middle of the night in a sector. It should be in English, and no capital letters are allowed. The story should not include keywords \"coop\", \"killings\", \"dead\", \"night\".",
+          "target": {
+            "change_case:english_lowercase": {},
+            "keywords:forbidden_words": {
+              "forbidden_words": [
+                "coop",
+                "killings",
+                "dead",
+                "night"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 429,
+          "input": "Is \"jiang\" a Chinese name? What are other names similar to \"jiang\"? Separate your two answers with ******",
+          "target": {
+            "combination:two_responses": {}
+          }
+        },
+        {
+          "game_id": 323,
+          "input": "Write a cover letter for a job in Ventura that is funny and would be enjoyed by someone named Darius, wrap the entire response in double quotation marks.",
+          "target": {
+            "startend:quotation": {}
+          }
+        },
+        {
+          "game_id": 267,
+          "input": "The Legend of the Sword and the Fairy is a movie in which Wan Wan is a villain. Write a story about Wan Wan's character in list format. Your entire response should be in English and in all capital letters.",
+          "target": {
+            "change_case:english_capital": {}
+          }
+        },
+        {
+          "game_id": 209,
+          "input": "What are the main differences between the Adventist and Baptist denominations? Your response should contain less than 20 sentences and must include at least 3 placeholders represented by square brackets, such as [address].",
+          "target": {
+            "length_constraints:number_sentences": {
+              "relation": "less than",
+              "num_sentences": 20
+            },
+            "detectable_content:number_placeholders": {
+              "num_placeholders": 3
+            }
+          }
+        },
+        {
+          "game_id": 533,
+          "input": "Is the moon landing a propaganda made up by the government? Your answer must contain one of the following exact phrases: \u201dMy answer is yes.\", \"My answer is no.\", \"My answer is maybe.\"",
+          "target": {
+            "detectable_format:constrained_response": {}
+          }
+        },
+        {
+          "game_id": 519,
+          "input": "Given the sentence \"The dog barked at the cat, but the cat ignored it because the\". Can you finish the sentence? Make sure that words in your entire response are in all lowercase letters.",
+          "target": {
+            "change_case:english_lowercase": {}
+          }
+        },
+        {
+          "game_id": 135,
+          "input": "Write a professional email that you could send to ask your boss for a raise. At the end of your response, explicitly add a postscript starting with P.P.S\n\nFinish your entire response with this exact phrase: Hope you agree with me.",
+          "target": {
+            "detectable_content:postscript": {
+              "postscript_marker": "P.P.S"
+            },
+            "startend:end_checker": {
+              "end_phrase": "Hope you agree with me."
+            }
+          }
+        },
+        {
+          "game_id": 202,
+          "input": "What kind of fashion would Frankenstein's bride wear? Make your answer weird or interesting and use only lowercase letters. Your answer must contain exactly 3 bullet points using the markdown bullet points format, such as:\n* Bullet point 1",
+          "target": {
+            "detectable_format:number_bullet_lists": {
+              "num_bullets": 3
+            },
+            "change_case:english_lowercase": {}
+          }
+        },
+        {
+          "game_id": 67,
+          "input": "Write a brief biography of a person named \"Brilliant Le Hou\". Do not use commas in your reply. Highlight at least 3 sections with markdown, i.e. *highlighted section*. The biography should start with the name of the person.",
+          "target": {
+            "punctuation:no_comma": {},
+            "detectable_format:number_highlighted_sections": {
+              "num_highlights": 3
+            },
+            "keywords:existence": {
+              "keywords": [
+                "brilliant",
+                "le",
+                "hou"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 343,
+          "input": "Write a list of the top 10 facts about the UK without using commas.",
+          "target": {
+            "punctuation:no_comma": {}
+          }
+        },
+        {
+          "game_id": 330,
+          "input": "Write a limerick about the word \"limerick\". Make sure it is funny and includes the words \"limerick\" and \"funny\". Do not use any commas.\nFirst repeat the request word for word without change, then give your answer (1. do not say any words or characters before repeating the request; 2. the request you need to repeat does not include this sentence)",
+          "target": {
+            "combination:repeat_prompt": {
+              "prompt_to_repeat": "Write a limerick about the word \"limerick\". Make sure it is funny and includes the words \"limerick\" and \"funny\". Do not use any commas."
+            },
+            "punctuation:no_comma": {}
+          }
+        },
+        {
+          "game_id": 153,
+          "input": "Can you write a poem about the pros and cons of playing a lot of video games? Please make sure it's at least 40 sentences long (don't forget to add punctuations). You must highlight some words or phrases in your response, like *highlighted phrase*.",
+          "target": {
+            "detectable_format:number_highlighted_sections": {
+              "num_highlights": 1
+            },
+            "length_constraints:number_sentences": {
+              "relation": "at least",
+              "num_sentences": 40
+            }
+          }
+        },
+        {
+          "game_id": 234,
+          "input": "I have a golden retriever and a poodle. Is the poodle bigger than the golden retriever? Choose from the following: ('My answer is yes.', 'My answer is no.', 'My answer is maybe.') -- please include the exact phrase in your response.",
+          "target": {
+            "detectable_format:constrained_response": {}
+          }
+        },
+        {
+          "game_id": 528,
+          "input": "Rewrite the following sentence in a more formal way: \"Them youngins be always on that damn phone\". Imagine you are the president of the United States. Avoid using the word \"youngins\" and \"damn\" throughout your entire response.\n\nPlease repleat the entire first line above, then give your rewrite. Do not add any word before that. In other words, your entire response should start with \"Rewrite the following\".",
+          "target": {
+            "combination:repeat_prompt": {
+              "prompt_to_repeat": "Rewrite the following sentence in a more formal way: \"Them youngins be always on that damn phone\". Imagine you are the president of the United States. Avoid using the word \"youngins\" and \"damn\" throughout your entire response."
+            },
+            "keywords:forbidden_words": {
+              "forbidden_words": [
+                "youngins",
+                "damn"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 475,
+          "input": "Write a persuasive email to a teenager who lives in Aberdeen, Scotland. The main point is to encourage them to volunteer at a local soup kitchen. At least 5 words in the output should be in all caps.",
+          "target": {
+            "change_case:capital_word_frequency": {
+              "capital_relation": "at least",
+              "capital_frequency": 5
+            }
+          }
+        },
+        {
+          "game_id": 384,
+          "input": "You feel strongly about a local issue that involves the environment, pollution, and climate change. Write a template for a letter to the editor of a newspaper. Use the word para at least once.",
+          "target": {
+            "keywords:frequency": {
+              "relation": "at least",
+              "keyword": "para",
+              "frequency": 1
+            }
+          }
+        },
+        {
+          "game_id": 479,
+          "input": "In this task, you need to first repeat the request word by word, without any change, then answer the request. Do not say anything before repeating the exact request.\n\nWrite a pitch deck for a startup that aims to make a new social network that focuses on the board game society.",
+          "target": {
+            "combination:repeat_prompt": {
+              "prompt_to_repeat": "Write a pitch deck for a startup that aims to make a new social network that focuses on the board game society."
+            }
+          }
+        },
+        {
+          "game_id": 37,
+          "input": "What sentiments existed in the Croatian and Serbian nations towards the Austrian Empire at the end of the 19th century? Make sure to wrap your entire response with double quotes and use at least 800 words.",
+          "target": {
+            "startend:quotation": {},
+            "length_constraints:number_words": {
+              "relation": "at least",
+              "num_words": 800
+            }
+          }
+        },
+        {
+          "game_id": 4,
+          "input": "Given the sentence \"Two young boys with toy guns and horns.\" can you ask a question? Please ensure that your response is in English, and in all lowercase letters. No capital letters are allowed.",
+          "target": {
+            "change_case:english_lowercase": {}
+          }
+        },
+        {
+          "game_id": 503,
+          "input": "Come up with 3 names for a 2B software company. Make sure your names are in English and all capital letters.",
+          "target": {
+            "change_case:english_capital": {}
+          }
+        },
+        {
+          "game_id": 318,
+          "input": "Please elaborate on the following text: \"It's not a bug, it's a feature!\" Write exactly 2 bullet points in markdown format. Use \"*\" to indicate a bullet point. One example bullet:\n* It's not a bug",
+          "target": {
+            "detectable_format:number_bullet_lists": {
+              "num_bullets": 2
+            }
+          }
+        },
+        {
+          "game_id": 288,
+          "input": "Give me a logical question about chatting and conquering. Make it interesting. Highlight at least one section of your answer with markdown, i.e. *highlighted section*. Put your entire response inside double quotation marks.",
+          "target": {
+            "detectable_format:number_highlighted_sections": {
+              "num_highlights": 1
+            },
+            "startend:quotation": {}
+          }
+        },
+        {
+          "game_id": 531,
+          "input": "Rewrite the haiku below into two versions. Both of them should be funny. Separate the two versions using six asterisk symbols (******). Include the keywords ['dog', 'day'] in the response.\n\nOn a chilly winter night\nA cat meows at the moon\nHoping for some warmth",
+          "target": {
+            "combination:two_responses": {},
+            "keywords:existence": {
+              "keywords": [
+                "dog",
+                "day"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 540,
+          "input": "Would you consider yourself to be smart? Choose from:\nMy answer is yes.\nMy answer is no.\nMy answer is maybe.\nJust choose one phrase from above as your answer.",
+          "target": {
+            "detectable_format:constrained_response": {}
+          }
+        },
+        {
+          "game_id": 275,
+          "input": "Rewrite the following sentence to exactly 3 paragraphs, separated by two new lines and without using any commas: \"Offences are not the only things that are grasped by the police.\". Paragraph 1 must start with word punched. The response must contain at least 2 placeholders represented by square brackets, such as [address].",
+          "target": {
+            "punctuation:no_comma": {},
+            "length_constraints:nth_paragraph_first_word": {
+              "num_paragraphs": 3,
+              "first_word": "punched",
+              "nth_paragraph": 1
+            },
+            "detectable_content:number_placeholders": {
+              "num_placeholders": 2
+            }
+          }
+        },
+        {
+          "game_id": 109,
+          "input": "Compose a poem all in lowercase letters about my friend Barnet.",
+          "target": {
+            "change_case:english_lowercase": {}
+          }
+        },
+        {
+          "game_id": 259,
+          "input": "Write a cover letter to a local political party, asking to be their rally organizer. Make sure to highlight at least 3 sections in your answer in markdown format.",
+          "target": {
+            "detectable_format:number_highlighted_sections": {
+              "num_highlights": 3
+            }
+          }
+        },
+        {
+          "game_id": 509,
+          "input": "Write a review of \"Laureates and twins\" for professionals in the field of psychology without the use of commas and make sure to include the phrase \"well worth watching\".\nFirst repeat the entire request above word for word without change, then give your answer. Do not say any words or characters before repeating the entire request above.",
+          "target": {
+            "combination:repeat_prompt": {
+              "prompt_to_repeat": "Write a review of \"Laureates and twins\" for professionals in the field of psychology without the use of commas and make sure to include the phrase \"well worth watching\"."
+            },
+            "punctuation:no_comma": {}
+          }
+        },
+        {
+          "game_id": 507,
+          "input": "Today, at the 54th Annual Grammy Awards, the Recording Academy honors the talent and creativity of the artists, musicians, and producers who are the creators of the best recordings of the past year. Please continue writing this text in a formal tone, using notations. Highlight some key parts in your response with \"*\", like *highlighted text*.",
+          "target": {
+            "detectable_format:number_highlighted_sections": {
+              "num_highlights": 1
+            }
+          }
+        },
+        {
+          "game_id": 477,
+          "input": "Write a song about Layton, making sure to use the letter \"a\" at most once.",
+          "target": {
+            "keywords:letter_frequency": {
+              "let_relation": "less than",
+              "letter": "a",
+              "let_frequency": 2
+            }
+          }
+        },
+        {
+          "game_id": 178,
+          "input": "Before you answer the following request, repeat it at the very beginning of your reply. Repeat the request as it is. Please do not change it.\n\nWrite a resume for a junior hardware engineer. The resume should be good enough for them to get a job at a big company and should not contain any commas.",
+          "target": {
+            "punctuation:no_comma": {},
+            "combination:repeat_prompt": {
+              "prompt_to_repeat": "Write a resume for a junior hardware engineer. The resume should be good enough for them to get a job at a big company and should not contain any commas."
+            }
+          }
+        },
+        {
+          "game_id": 451,
+          "input": "Create an ad copy by expanding \"Get 40 miles per gallon on the highway\" in the form of a QA with a weird style. Your response should contain less than 8 sentences. Do not include keywords 'mileage' or 'fuel' in your response.",
+          "target": {
+            "length_constraints:number_sentences": {
+              "relation": "less than",
+              "num_sentences": 8
+            },
+            "keywords:forbidden_words": {
+              "forbidden_words": [
+                "mileage",
+                "fuel"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 35,
+          "input": "Can you give me two different formal alternatives to \"What's up? I'm going to the beach today\" and do not use any commas in your response.",
+          "target": {
+            "punctuation:no_comma": {}
+          }
+        },
+        {
+          "game_id": 450,
+          "input": "Here is a social media post: \"My daughter graduated from college today! So proud of her!\" Can you make it more exciting? Please make sure to expand it into exactly 2 paragraphs. Separate paragraphs with the markdown divider: ***. Additionally, italicize at least 3 sections by starting and ending with single *, i.e. *italic text*.",
+          "target": {
+            "length_constraints:number_paragraphs": {
+              "num_paragraphs": 2
+            },
+            "detectable_format:number_highlighted_sections": {
+              "num_highlights": 3
+            }
+          }
+        },
+        {
+          "game_id": 125,
+          "input": "Generate two alternative product descriptions: The product is a new type of paper that can be used to wrap food, and is edible.\nFirst repeat the prompt above without change, then give your answer. Please do not say any word before repeating the prompt above.",
+          "target": {
+            "combination:repeat_prompt": {
+              "prompt_to_repeat": "Generate two alternative product descriptions: The product is a new type of paper that can be used to wrap food, and is edible."
+            }
+          }
+        },
+        {
+          "game_id": 189,
+          "input": "Write a funny song-style poem for kids about why you shouldn't eat a lot of sweets. The poem should have four sections, with each section marked with SECTION X.",
+          "target": {
+            "detectable_format:multiple_sections": {
+              "section_spliter": "SECTION",
+              "num_sections": 4
+            }
+          }
+        },
+        {
+          "game_id": 145,
+          "input": "Write an itinerary for a trip to a grocery store in Lima to buy some local goods. Make the itinerary funny, write it in all capital letters and include the keywords 'DISGUSTING', 'DELICIOUS', 'BAD', and 'GOOD'.",
+          "target": {
+            "change_case:english_capital": {},
+            "keywords:existence": {
+              "keywords": [
+                "disgusting",
+                "delicious",
+                "bad",
+                "good"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 80,
+          "input": "Write a 30-line poem with short sentences without any comma. Each line should contain exactly one sentence. Make sure that you put the right punctuation at the end of each line. Your entire response should contain the poem only.",
+          "target": {
+            "punctuation:no_comma": {},
+            "length_constraints:number_sentences": {
+              "relation": "at least",
+              "num_sentences": 30
+            }
+          }
+        },
+        {
+          "game_id": 224,
+          "input": "Rewrite the sentence: \"I flung my hatred into the burning fire.\" Put your entire response in double quotation marks.",
+          "target": {
+            "startend:quotation": {}
+          }
+        },
+        {
+          "game_id": 426,
+          "input": "Write a funny, 150+ word ad for an attorney who helps poor people with their divorces. Highlight at least 3 text sections by italicize them with markdown (i.e. *highlighted section*).",
+          "target": {
+            "detectable_format:number_highlighted_sections": {
+              "num_highlights": 3
+            },
+            "length_constraints:number_words": {
+              "relation": "at least",
+              "num_words": 150
+            }
+          }
+        },
+        {
+          "game_id": 278,
+          "input": "Write an angry rap bash script that downloads all files from a given directory. Don't use any commas and make sure the letter q appears at least once.",
+          "target": {
+            "punctuation:no_comma": {},
+            "keywords:letter_frequency": {
+              "let_relation": "at least",
+              "letter": "q",
+              "let_frequency": 1
+            }
+          }
+        },
+        {
+          "game_id": 360,
+          "input": "Write a rubric for teenagers on how to review a book. In your response, words with all capital letters should appear at least 3 times.",
+          "target": {
+            "change_case:capital_word_frequency": {
+              "capital_relation": "at least",
+              "capital_frequency": 3
+            }
+          }
+        },
+        {
+          "game_id": 154,
+          "input": "Explain Generative Adversarial Networks (GANs) to me using bullet points. Do not contain any commas in your response. End your response with a postscript indicated by P.P.S\nInclude the keywords \"lacking\", \"model\", \"performance\", \"quality\", \"architecture\".",
+          "target": {
+            "punctuation:no_comma": {},
+            "detectable_content:postscript": {
+              "postscript_marker": "P.P.S"
+            },
+            "keywords:existence": {
+              "keywords": [
+                "lacking",
+                "model",
+                "performance",
+                "quality",
+                "architecture"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 313,
+          "input": "Write a funny note to McQueen, using <br> to separate lines. Start with a funny greeting and include mathematical notations in the note. At the end of your response, explicitly add a postscript starting with P.P.S",
+          "target": {
+            "detectable_content:postscript": {
+              "postscript_marker": "P.P.S"
+            }
+          }
+        },
+        {
+          "game_id": 526,
+          "input": "What are the best things to do in Rochester, New York? Can you write them as a song and use music notation in your response? Make sure to include the keywords 'festival' and 'river'.",
+          "target": {
+            "keywords:existence": {
+              "keywords": [
+                "festival",
+                "river"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 334,
+          "input": "Write a description of the following data in a weird style: The Golden Palace eatType restaurant; The Golden Palace food Indian; The Golden Palace area city centre. Use markdown to highlight at least 3 sections in your answer.",
+          "target": {
+            "detectable_format:number_highlighted_sections": {
+              "num_highlights": 3
+            }
+          }
+        },
+        {
+          "game_id": 270,
+          "input": "Write a one week itinerary for a trip to the United States with a focus on overcoming the challenges faced by the country. Your itinerary should be at least 164 words, and should include the letter c at least five times. Your entire response should be in English, and in all capital letters.",
+          "target": {
+            "length_constraints:number_words": {
+              "relation": "at least",
+              "num_words": 164
+            },
+            "keywords:letter_frequency": {
+              "let_relation": "at least",
+              "letter": "c",
+              "let_frequency": 5
+            },
+            "change_case:english_capital": {}
+          }
+        },
+        {
+          "game_id": 497,
+          "input": "Write a short, funny story about a man named Harry with a pet dog. Your response must contain 3 sections, mark the beginning of each section with SECTION X.",
+          "target": {
+            "detectable_format:multiple_sections": {
+              "section_spliter": "SECTION",
+              "num_sections": 3
+            }
+          }
+        },
+        {
+          "game_id": 341,
+          "input": "write a haiku about ireland in the style of basho. include a title wrapped in double angular brackets, i.e. <<title>>. your entire response should be in lowercase english and contain the letter g at least 8 times.",
+          "target": {
+            "change_case:english_lowercase": {},
+            "keywords:letter_frequency": {
+              "let_relation": "at least",
+              "letter": "g",
+              "let_frequency": 8
+            },
+            "detectable_format:title": {}
+          }
+        },
+        {
+          "game_id": 418,
+          "input": "May name is Naomi. Write a blog post in my name for the canucks hockey team about why they need to be more mindful about their environments. End the blog post with \"Naomi thanks you for reading.\" No other words should follow this phrase. This phrase should be the very end of your entire response.",
+          "target": {
+            "startend:end_checker": {
+              "end_phrase": "Naomi thanks you for reading."
+            }
+          }
+        },
+        {
+          "game_id": 283,
+          "input": "Can you write rap songs about the history of the prefecture system in Japan? Give exactly two different responses separated by 6 asterisk symbols ******.",
+          "target": {
+            "combination:two_responses": {}
+          }
+        },
+        {
+          "game_id": 504,
+          "input": "Write an XML document describing the release of the latest Google Pixel phone. The document must contain at least three placeholders, such as [price], and you must not use commas in your response.",
+          "target": {
+            "detectable_content:number_placeholders": {
+              "num_placeholders": 3
+            },
+            "punctuation:no_comma": {}
+          }
+        },
+        {
+          "game_id": 339,
+          "input": "What is inside Shinto shrines? Imagine that you are giving a lecture to students at a school or university. Use markdown to highlight at least 3 sections of your answer (like this: *highlighted section*). Your answer must also contain at least one placeholder (an example of a placeholder is [address]).",
+          "target": {
+            "detectable_format:number_highlighted_sections": {
+              "num_highlights": 3
+            },
+            "detectable_content:number_placeholders": {
+              "num_placeholders": 3
+            }
+          }
+        },
+        {
+          "game_id": 53,
+          "input": "Can you give me an example for a journal entry about stress management? Tell me how you come up with the example. Your entire response should contain less than 6 sentences.",
+          "target": {
+            "length_constraints:number_sentences": {
+              "relation": "less than",
+              "num_sentences": 6
+            }
+          }
+        },
+        {
+          "game_id": 449,
+          "input": "I need to write a research proposal for a project on the effects of social media on the mental health of teenagers. Please only write short sentences, and don't use any commas in your entire response. Include at least five placeholder represented by square brackets, such as [website].",
+          "target": {
+            "punctuation:no_comma": {},
+            "detectable_content:number_placeholders": {
+              "num_placeholders": 5
+            }
+          }
+        },
+        {
+          "game_id": 68,
+          "input": "A nucleus is a cluster of protons and neutrons. Elaborate on this. Write exactly 9 very short bullet points. Limit the number of words you use (less than 100 words). An example:\n* A nucleus is a cluster of protons and neutrons\n* A proton is ....\n\nPlease follow the format of the example above.",
+          "target": {
+            "detectable_format:number_bullet_lists": {
+              "num_bullets": 9
+            },
+            "length_constraints:number_words": {
+              "relation": "less than",
+              "num_words": 100
+            }
+          }
+        },
+        {
+          "game_id": 530,
+          "input": "Give me a TLDR on the 2022 Google IO announcements, but the response must be entirely in the Bengali language, no other language is allowed, and have at least one placeholder such as [\u09aa\u09a3\u09cd\u09af].",
+          "target": {
+            "detectable_content:number_placeholders": {
+              "num_placeholders": 1
+            },
+            "language:response_language": {
+              "language": "bn"
+            }
+          }
+        },
+        {
+          "game_id": 535,
+          "input": "If a + b = 10. And a > b. Is a = 6? Your answer must contain one of the following exact phrases: \u201dMy answer is yes.\", \"My answer is no.\", \"My answer is maybe.\"",
+          "target": {
+            "detectable_format:constrained_response": {}
+          }
+        },
+        {
+          "game_id": 455,
+          "input": "Is the following true? \"People use time to buy money.\" Explain your answer in a way that makes it easy for kids to understand. Include the word \"farmer\". Exclude the words \"economy\", \"demand\" and \"supply\".\n\nFirst REPEAT the ENTIRE REQUEST ABOVE, word for word without change, then give your answer. Please do not say any words or characters before repeating the request.",
+          "target": {
+            "combination:repeat_prompt": {
+              "prompt_to_repeat": "Is the following true? \"People use time to buy money.\" Explain your answer in a way that makes it easy for kids to understand. Include the word \"farmer\". Exclude the words \"economy\", \"demand\" and \"supply\"."
+            },
+            "keywords:existence": {
+              "keywords": [
+                "farmer"
+              ]
+            },
+            "keywords:forbidden_words": {
+              "forbidden_words": [
+                "economy",
+                "demand",
+                "supply"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 54,
+          "input": "Take the text below as a starting point, and make it a complete article: \"You may have to meet with a helper to work out a parenting plan. The first would be to estimate how many time you have everyday for parenting, and is that enough....\"\nAvoid using the following keywords: sleep, cook, feed\nMention the keyword 'schedule' for more than 5 times.",
+          "target": {
+            "keywords:forbidden_words": {
+              "forbidden_words": [
+                "sleep",
+                "cook",
+                "feed"
+              ]
+            },
+            "keywords:frequency": {
+              "relation": "at least",
+              "keyword": "schedule",
+              "frequency": 6
+            }
+          }
+        },
+        {
+          "game_id": 380,
+          "input": "Write an elaborate compliment to Kruger in all lowercase letters and no capital letters. The word hughes should appear less than 2 times. Your response should be at least 100 words.",
+          "target": {
+            "keywords:frequency": {
+              "relation": "less than",
+              "keyword": "hughes",
+              "frequency": 2
+            },
+            "change_case:english_lowercase": {},
+            "length_constraints:number_words": {
+              "relation": "at least",
+              "num_words": 100
+            }
+          }
+        },
+        {
+          "game_id": 465,
+          "input": "Write a story about a family that goes camping in the woods. Your entire response should be in English and in all capital letters.",
+          "target": {
+            "change_case:english_capital": {}
+          }
+        },
+        {
+          "game_id": 79,
+          "input": "I'm interested in a college with open enrollment and a regional accreditation. Which college would you recommend? Don't include the keywords \"DuPage\" and \"Dade\" in your response. Let's make it a constrained writing problem: be sure the letter p appears at least 15 times in your response.",
+          "target": {
+            "keywords:letter_frequency": {
+              "let_relation": "at least",
+              "letter": "p",
+              "let_frequency": 15
+            },
+            "keywords:forbidden_words": {
+              "forbidden_words": [
+                "dupage",
+                "dade"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 139,
+          "input": "What is the next number in this series: 1, 4, 7, 11, 17? Please answer with only mathematical notation without any commas.",
+          "target": {
+            "punctuation:no_comma": {}
+          }
+        },
+        {
+          "game_id": 144,
+          "input": "The Jimenez family has 20 members. Each member has at least one pet. If there are 32 pets in total, what is the maximum number of members that can possibly have 3 pets? Solve this step by step, and wrap your entire response (reasoning process and the final answer) with double quotation marks.",
+          "target": {
+            "startend:quotation": {}
+          }
+        },
+        {
+          "game_id": 309,
+          "input": "Can you create a list of mega trends in the tech industry? Wrap your entire response with double quotation marks. Also, make sure the letter o appears at least 25 times in your response.",
+          "target": {
+            "startend:quotation": {},
+            "keywords:letter_frequency": {
+              "let_relation": "at least",
+              "letter": "o",
+              "let_frequency": 25
+            }
+          }
+        },
+        {
+          "game_id": 107,
+          "input": "Write two limericks for moms about how hard it is to get their kids to do chores. Be angry about it. Separate your two limericks with six asterisks (******).",
+          "target": {
+            "combination:two_responses": {}
+          }
+        },
+        {
+          "game_id": 367,
+          "input": "Expand the riddle into a story with a funny tone:\n\nWhat can you catch but not throw?\nA cold\n\nUse * to highlight at least 2 sections in your text. For example: *this is a highlighted text section*.",
+          "target": {
+            "detectable_format:number_highlighted_sections": {
+              "num_highlights": 2
+            }
+          }
+        },
+        {
+          "game_id": 175,
+          "input": "Write a rubric, in the form of a list of bullet points, for evaluating the performance of a customer service representative. Your answer must not include keywords ['bad', 'underperform'] and must contain exactly 6 bullet points in the following form:\n* Bullet point 1\n* Bullet point 2\n* Bullet point 3\n* Bullet point 4\n* Bullet point 5\n* Bullet point 6",
+          "target": {
+            "keywords:forbidden_words": {
+              "forbidden_words": [
+                "bad",
+                "underperform"
+              ]
+            },
+            "detectable_format:number_bullet_lists": {
+              "num_bullets": 6
+            }
+          }
+        },
+        {
+          "game_id": 104,
+          "input": "Compose a poem that has the word \"land\" and \"river\". It should be about nature and love. Also, the word \"forest\" should appear at least 3 times, and be written in English, with all letters lowercased.",
+          "target": {
+            "keywords:frequency": {
+              "relation": "at least",
+              "keyword": "forest",
+              "frequency": 3
+            },
+            "change_case:english_lowercase": {},
+            "keywords:existence": {
+              "keywords": [
+                "land",
+                "river"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 351,
+          "input": "Write a parody of 'ars poetica'. Do not include the word 'parody' throughout your response.",
+          "target": {
+            "keywords:forbidden_words": {
+              "forbidden_words": [
+                "parody"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 324,
+          "input": "Write a haiku about foolish behavior in the form of a question, for an audience of young readers. It should include the topic of not studying. Give exactly two different responses, separated by 6 asterisk symbols (******), and include a title wrapped in double angular brackets, i.e. <<title>>. Do not use commas.",
+          "target": {
+            "combination:two_responses": {},
+            "detectable_format:title": {},
+            "punctuation:no_comma": {}
+          }
+        },
+        {
+          "game_id": 436,
+          "input": "First repeat the request below word for word without change, then give your answer. Do not say any words or characters before repeating the request.\n\nWrite an essay about how the current economic crisis is affecting the environment. In your essay, include the keywords: \"climate\", \"energy\", and \"green\". Make sure your entire response is in Hindi, no other language is allowed.",
+          "target": {
+            "language:response_language": {
+              "language": "hi"
+            },
+            "combination:repeat_prompt": {
+              "prompt_to_repeat": "Write an essay about how the current economic crisis is affecting the environment. In your essay, include the keywords: \"climate\", \"energy\", and \"green\". Make sure your entire response is in Hindi, no other language is allowed."
+            },
+            "keywords:existence": {
+              "keywords": [
+                "climate",
+                "energy",
+                "green"
+              ]
+            }
+          }
+        },
+        {
+          "game_id": 459,
+          "input": "Can you explain to me why there is so much fraud in the world? Please include one italic text section in markdown, i.e *italic text*. Make your entire response less than 30 words.",
+          "target": {
+            "detectable_format:number_highlighted_sections": {
+              "num_highlights": 1
+            },
+            "length_constraints:number_words": {
+              "relation": "less than",
+              "num_words": 30
+            }
+          }
+        },
+        {
+          "game_id": 258,
+          "input": "Please write a summary of the following advertiser page: \"We insist on having the most talented team of web developers, content writers, graphic designers and online marketers in the industry. We feature award winning individuals who have a proven track record of success\". Use markdowns and target moms. Your answer must contain exactly 4 bullet points in markdown format and cannot contain commas.",
+          "target": {
+            "detectable_format:number_bullet_lists": {
+              "num_bullets": 4
+            },
+            "punctuation:no_comma": {}
+          }
+        }
+      ],
+      "meta": {
+        "task": "playschool_ifeval",
+        "dataset_path": "google/IFEval",
+        "output_type": "generate_until",
+        "test_split": "train",
+        "doc_to_text": "prompt",
+        "doc_to_target": "instruction_id_list",
+        "generation_kwargs": {
+          "until": [],
+          "do_sample": false,
+          "temperature": 0.0,
+          "max_gen_toks": 1280
+        },
+        "process_results": "utils.process_results",
+        "metric_list": [
+          {
+            "metric": "prompt_level_strict_acc",
+            "aggregation": "mean",
+            "higher_is_better": true
+          },
+          {
+            "metric": "inst_level_strict_acc",
+            "aggregation": "utils.agg_inst_level_acc",
+            "higher_is_better": true
+          },
+          {
+            "metric": "prompt_level_loose_acc",
+            "aggregation": "mean",
+            "higher_is_better": true
+          },
+          {
+            "metric": "inst_level_loose_acc",
+            "aggregation": "utils.agg_inst_level_acc",
+            "higher_is_better": true
+          }
+        ],
+        "metadata": {
+          "version": 4.0
+        }
+      }
+    }
+  ]
+}
