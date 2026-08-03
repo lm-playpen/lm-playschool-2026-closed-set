@@ -115,10 +115,15 @@ for ((i=0; i<NUM_MODELS; i++)); do
     CUDA_VISIBLE_DEVICES="$GPU" clem run -g  adventuregame clean_up codenames dond guesswhat imagegame \
          matchit_ascii taboo textmapworld textmapworld_graphreasoning \
          textmapworld_specificroom wordle wordle_withclue wordle_withcritic \
-         privateshared referencegame bbh cladder eqbench ifeval mmlu_pro -m "$MODEL_NAME" \
+         privateshared referencegame -m "$MODEL_NAME" \
        -r "$INDOMAIN_DIR" -b "$B" -l "$MAX_TOKENS"   \
        2>&1 | tee "$INDOMAIN_LOG"
 
+   # in-domain, static benchmarks (trimmed set via -i)
+    CUDA_VISIBLE_DEVICES="$GPU" clem run -g bbh cladder eqbench ifeval mmlu_pro \
+       -i instances_trimmed.json -m "$MODEL_NAME" \
+       -r "$INDOMAIN_DIR" -b "$B" -l "$MAX_TOKENS" \
+       2>&1 | tee -a "$INDOMAIN_LOG" 
 
     #out of domain
     CUDA_VISIBLE_DEVICES="$GPU" clem run -g chronicle st_clean_up clockwork_courier cryptolect get_to_the_point \

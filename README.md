@@ -6,6 +6,9 @@ This repository contains the collection of closed games for the LM Playschool Wo
     [clembench](https://github.com/clp-research/clembench)), with minor changes:
     - **adventuregame** — reduced set of experiments
     - **privateshared** & **referencegame** — minor fixes to the scoring
+    - **static benchmarks** - the `playpen eval` uses the full set of instances (`instances.json`), whereas
+    the `clem run` uses the reduced version (`instances_trimmed.json`). To reproduce the
+    (trimmed) subset, run the static games separately with `-i instances_trimmed.json` (see command below).
 
  - **`clembench_outofdomain/`** — custom out-of-domain games developed for this
     evaluation
@@ -147,9 +150,16 @@ Or evaluate selected games separately:
 CUDA_VISIBLE_DEVICES={GPU} clem run -g adventuregame clean_up codenames dond guesswhat imagegame \
     matchit_ascii privateshared referencegame taboo \
     textmapworld textmapworld_graphreasoning textmapworld_specificroom \
-    wordle wordle_withclue wordle_withcritic bbh cladder eqbench ifeval mmlu_pro \
+    wordle wordle_withclue wordle_withcritic \
     -m your-model-name -r results/indomain -b 8 -l 5000
 ```
+```bash
+CUDA_VISIBLE_DEVICES={GPU} clem run -g bbh cladder eqbench ifeval mmlu_pro \
+    -i instances_trimmed.json \
+    -m your-model-name -r results/indomain -b 8 -l 5000
+```
+
+
 
 ### Out-of-domain games (13 games)
 
