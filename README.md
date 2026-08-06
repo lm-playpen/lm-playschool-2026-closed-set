@@ -4,7 +4,8 @@ This repository contains the collection of closed games for the LM Playschool Wo
 
 - **`clembench_indomain/`** — standard clembench games (from
     [clembench](https://github.com/clp-research/clembench)), with minor changes:
-    - **adventuregame** — reduced set of experiments
+    - **adventuregame** — a reduced set of 2.0 experiments (`instances_trimmed.json`) was used for the clem_indomain run,
+    whereas the 3.0 version (`instances.json`) was used in `playpen eval`. 
     - **privateshared** & **referencegame** — minor fixes to the scoring
     - **static benchmarks** - the `playpen eval` uses the full set of instances (`instances.json`), whereas
     the `clem run` uses the reduced version (`instances_trimmed.json`). To reproduce the
@@ -147,12 +148,18 @@ Or evaluate selected games separately:
   | mmlu_pro | A variant of MMLU with more answer choices and expert-level multitask knowledge questions |
 
 ```bash
-CUDA_VISIBLE_DEVICES={GPU} clem run -g adventuregame clean_up codenames dond guesswhat imagegame \
+CUDA_VISIBLE_DEVICES={GPU} clem run -g clean_up codenames dond guesswhat imagegame \
     matchit_ascii privateshared referencegame taboo \
     textmapworld textmapworld_graphreasoning textmapworld_specificroom \
     wordle wordle_withclue wordle_withcritic \
     -m your-model-name -r results/indomain -b 8 -l 5000
 ```
+
+```bash
+CUDA_VISIBLE_DEVICES={GPU} clem run -g adventuregame -i instances_trimmed.json \
+    -m your-model-name -r results/indomain -b 8 -l 5000
+```
+
 ```bash
 CUDA_VISIBLE_DEVICES={GPU} clem run -g bbh cladder eqbench ifeval mmlu_pro \
     -i instances_trimmed.json \

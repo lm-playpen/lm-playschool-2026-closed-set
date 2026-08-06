@@ -119,6 +119,13 @@ for ((i=0; i<NUM_MODELS; i++)); do
        -r "$INDOMAIN_DIR" -b "$B" -l "$MAX_TOKENS"   \
        2>&1 | tee "$INDOMAIN_LOG"
 
+    #in-domain, adventuregame
+    CUDA_VISIBLE_DEVICES={GPU} clem run -g adventuregame -i instances_trimmed.json \
+    -m "$MODEL_NAME" \
+       -r "$INDOMAIN_DIR" -b "$B" -l "$MAX_TOKENS" \
+       2>&1 | tee -a "$INDOMAIN_LOG" 
+
+
    # in-domain, static benchmarks (trimmed set via -i)
     CUDA_VISIBLE_DEVICES="$GPU" clem run -g bbh cladder eqbench ifeval mmlu_pro \
        -i instances_trimmed.json -m "$MODEL_NAME" \
