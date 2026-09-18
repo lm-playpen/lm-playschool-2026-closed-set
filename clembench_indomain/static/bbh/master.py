@@ -56,7 +56,7 @@ class BbhFewShotGameMaster(DialogueGameMaster):
     def _on_valid_player_response(self, player: Player, parsed_response: str):
         self.parsed_request_counts += 1
         self.log_to_self("metadata", f"Target: {self.state.target}")
-        if parsed_response == self.state.target:
+        if parsed_response.strip() == self.state.target:  # strip trailing newline/whitespace
             self.log_to_self("correct answer", "game_result = WIN")
             self.state.succeed()
         else:
